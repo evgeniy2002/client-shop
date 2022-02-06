@@ -1,0 +1,30 @@
+.table_wrapper{
+  overflow: auto;
+  
+}
+
+table{
+  padding: 20px;
+  width: 100%;
+  min-width: 400px;
+  border-spacing: 0;
+  
+}
+
+thead{
+  background-color: rgba(204, 204, 204, 0.247);
+
+}
+
+tr{
+  text-align: left;
+  
+}
+
+th, td{
+  text-transform: capitalize;
+  padding: 15px 10px;
+  font-family: "Roboto", sans-serif;
+font-size: 15px;
+}
+

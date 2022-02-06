@@ -1,0 +1,389 @@
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { changeDeviceInfo, createDevice, deleteDevice, getAllBrand } from '../../../http/deviceApi';
+import '../Admin.css'
+
+const NewDevice = (props) => {
+
+  const [checkedOne, setCheckedOne] = React.useState(false);
+  const [checkedTwo, setCheckedTwo] = React.useState(false);
+
+  const [allSubCategory, setAllSubCategory] = React.useState([])
+
+
+  const [inputName, setName] = React.useState('')
+  const [price, setPrice] = React.useState('')
+  const [file, setFile] = React.useState(null)
+  const [currentSubCategory, setSubCategory] = React.useState('')
+  const [description, setDescription] = React.useState('')
+
+  const [deleteDeviceName, setDeleteDeviceName] = React.useState('')
+
+
+  const [oldName, setOldName] = React.useState('')
+  const [newPrice, setNewPrice] = React.useState('')
+  const [newDescription, setNewDescription] = React.useState('')
+  const [newName, setNewName] = React.useState('')
+  const [changeFile, setChangeFile] = React.useState(null)
+
+  React.useEffect(() => {
+    getAllBrand()
+      .then((brand) => setAllSubCategory(brand.data))
+
+  }, [])
+
+
+
+
+  const selectChangeFile = e => {
+    setChangeFile(e.target.files[0])
+  }
+
+  const selectFile = e => {
+    setFile(e.target.files[0])
+  }
+
+  const changeInfoDevice = () => {
+    const formData = new FormData()
+    formData.append('oldName', oldName)
+    formData.append('newName', newName)
+    formData.append('newPrice', newPrice)
+    formData.append('img', changeFile)
+    formData.append('newDesc', newDescription)
+
+    changeDeviceInfo(formData)
+      .then(data => {
+        alert('Успешно изменено')
+        
+      })
+      .catch(err => {
+        alert('Упс, произошла ошибка')
+        console.log(err)
+      })
+  }
+
+  const addDevice = () => {
+
+    let brandId = allSubCategory.find(item => item.brands_name === currentSubCategory).id
+
+
+    const formData = new FormData()
+    formData.append('name', inputName)
+    formData.append('price', price)
+    formData.append('img', file)
+    formData.append('brandId', brandId)
+    formData.append('desc', description)
+
+
+    createDevice(formData)
+      .then(data => {
+        alert('Успешно добавлено')
+      })
+      .catch(err => {
+        alert('Упс, произошла ошибка')
+        console.log(err)
+      })
+
+  }
+
+
+
+  const handleChangeOne = () => {
+    setCheckedOne(!checkedOne);
+    setCheckedTwo(false);
+    setDeleteDeviceName('')
+    console.log(deleteDeviceName)
+  };
+
+  const handleChangeTwo = () => {
+    setCheckedTwo(!checkedTwo);
+    setCheckedOne(false);
+
+  };
+
+  const handleDevice = () => {
+    let brandId = allSubCategory.find(item => item.brands_name === currentSubCategory).id
+
+
+    console.log(deleteDeviceName, checkedOne)
+    deleteDevice(brandId, deleteDeviceName, checkedOne)
+      .then(data => {
+        if (checkedOne) {
+          alert(`Все товары из ${currentSubCategory} удалены`)
+        } else {
+
+          alert(`Товар ${deleteDeviceName} удален из списка`)
+        }
+
+      })
+      .catch(err => {
+        alert('Упс, произошла ошибка')
+
+      })
+
+  }
+
+  return (
+    <div className='sub_category'>
+      <div className="title">Новый товар</div>
+
+      <form onSubmit={props.handleSubmit} className='form'>
+
+        <div className="add_unit">
+          <div className='form_group'>
+            <label className='form_label' for="newcategory">Название:</label>
+            <Field
+              id="newcategory"
+              component={'input'}
+              type="text"
+              name="name"
+              className='header_input'
+              autoCapitalize={'off'}
+              autoComplete={'off'}
+              value={inputName}
+              onChange={e => setName(e.target.value)}
+            />
+          </div>
+          <div className="form_group">
+            <label className='form_label' for="price">Цена:</label>
+            <Field
+              id="price"
+              component={'input'}
+              type={"text"}
+              name='price'
+              className='header_input'
+              autoCapitalize={'off'}
+              autoComplete={'off'}
+              value={price}
+              onChange={e => setPrice(e.target.value)}
+            />
+
+          </div>
+          <div className="form_group">
+            <label className='form_label' for="textarea">Описание:</label>
+            <Field
+              id="textarea"
+              component={'textarea'}
+              type={"text"}
+              name='textarea'
+              className='header_input textarea_input'
+              value={description}
+              onChange={e => setDescription(e.target.value)}
+            />
+
+          </div>
+
+
+          <div className='form_group'>
+            <label className='form_label' for="subcategory">Подкатегории:</label>
+            <Field
+              id='subcategory'
+              component={'select'}
+              className='form_group_select header_input'
+              name="sumOrder"
+              value={currentSubCategory}
+              onChange={e => setSubCategory(e.target.value)}
+            >
+              <option value="">Выбрать подкатегорию</option>
+
+              {allSubCategory
+                ? allSubCategory.map((item, index) => (
+                  <option
+                    key={index}
+                    className='form_select_item'
+                    value={item.type_name}
+                  >
+                    {item.brands_name}
+                  </option>
+                ))
+                : ''
+              }
+            </Field>
+          </div>
+
+          <div className='form_group'>
+            <label className='form_label' for="file">Добавить изображение</label>
+
+            <input
+              type="file"
+              id="file"
+              name='file'
+              onChange={selectFile}
+              className='header_input'
+            />
+
+          </div>
+
+          <button className='form_btn' onClick={addDevice}>Добавить</button>
+
+
+        </div>
+
+        <div className="delete_unit">
+          <div className="title">Удалить объект</div>
+
+          <div className='form_group'>
+            <label className='form_label' for="delete_sub">Подкатегории:</label>
+            <Field
+              id='delete_sub'
+              component={'select'}
+              className='form_group_select header_input'
+              name="delete_sub"
+              value={currentSubCategory}
+              onChange={e => setSubCategory(e.target.value)}
+            >
+              <option value="">Выбрать подкатегорию</option>
+
+              {allSubCategory
+                ? allSubCategory.map((item, index) => (
+                  <option
+                    key={index}
+                    className='form_select_item'
+                    value={item.brands_name}
+                  >
+                    {item.brands_name}
+                  </option>
+                ))
+                : ''
+              }
+            </Field>
+          </div>
+
+          <div className='form_group'>
+            <Field
+              component={'input'}
+              className={checkedOne ? 'custom_checkbox active' : 'custom_checkbox'}
+              type={'checkbox'}
+              name={'delete_all_device'}
+              id={'delete_all_device'}
+              value={checkedOne}
+              onChange={handleChangeOne}
+            />
+            <label for='delete_all_device' className='form_group_label'>Удалить все товары </label>
+          </div>
+
+          <div className='form_group'>
+            <Field
+              component={'input'}
+              className={checkedTwo ? 'custom_checkbox active' : 'custom_checkbox'}
+              type={'checkbox'}
+              name={'delete_seized_device'}
+              id={'delete_seized_device'}
+              value={checkedTwo}
+              onChange={handleChangeTwo}
+            />
+            <label for='delete_seized_device' className='form_group_label'>Удалить определенный товар</label>
+          </div>
+
+          {
+            checkedTwo
+              ? <div className="form_group">
+                <label className='form_label' for="delete_device">Название товара:</label>
+                <Field
+                  id="delete_device"
+                  component={'input'}
+                  type={"text"}
+                  name='delete_device'
+                  className='header_input'
+                  autoCapitalize={'off'}
+                  autoComplete={'off'}
+                  value={deleteDeviceName}
+                  onChange={e => setDeleteDeviceName(e.target.value)}
+                />
+
+              </div>
+
+              : null
+          }
+
+
+          <button className='form_btn delete_btn' onClick={handleDevice}>Удалить</button>
+        </div>
+
+        <div className="edit_unit">
+
+          <div className="title">Редактор категорий</div>
+
+          <div className='form_group'>
+            <label className='form_label' for="old_name">Старое название товара, которое надо заменить (Обязательно перед каждым обновлением информации о товаре!)</label>
+            <Field
+              id="old_name"
+              component={'input'}
+              type="text"
+              name="old_name"
+              className='header_input'
+              autoCapitalize={'off'}
+              autoComplete={'off'}
+              value={oldName}
+              onChange={e => setOldName(e.target.value)}
+            />
+
+          </div>
+          <div className='form_group'>
+            <label className='form_label' for="new_name">Новое название</label>
+            <Field
+              id="new_name"
+              component={'input'}
+              type="text"
+              name="new_name"
+              className='header_input'
+              autoCapitalize={'off'}
+              autoComplete={'off'}
+              value={newName}
+              onChange={e => setNewName(e.target.value)}
+            />
+
+          </div>
+          <div className='form_group'>
+            <label className='form_label' for="new_price">Новая цена</label>
+            <Field
+              id="new_price"
+              component={'input'}
+              type="text"
+              name="new_price"
+              className='header_input'
+              autoCapitalize={'off'}
+              autoComplete={'off'}
+              value={newPrice}
+              onChange={e => setNewPrice(e.target.value)}
+            />
+
+          </div>
+          <div className="form_group">
+            <label className='form_label' for="new_textarea">Изменить описание:</label>
+            <Field
+              id="new_textarea"
+              component={'textarea'}
+              type={"text"}
+              name='new_textarea'
+              className='header_input textarea_input'
+              value={newDescription}
+              onChange={e => setNewDescription(e.target.value)}
+            />
+
+          </div>
+          <div className='form_group'>
+            <label className='form_label' for="change_file">Изменить изображение</label>
+
+            <input
+              type="file"
+              id="change_file"
+              name='change_file'
+              onChange={selectChangeFile}
+              className='header_input'
+            />
+
+          </div>
+
+          <button className='form_btn change_btn' onClick={changeInfoDevice}>Редактировать</button>
+
+        </div>
+      </form >
+    </div>
+  )
+};
+
+let ReduxNewDeviceForm = reduxForm({ form: 'NewCategoryForm' })(NewDevice)
+
+
+export default ReduxNewDeviceForm;

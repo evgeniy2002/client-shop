@@ -1,0 +1,121 @@
+.about {
+  padding: 35px 0;
+  background: -webkit-linear-gradient(90deg, rgb(80, 138, 198) 13%, rgb(204, 91, 175));
+  background: -moz-linear-gradient(90deg, rgb(80, 138, 198) 13%, rgb(204, 91, 175));
+  background: linear-gradient(90deg, rgb(80, 138, 198) 13%, rgb(204, 91, 175));
+}
+.about_body {
+  display: flex;
+}
+.about_title,
+.about_description p{
+  color: #fff;
+  text-align: left;
+}
+.about_title {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 700;
+	font-size: 33px;
+	margin: 0 0 15px 0;
+}
+.about_info{
+  flex:1 1 auto;
+  margin: 0 20px 0 0;
+}
+.about_description{
+  max-width: 695px;
+}
+.about_description p {
+	font-family: "Roboto", sans-serif;
+  font-weight: 400;
+	font-size: 17px;
+	line-height: 1.67;
+}
+.about_img{
+  position: relative;
+  top:35px;
+  width: 300px;
+  height: 200px;
+  align-self: flex-end;
+}
+.about_img img{
+  max-width: 100%;
+  height: 100%;
+}
+
+/* =============================================== MEDIA REQ ============================== */
+
+@media (max-width: 940px){
+  .about_title{
+    font-size: 30px;
+  }
+  .about_description p {
+    font-size: 16px;
+  }
+  .about_description{
+    max-width: 580px;
+  }
+}
+@media (max-width: 900px){
+  .about_title{
+    font-size: 27px;
+  }
+  .about_description p {
+    font-size: 15px;
+  }
+  .about_description{
+    max-width: 480px;
+  }
+}
+@media (max-width: 860px){
+  .about_title{
+    font-size: 24px;
+  }
+  .about_description p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px){
+  .about{
+    padding: 35px 10px;
+  }
+  .about_img{
+    width: 250px;
+    height: 150px;
+  }
+}
+@media (max-width: 560px){
+  .about_title{
+    font-size: 20px;
+  }
+  .about_info{
+    margin: 0;
+  }
+  .about_body {
+    flex-direction: column;
+  }
+  .about_description{
+    padding: 0 15px 0 0;
+  }
+  .about_img{
+    top:20px;
+    width: 250px;
+    height: 150px;
+  }
+  .about{
+    padding: 20px 10px;
+  }
+}
+@media (max-width: 425px){
+
+  .about_description p {
+    font-size: 13px;
+  }
+  .about_img{
+    display: none;
+  }
+  .about_title{
+    font-size: 30px;
+  }
+}
