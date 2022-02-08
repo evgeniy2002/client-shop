@@ -19,7 +19,7 @@ export default function HeaderFormColumn({item}) {
 
       <a href={location.pathname === '/' ? location.pathname + 'device/' + item.id : location.pathname + '/device/' + item.id} className={s.form_subdate_item} onClick={() => changeRatingItem(item.id, item.rating)}>
         <div className={s.form_item_img + ' ' + 'ibg'}>
-          <img src={process.env.REACT_APP_API_URL + item.img} alt="" />
+          <img src={item.img} alt="" />
         </div>
         <div className={s.form_item_text}>{item.device_name}</div>
         <div className={s.form_item_price}>{item.price}&#8381;</div>
