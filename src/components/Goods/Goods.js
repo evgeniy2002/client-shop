@@ -188,9 +188,9 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
 
                         {
                           device.img === null
-                            ? <div className={s.goods_content_img + ' ' + s.goods_content_cancel + ' ' + 'ibg'}> </div>
+                            ? <div className={s.goods_content_img + ' ' + s.goods_content_cancel + ' ' + 'ibg'}></div>
                             : <div className={s.goods_content_img + ' ' + 'ibg'}>
-                              <img src={process.env.REACT_APP_API_URL + device.img} alt="" />
+                              <img src={device.img} alt="" />
                             </div>
                         }
 

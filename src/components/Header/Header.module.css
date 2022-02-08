@@ -603,7 +603,7 @@ input:-webkit-autofill::first-line {
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
     color: #333;
-    font-size: 13px;
+    font-size: 15px;
     background-color: transparent;
     outline: none;
     border: none;
@@ -612,10 +612,10 @@ input:-webkit-autofill::first-line {
   }
   .header_search.active form {
     display: inline-block;
-    width: 220px;
+    width: 230px;
   }
   .header_input {
-    height: 33px;
+    height: 40px;
   }
   .form_subdate {
     height: calc(100vh - 40px);

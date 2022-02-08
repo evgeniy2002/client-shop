@@ -93,7 +93,7 @@ export default function Brands({ brandsArr, currentCrumbs, isLoaded }) {
                             brand.img === null
                               ? <div className={style.brand_other_img + ' ' + style.brand_other_cancel + ' ' + 'ibg'}> </div>
                               : <div className={style.brand_other_img + ' ' + 'ibg'}>
-                                <img src={process.env.REACT_APP_API_URL + brand.img} alt="" />
+                                <img src={brand.img} alt="" />
 
                               </div>
                           }

@@ -135,7 +135,7 @@ export default function Header() {
                         {
                           item.img === null
                           ? <div ref={item_img} className={s.menu_item_img + ' ' + s.menu_item_cancel + ' ' + 'ibg'}> </div>
-                          : <div ref={item_img} className={s.menu_item_img + ' ' + 'ibg'}><img src={process.env.REACT_APP_API_URL + item.img} alt="" /></div>
+                          : <div ref={item_img} className={s.menu_item_img + ' ' + 'ibg'}><img src={item.img} alt="" /></div>
                         }
               
                         <div className={s.menu_item_label}><span>{item.type_name}</span></div>

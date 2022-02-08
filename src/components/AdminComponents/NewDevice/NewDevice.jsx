@@ -105,7 +105,6 @@ const NewDevice = (props) => {
     let brandId = allSubCategory.find(item => item.brands_name === currentSubCategory).id
 
 
-    console.log(deleteDeviceName, checkedOne)
     deleteDevice(brandId, deleteDeviceName, checkedOne)
       .then(data => {
         if (checkedOne) {

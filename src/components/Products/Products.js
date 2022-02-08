@@ -106,7 +106,7 @@ export default function Products() {
                           item.img === null
                             ? <div className={s.products_item_img  + ' ' + s.products_item_cancel + ' ' + 'ibg'}></div>
                             : <div className={s.products_item_img + ' ' + 'ibg'}>
-                              <img src={process.env.REACT_APP_API_URL + item.img} alt="" />
+                              <img src={item.img} alt="" />
                             </div>
                         }
                         <div className={s.products_item_name}><span>{item.type_name}</span></div>
@@ -134,7 +134,7 @@ export default function Products() {
                           item.img === null
                             ? <div className={s.products_item_img  + ' ' + s.products_item_cancel + ' ' + 'ibg'}></div>
                             : <div className={s.products_item_img + ' ' + 'ibg'}>
-                              <img src={process.env.REACT_APP_API_URL + item.img} alt="" />
+                              <img src={item.img} alt="" />
                             </div>
                         }
 

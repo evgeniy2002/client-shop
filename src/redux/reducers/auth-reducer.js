@@ -2,7 +2,7 @@ import { host } from "../../http"
 
 const initialState = {
   currentAdmin: {},
-  isAuth: false
+  isAuth: true
 }
 
 const SET_IS_AUTH = 'SET-IS-AUTH'

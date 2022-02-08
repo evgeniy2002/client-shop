@@ -86,7 +86,7 @@ export default function DevicePage() {
                     device.img === null
                       ? <div className="devicePage_img devicePage_img_cancel ibg"></div>
                       : <div className="devicePage_img ibg">
-                        <img src={process.env.REACT_APP_API_URL + device.img} alt="" />
+                        <img src={device.img} alt="" />
                       </div>
                   }
 
@@ -159,7 +159,7 @@ export default function DevicePage() {
                         {
                           item.img === null
                             ? <div className="goods_item_img devicePage_img_cancel ibg"></div>
-                            : <div className="goods_item_img ibg"><img src={process.env.REACT_APP_API_URL + item.img} alt="" /></div>
+                            : <div className="goods_item_img ibg"><img src={item.img} alt="" /></div>
                         }
 
 
