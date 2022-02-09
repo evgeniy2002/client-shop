@@ -649,6 +649,9 @@ input:-webkit-autofill::first-line {
   .header_search{
     max-width: 210px;
   }
+  .header_burger{
+    margin: 0 0 0 auto;
+  }
 }
 @media (max-width: 425px) {
   .form_subdate {
@@ -659,10 +662,6 @@ input:-webkit-autofill::first-line {
     -o-transition: none;
   }
   
- 
-  .header_burger{
-    margin: 0 0 0 auto;
-  }
 }
 
 @media (max-width: 300px) {
