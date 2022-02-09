@@ -124,7 +124,7 @@ export default function Products() {
                 </div>
               </div>
               <div className={s.products_body_footer}>
-                <div className={s.products_body_title}><span>Хиты продаж</span></div>
+                <div className={s.products_body_title}><span>Популярные товары</span></div>
 
                 <div className={s.products_header_row}>
                   {popularGoods.length
