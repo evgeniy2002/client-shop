@@ -14,6 +14,7 @@
 }
 .products_row {
 	display: flex;
+	margin: 15px 0 0 0;
 }
 .present_columns {
 	position: relative;
@@ -200,9 +201,9 @@ transition: all 0.3s;
 }
 .products_body_title {
 	display: inline-block;
-	font-family: "Open Sans", sans-serif;
+	font-family: "Roboto", sans-serif;
 	font-weight: 400;
-	font-size: 40px;
+	font-size: 35px;
 	color: #000000;
 }
 .products_body_subtitle {
@@ -424,7 +425,7 @@ transition: all 0.3s;
 		background-color: rgba(0, 0, 0, 10%);
 	}
 	.products_body_title {
-		font-size: 32px;
+		font-size: 25px;
 	}
 	.products_body_footer .products_item_img{
 		padding: 80px 0;
