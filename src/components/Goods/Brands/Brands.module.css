@@ -224,7 +224,8 @@
 }
 
 @media (max-width: 460px) {
-  .brand_other_columns {
+  .brand_other_columns,
+  .brand_columns_category {
     flex: 0 1 50%;
   }
   .brand_other_img {
@@ -236,7 +237,7 @@
     -o-border-radius: 10px;
   }
   .brand_item_img {
-    padding: 45px 0;
+    padding: 75px 0;
   }
   .brand_item_img::before {
     background-color: rgba(0, 0, 0, 10%);
@@ -252,7 +253,8 @@
 }
 
 @media (max-width: 360px) {
-  .brand_other_img {
-    padding: 65px 0;
+  .brand_other_img,
+  .brand_item_img {
+    padding: 68px 0;
   }
 }
