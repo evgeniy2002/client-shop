@@ -273,7 +273,7 @@ transition: all 0.3s;
 	max-width: 100%;
 }
 .products_body_footer .products_item_img {
-	padding: 113px 0;
+	padding: 90px 0;
 }
 .products_cancel_item {
 	cursor: auto;
@@ -478,7 +478,7 @@ transition: all 0.3s;
 		padding: 62.5px 0;
 	}
 	.products_body_footer .products_item_img{
-		padding: 111.5px 0;
+		padding: 100.5px 0;
 	}
 }
 @media (max-width: 350px) {

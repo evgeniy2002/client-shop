@@ -16,12 +16,21 @@ export default function AppRouter() {
 
   const location = useLocation()
 
-  const  isAuth  = useSelector(state => state.auth.isAuth)
+  const isAuth = useSelector(state => state.auth.isAuth)
+
+  const [adaptiveFooter, setAdaptiveFooter] = React.useState(false)
+
+  React.useEffect(() => {
+    if (window.matchMedia("(max-width: 768px)").matches) {
+      setAdaptiveFooter(true)
+    }
+
+  }, [])
 
   return (
     <div className="wrapper">
       <div className="page">
-     
+
         {
           location.pathname.includes('admin')
             ? ''
@@ -43,8 +52,12 @@ export default function AppRouter() {
           </Switch>
 
         </div>
+        {
+          adaptiveFooter
+            ? <FooterInfo />
+            : null
+        }
 
-        <FooterInfo />
 
       </div>
 

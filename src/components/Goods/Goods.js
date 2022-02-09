@@ -26,6 +26,8 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
 
   const dispatch = useDispatch()
 
+  let favorites = [JSON.parse(localStorage.getItem('favorites'))]
+
   const { sortBy } = useSelector(({ devices }) => {
     return {
       sortBy: devices.sortBy,
@@ -78,6 +80,8 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
 
   React.useEffect(() => {
     getDevicesFromFilter(1, null, null)
+
+    // console.log([JSON.parse(localStorage.getItem('favorites'))])
   }, [])
 
 
@@ -174,7 +178,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
                 isLoaded
                   ? <Preloader />
                   : deviceItems.map(device => (
-                    <GoodsList device={device} />
+                    <GoodsList device={device} favorites={favorites}/>
                   ))
 
 

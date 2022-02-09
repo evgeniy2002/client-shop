@@ -647,7 +647,8 @@ input:-webkit-autofill::first-line {
     height: 0;
   }
   .header_search{
-    max-width: 210px;
+    /* max-width: 210px; */
+    max-width: 100%;
   }
   .header_burger{
     margin: 0 0 0 auto;
