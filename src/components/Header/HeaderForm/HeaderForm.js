@@ -6,6 +6,7 @@ import loupe from '../../../assets/images/icons/loupe-form.svg'
 import { getDevices, getDeviceWithSearch } from '../../../http/deviceApi'
 import { setPopularDevice, setSearchDevice } from '../../../redux/reducers/devices-reducer'
 import HeaderFormColumn from './HeaderFormColumn/HeaderFormColumn'
+import Preloader from '../../../assets/loader/Preloader'
 
 
 
@@ -33,7 +34,7 @@ const HeaderForm = (props) => {
     getDeviceWithSearch(formValue)
       .then(({ data }) => dispatch(setSearchDevice(data)))
       .catch(err => console.error(err))
-   
+
 
     if (formValue.length === 0) {
       setRenderFormPopulation(true)
@@ -100,15 +101,15 @@ const HeaderForm = (props) => {
       <form onSubmit={props.handleSubmit} onClick={clickOnForm}>
 
         <Field component={'input'} type="text" name="name" value={formValue} onClick={handleStateSearch} className={s.header_input} onChange={handleFormState} autoCapitalize={'off'} autoComplete={'off'} placeholder={'Искать товары'} />
-        
-     
-         <div className={s.btn}><img src={loupe} alt="" /></div>
-        
+
+        <div className={s.btn}><img src={loupe} alt="" /></div>
+
+
 
       </form>
       <div onClick={closeAdaptiveForm} className={s.closeAdaptiveSearch}>Отмена</div>
 
-      <div  className={`${s.form_subdate} ${toggleFormState ? s.active : ''}`}>
+      <div className={`${s.form_subdate} ${toggleFormState ? s.active : ''}`}>
 
         <div className={s.form_subdate_content}>
           {
@@ -116,7 +117,7 @@ const HeaderForm = (props) => {
             && <div className={s.popularProducts}>Популярные товары</div>
           }
           {
-            searchDevice.length === 0
+            searchDevice.length === 0 && !renderFormPopulation
             && <div className={s.popularProducts}>Ни одного товара не найдено</div>
           }
           {
@@ -127,14 +128,12 @@ const HeaderForm = (props) => {
           {renderFormPopulation
 
             ? popularDevice.map(item => (
-              <HeaderFormColumn item={item} key={item.id}/>
+              <HeaderFormColumn item={item} key={item.id} />
             ))
             : searchDevice.map(item => (
-              <HeaderFormColumn item={item} key={item.id}/>
+              <HeaderFormColumn item={item} key={item.id} />
             ))
           }
-
-         
 
         </div>
       </div>
