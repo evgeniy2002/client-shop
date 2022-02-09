@@ -225,10 +225,10 @@
 
 @media (max-width: 460px) {
   .brand_other_columns {
-    flex: 0 1 33.333%;
+    flex: 0 1 50%;
   }
   .brand_other_img {
-    padding: 65px 0;
+    padding: 75px 0;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -253,6 +253,6 @@
 
 @media (max-width: 360px) {
   .brand_other_img {
-    padding: 35px 0;
+    padding: 65px 0;
   }
 }
