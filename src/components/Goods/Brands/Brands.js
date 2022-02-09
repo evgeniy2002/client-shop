@@ -59,7 +59,7 @@ export default function Brands({ brandsArr, currentCrumbs, isLoaded }) {
           <div className={s.goods_content}>
 
             <div className={visibleFilter ? s.filter + ' ' + s.filter_active : s.filter}>
-              <div className={s.filter_body_title}>Другие категории</div>
+              <div className={s.filter_body_title}>Фильтры</div>
               <div className={s.filter_close}>
                 <button onClick={closeFilter}><span>Отмена</span></button>
               </div>
