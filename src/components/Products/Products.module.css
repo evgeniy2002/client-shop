@@ -480,9 +480,6 @@ transition: all 0.3s;
 	.products_body_footer .products_item_img{
 		padding: 111.5px 0;
 	}
-	.products_item_name {
-		font-size: 13px;
-	}
 }
 @media (max-width: 350px) {
 	.products_body_footer .products_item_img{
