@@ -501,8 +501,8 @@
     top: 22px;
   }
   .filter_img img {
-    width: 30px;
-    height: 30px;
+    width: 27px;
+    height: 27px;
   }
   .filter_section:last-of-type {
     flex: 1 1 100%;
@@ -566,9 +566,6 @@
   }
   .goods_content_columns:last-of-type {
     margin: 0;
-  }
-  .brand_many_content {
-    padding: 15px 0 0 0;
   }
   .goods_category_title {
     margin: 50px 0 0 0;

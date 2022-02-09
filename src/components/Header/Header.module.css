@@ -649,6 +649,7 @@ input:-webkit-autofill::first-line {
   .header_search{
     /* max-width: 210px; */
     max-width: 100%;
+    padding: 0 8px;
   }
   .header_burger{
     margin: 0 0 0 auto;

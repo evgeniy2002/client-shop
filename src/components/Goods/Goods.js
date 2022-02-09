@@ -2,7 +2,7 @@ import React from 'react'
 
 import s from './Goods.module.css'
 import SortPopap from './SortPopap/SortPopap';
-import filter from '../../assets/images/icons/edit.png'
+import filter from '../../assets/images/icons/filter_icon.svg'
 import { useDispatch, useSelector } from 'react-redux';
 import { addDevices, setLoaded, setSortBy } from '../../redux/reducers/devices-reducer';
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
