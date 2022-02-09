@@ -6,13 +6,12 @@ import filter from '../../assets/images/icons/edit.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { addDevices, setLoaded, setSortBy } from '../../redux/reducers/devices-reducer';
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
-import { useLocation } from 'react-router';
-import { getAllBrand, getDevices, updateRatign } from '../../http/deviceApi';
+import { getAllBrand, getDevices } from '../../http/deviceApi';
 import Preloader from '../../assets/loader/Preloader';
 import Paginate from '../Paginate';
 import ProductNotFound from '../ProductNotFound/ProductNotFound';
 import FilterBody from './FilterBody/FilterBody';
-import { Link } from 'react-router-dom';
+import GoodsList from './GoodsList/GoodsList';
 
 const sortItems = [
   { name: 'По популярности', type: 'rating', order: 'desc' },
@@ -25,7 +24,6 @@ const sortItems = [
 
 export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) {
 
-  const location = useLocation()
   const dispatch = useDispatch()
 
   const { sortBy } = useSelector(({ devices }) => {
@@ -41,6 +39,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
   const [visibleFilter, setVisibleFilter] = React.useState(false)
   const [showDateFromFilter, setDateFromFilter] = React.useState(false)
   const [filterChange, setFilterChange] = React.useState(false)
+
 
 
   const body = document.querySelector('body')
@@ -123,19 +122,13 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
     body.classList.toggle('lock')
   }
 
-  const changeRatingItem = (id, rating) => {
-
-    updateRatign(id, rating += 1)
-      .then(data => console.log(data))
-      .catch(err => console.error(err))
-
-  }
-
   const changeStateFilter = () => {
 
     setFilterChange(!filterChange)
 
   }
+
+
 
   const memorizedBreadCrumbs = React.useMemo(() => <BreadCrumbs />)
 
@@ -181,44 +174,9 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
                 isLoaded
                   ? <Preloader />
                   : deviceItems.map(device => (
-                    <div key={device.id} className={s.goods_content_columns + ' ' + s.novelty}>
-
-
-                      <a href={location.pathname + '/device/' + device.id} className={s.goods_content_item} onClick={() => changeRatingItem(device.id, device.rating)}>
-
-                        {
-                          device.img === null
-                            ? <div className={s.goods_content_img + ' ' + s.goods_content_cancel + ' ' + 'ibg'}></div>
-                            : <div className={s.goods_content_img + ' ' + 'ibg'}>
-                              <img src={device.img} alt="" />
-                            </div>
-                        }
-
-                        <div className={s.goods_content_description}>
-
-                          <div className={s.goods_content_title}>{device.device_name}</div>
-                          <div className={s.goods_content_info}>
-
-                            {
-                              device.description !== ''
-                                ? device.description
-                                : <div> По данному товару нет никакой информации &#128532;</div>
-
-                            }
-                          </div>
-                          <div className={s.goods_content_price}>{device.price}&#8381;</div>
-                          <div className={s.goods_content_shell}>
-                            <Link to="#" className={s.goods_content_link}>Написать продавцу</Link>
-                            {/* <a href='#' className={s.goods_content_link}>Написать продавцу</a> */}
-                          </div>
-                        </div>
-
-                      </a>
-
-
-
-                    </div>
+                    <GoodsList device={device} />
                   ))
+
 
               }
               {

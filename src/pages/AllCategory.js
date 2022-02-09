@@ -19,7 +19,7 @@ export default function AllCategory() {
 
 
     updateRatignType(id, rating += 1)
-      .then(data => console.log(data))
+      .then(data => {})
       .catch(err => console.error(err))
   })
 

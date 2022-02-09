@@ -288,9 +288,20 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  text-decoration: none;
   /* padding: 0 0 0 15px; */
 }
-
+.favorite_icon{
+  position: absolute;
+   left:0;
+  top:0;
+  
+  cursor: pointer;
+}
+.favorite_icon img{
+  width: 21px;
+  height: 21px;
+}
 .novelty {
   /* content: "Новинка";
   display: flex;
@@ -488,7 +499,7 @@
     display: block;
   }
   .goods {
-    padding: 25px 10px 20px 10px;
+    padding: 25px 10px 80px 10px;
   }
   .filter_info_column {
     flex: 0 1 15%;

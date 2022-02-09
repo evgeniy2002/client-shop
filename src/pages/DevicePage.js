@@ -5,6 +5,7 @@ import { addDevices, getDevicePageTC } from '../redux/reducers/devices-reducer'
 import BreadCrumbs from '../components/BreadCrumbs/BreadCrumbs'
 import eye from '../assets/images/icons/eye.png'
 import { getAllBrand, getDevices, updateRatign } from '../http/deviceApi'
+import heart from '../assets/images/icons/heart.svg'
 
 export default function DevicePage() {
 
@@ -73,6 +74,7 @@ export default function DevicePage() {
         {
           currentDevice.map(device => (
             <div key={device.id} className="device_body">
+
               <div className="all_watch">
                 <img src={eye} alt="" />
                 <span>{device.rating}</span>
@@ -89,7 +91,9 @@ export default function DevicePage() {
                         <img src={device.img} alt="" />
                       </div>
                   }
-
+                  {/* <div className='favorite_click'>
+                    <img src={heart} alt="" />
+                  </div> */}
                 </div>
                 <div className="devicePage_columns">
                   <div className="devicePage_item">

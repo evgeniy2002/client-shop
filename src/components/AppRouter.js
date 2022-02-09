@@ -4,11 +4,13 @@ import Admin from '../pages/Admin'
 import DevicePage from '../pages/DevicePage'
 import MainPage from '../pages/MainPage'
 import Shop from '../pages/Shop'
-import { ADMIN_ROUTE, DEVICE_ROUTE, MAIN_ROUTE, SHOP_ROUTE } from '../utils/constans'
+import { ADMIN_ROUTE, DEVICE_ROUTE, MAIN_ROUTE, MY_FAVORITES, SHOP_ROUTE } from '../utils/constans'
 import Header from '../components/Header/Header'
 import AllCategory from '../pages/AllCategory'
 import PresentPage from '../pages/PresentPage'
 import { useSelector } from 'react-redux'
+import FooterInfo from './FooterInfo/FooterInfo'
+import MyFavorites from '../pages/MyFavorites'
 
 export default function AppRouter() {
 
@@ -33,6 +35,7 @@ export default function AppRouter() {
             <Route path='/category/:brand?/:type?/device/:id' component={DevicePage} />
             <Route path={DEVICE_ROUTE} component={DevicePage} />
             <Route path={ADMIN_ROUTE} component={() => <Admin isAuth={isAuth} />} />
+            <Route path={MY_FAVORITES} component={MyFavorites} />
             <Route path={SHOP_ROUTE} component={Shop} />
             <Route path={MAIN_ROUTE} component={MainPage} />
 
@@ -41,7 +44,7 @@ export default function AppRouter() {
 
         </div>
 
-
+        <FooterInfo />
 
       </div>
 

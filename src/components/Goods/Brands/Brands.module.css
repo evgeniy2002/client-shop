@@ -239,9 +239,6 @@
   .brand_item_img {
     padding: 75px 0;
   }
-  .brand_item_img::before {
-    background-color: rgba(0, 0, 0, 10%);
-  }
   .brand_other_item,
   .brand_item {
     padding: 10px 7px;
