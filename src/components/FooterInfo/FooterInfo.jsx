@@ -38,16 +38,16 @@ function FooterInfo() {
       <div className="container">
         <div className={s.footer_info_row}>
           <div className={s.footer_info_columns}>
-            <Link to="/" className={s.footer_info_item} onClick={changeIconStateHome}>
+            <a href="/" className={s.footer_info_item} onClick={changeIconStateHome}>
               <div className={s.footer_item_img}><img src={activeIconHome ? home_hover : home} alt="" /></div>
               {/* <div className={activeIconHome ? s.footer_info_label_active : s.footer_info_label}>Главная</div> */}
-            </Link>
+            </a>
           </div>
           <div className={s.footer_info_columns}>
-            <Link to="/all_category" className={s.footer_info_item} onClick={changeIconStateCatalog}>
-              <div className={s.footer_item_img}><img src={activeIconCatalog ? catalog_hover : catalog} alt="" /></div>
+            <a href="/all_category" className={s.footer_info_item} onClick={changeIconStateCatalog}>
+              <div className={s.footer_item_img + ' ' + s.footer_icon_img}><img src={activeIconCatalog ? catalog_hover : catalog} alt="" /></div>
               {/* <div className={activeIconCatalog ? s.footer_info_label_active : s.footer_info_label}>Каталог</div> */}
-            </Link>
+            </a>
           </div>
           {/* <div className={s.footer_info_columns}>
             <Link to="/favorites" className={s.footer_info_item} onClick={changeIconStateFavorite}>

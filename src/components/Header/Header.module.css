@@ -59,10 +59,10 @@
   -o-transition: all 0.3s;
 }
 .catalog_text {
-  font-family: "Open Sans", sans-serif;
+  font-family: GTEestiPro, sans-serif;
   font-weight: 400;
   color: #fff;
-  font-size: 17px;
+  font-size: 17.5px;
   margin: 0 0 0 auto;
 }
 .header_search {
@@ -169,7 +169,7 @@
   -o-transition: all 0.3s;
 }
 .form_item_text {
-  font-family: "Open Sans", sans-serif;
+  font-family: GTEestiPro, sans-serif;
   font-weight: 400;
   color: #333333;
   font-size: 16px;
@@ -177,7 +177,7 @@
   padding: 0 0 0 10px;
 }
 .form_item_price {
-  font-family: "Roboto", sans-serif;
+  font-family: GTEestiPro, sans-serif;
   font-weight: 400;
   color: #333333;
   font-size: 16px;
@@ -220,21 +220,17 @@
   height: 40px;
   border: none;
   padding: 0 15px 0 38px;
-  color: #333;
+  color: #001a34;
   outline: none;
   z-index: 11;
-  font-family: "Open Sans", sans-serif;
+  font-family: GTEestiPro,arial,sans-serif;
   font-size: 15.5px;
   background-color: #f2f2f2;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-  letter-spacing: -1px;
-    /*border: 1px solid #005bff;*/
-    /*border: 1px solid #25576da1;*/
-  
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 .header_input::placeholder {
   padding: 0 0 0 0px;
@@ -383,7 +379,7 @@ input:-webkit-autofill::first-line {
 
 .menu_columns {
   flex: 0 1 20%;
-  margin: 0 20px 12px 0;
+  margin: 0 20px 10px 0;
 }
 .menu_item_row {
   display: flex;
@@ -440,12 +436,12 @@ input:-webkit-autofill::first-line {
 }
 .menu_item_label {
   flex: 1 1 auto;
-  font-family: "Roboto", sans-serif;
+  color: #001a34;
+  font-family: GTEestiPro, sans-serif;
+  font-size: 17px;
   font-weight: 300;
-  color: #4b4b4b;
   transition: all 0.4s;
   margin: 0 0 0 16px;
-  font-size: 17px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
@@ -460,7 +456,7 @@ input:-webkit-autofill::first-line {
   display: none;
 }
 .popularProducts {
-  font-family: "Open Sans", sans-serif;
+  font-family: GTEestiPro, sans-serif;
   font-weight: 400;
   font-size: 16px;
   color: #333;
@@ -551,6 +547,7 @@ input:-webkit-autofill::first-line {
   }
   .menu_columns {
     flex: 1 1 100%;
+    margin: 0 20px 5px 0;
   }
   .popum_menu_title {
     width: 0;
@@ -633,7 +630,7 @@ input:-webkit-autofill::first-line {
     font-size: 0;
   }
   .header_catalog {
-    width: 45px;
+    width: 50px;
   }
   .popup_menu_product {
     width: 100%;

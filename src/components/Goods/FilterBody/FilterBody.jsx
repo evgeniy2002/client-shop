@@ -7,7 +7,7 @@ export default function FilterBody({ maxPrice, upperValue, lowerValue, shopDateF
 
   return (
     <div className={s.filter_body}>
-      <div className={s.filter_body_title}>Фильтр товаров</div>
+      <div className={s.filter_body_title}>Фильтр</div>
       <div className={s.filter_close}>
         <button onClick={closeFilter}><span>Отмена</span></button>
       </div>
@@ -28,11 +28,11 @@ export default function FilterBody({ maxPrice, upperValue, lowerValue, shopDateF
           <div className={s.filter_section_info}>
             <div className={s.filter_info_column}>
               <div className={s.filter_column_label}>от</div>
-              <div className={s.filter_column_values}>{lowerValue}&#8381;</div>
+              <div className={s.filter_column_values}>{lowerValue}</div>
             </div>
             <div className={s.filter_info_column}>
               <div className={s.filter_column_label}>до</div>
-              <div className={s.filter_column_values}>{upperValue}&#8381;</div>
+              <div className={s.filter_column_values}>{upperValue}</div>
             </div>
           </div>
         </div>

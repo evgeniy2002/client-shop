@@ -2,7 +2,6 @@ import React from 'react'
 
 import s from './Goods.module.css'
 import SortPopap from './SortPopap/SortPopap';
-import filter from '../../assets/images/icons/filter_icon.svg'
 import { useDispatch, useSelector } from 'react-redux';
 import { addDevices, setLoaded, setSortBy } from '../../redux/reducers/devices-reducer';
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
@@ -12,6 +11,10 @@ import Paginate from '../Paginate';
 import ProductNotFound from '../ProductNotFound/ProductNotFound';
 import FilterBody from './FilterBody/FilterBody';
 import GoodsList from './GoodsList/GoodsList';
+
+import filter from '../../assets/images/icons/filter_icon.svg'
+import menu from '../../assets/images/icons/menu-square.svg'
+import menu_line from '../../assets/images/icons/menu-line.svg'
 
 const sortItems = [
   { name: 'По популярности', type: 'rating', order: 'desc' },
@@ -42,7 +45,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
   const [showDateFromFilter, setDateFromFilter] = React.useState(false)
   const [filterChange, setFilterChange] = React.useState(false)
 
-
+  const [displayType, setDisplayType] = React.useState(false)
 
   const body = document.querySelector('body')
 
@@ -132,7 +135,9 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
 
   }
 
-
+  const changeDisplayType = () => {
+    setDisplayType(!displayType)
+  }
 
   const memorizedBreadCrumbs = React.useMemo(() => <BreadCrumbs />)
 
@@ -164,6 +169,16 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
             />
           </div>
           <div className={s.goods_many_content}>
+            {
+              displayType
+                ? <div className={s.filter_img + ' ' + s.filter_goods_img + ' ' + s.menu_img} onClick={changeDisplayType}>
+                  <img src={menu} alt="" />
+                </div>
+                : <div className={s.filter_img + ' ' + s.filter_goods_img + ' ' + s.menu_img} onClick={changeDisplayType}>
+                  <img src={menu_line} alt="" />
+                </div>
+            }
+
             <SortPopap
               onClickItem={setCurrentSortBy}
               activeSortBy={sortBy}
@@ -176,12 +191,20 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
 
               {
                 isLoaded
-                  ? <Preloader />
-                  : deviceItems.map(device => (
-                    <GoodsList device={device} favorites={favorites}/>
-                  ))
+                  && <Preloader />
+                
+                  
 
 
+              }
+              {
+                deviceItems.map(device => (
+                  <GoodsList
+                    device={device}
+                    favorites={favorites}
+                    displayType={displayType}
+                  />
+                ))
               }
               {
 

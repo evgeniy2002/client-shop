@@ -1,15 +1,18 @@
 .bread_crumbs {
-  margin: 0 0 15px 0;
+  margin: 10px 0 15px 0;
 }
 .bread_crumbs_menu {
   display: flex;
-  flex-wrap: wrap;
+  overflow-x: auto;
   list-style-type: none;
 }
 .bread_crumbs_item {
   position: relative;
   margin: 0 20px 0 0;
-
+  white-space: nowrap;
+}
+.bread_crumbs_menu::-webkit-scrollbar {
+  width: 0;
 }
 .bread_crumbs_item:last-of-type{
   pointer-events: none;
@@ -34,7 +37,7 @@
 .bread_crumbs_link {
   display: inline-block;
   text-decoration: none;
-  font-family: "Open Sans", sans-serif;
+  font-family: GTEestiPro, sans-serif;
   color: #005bff;
   font-size: 12px;
 
@@ -46,15 +49,13 @@
 
 @media (max-width: 768px) {
   .bread_crumbs {
-    margin: 60px 0 10px 0;
+    margin: 65px 0 7px 0;
   }
   
 }
 
 @media (max-width: 560px) {
-  .bread_crumbs {
-    margin: 60px 0 15px 0;
-  }
+
   .bread_crumbs_link{
     font-size:13.5px;
   }

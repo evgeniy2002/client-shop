@@ -100,7 +100,7 @@ export default function Brands({ brandsArr, currentCrumbs, isLoaded }) {
 
 
                         </a>
-                        <div className={style.brand_item_title}>{brand.brands_name}</div>
+                        <div className={style.brands_item_title}>{brand.brands_name}</div>
                       </div>
 
                     ))

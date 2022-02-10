@@ -11,7 +11,7 @@ export default function Products() {
 
   const dispatch = useDispatch()
 
-  const { popularGoods, popularBrands } = useSelector(({ devices, brands }) => {
+  let { popularGoods, popularBrands } = useSelector(({ devices, brands }) => {
     return {
       popularGoods: devices.popularDevice,
       popularBrands: brands.popularBrands
@@ -76,7 +76,8 @@ export default function Products() {
   //   updateClock();
   //   var timeinterval = setInterval(updateClock, 1000);
   // }
-
+  // popularGoods = []
+  // popularBrands = []
   const changeRatingItem = (id, rating) => {
 
 
@@ -85,7 +86,7 @@ export default function Products() {
       .catch(err => console.error(err))
   }
 
-
+  
   return (
     <section className={s.products}>
       <div className="container">
@@ -139,6 +140,7 @@ export default function Products() {
                         }
 
 
+                        <div className={s.products_item_price}><span>{item.price} &#8381;</span></div>
                         <div className={s.products_item_name}><span>{item.device_name}</span></div>
                       </a>
 
