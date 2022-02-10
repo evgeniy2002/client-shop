@@ -22,7 +22,7 @@ const initialState = {
   limit: 15,
   isLoaded: false,
   sortBy: {
-    type: 'create_at',
+    type: 'rating',
     order: 'desc'
   }
 }

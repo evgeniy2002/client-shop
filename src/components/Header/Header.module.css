@@ -547,7 +547,7 @@ input:-webkit-autofill::first-line {
   }
   .menu_columns {
     flex: 1 1 100%;
-    margin: 0 20px 5px 0;
+    margin: 0 20px 10px 0;
   }
   .popum_menu_title {
     width: 0;

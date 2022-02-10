@@ -17,10 +17,10 @@ import menu from '../../assets/images/icons/menu-square.svg'
 import menu_line from '../../assets/images/icons/menu-line.svg'
 
 const sortItems = [
-  { name: 'По популярности', type: 'rating', order: 'desc' },
+  { name: 'Популярные', type: 'rating', order: 'desc' },
   { name: 'Сначала дорогие', type: 'price', order: 'desc' },
   { name: 'Сначала дешевые', type: 'low_price', order: 'asc' },
-  { name: 'По времени', type: 'create_at', order: 'desc' },
+  { name: 'Новинки', type: 'create_at', order: 'desc' },
   { name: 'За последние 24 часа', type: 'in_24_hour', order: 'asc' },
 ]
 
@@ -171,10 +171,10 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
           <div className={s.goods_many_content}>
             {
               displayType
-                ? <div className={s.filter_img + ' ' + s.filter_goods_img + ' ' + s.menu_img} onClick={changeDisplayType}>
+                ? <div className={s.menu_img} onClick={changeDisplayType}>
                   <img src={menu} alt="" />
                 </div>
-                : <div className={s.filter_img + ' ' + s.filter_goods_img + ' ' + s.menu_img} onClick={changeDisplayType}>
+                : <div className={s.menu_img} onClick={changeDisplayType}>
                   <img src={menu_line} alt="" />
                 </div>
             }
@@ -199,12 +199,12 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
               }
               {
                 deviceItems.map(device => (
-                  <GoodsList
-                    device={device}
-                    favorites={favorites}
-                    displayType={displayType}
-                  />
-                ))
+                    <GoodsList
+                      device={device}
+                      favorites={favorites}
+                      displayType={displayType}
+                    />
+                  ))
               }
               {
 
