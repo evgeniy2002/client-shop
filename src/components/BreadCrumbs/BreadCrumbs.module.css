@@ -21,11 +21,11 @@
 .bread_crumbs_item::after {
   content: "";
   position: absolute;
-  background: url("../../assets/images/icons/next.png") no-repeat;
-  width: 10px;
-  height: 10px;
-  background-size: 10px 10px;
-  margin: 5.5px;
+  background: url("../../assets/images/icons/next-arrow.svg") no-repeat;
+  width: 15px;
+  height: 15px;
+  background-size: 14px 14px;
+  margin: 3.2px;
 }
 .bread_crumbs_item:last-of-type:after {
   content: "";
@@ -38,7 +38,8 @@
   display: inline-block;
   text-decoration: none;
   font-family: GTEestiPro, sans-serif;
-  color: #005bff;
+  /* color: #005bff; */
+  color: #001a34;
   font-size: 12px;
 
 }
@@ -49,7 +50,7 @@
 
 @media (max-width: 768px) {
   .bread_crumbs {
-    margin: 65px 0 18px 0;
+    margin: 60px 0 15px 0;
   }
   
 }

@@ -233,7 +233,7 @@
   font-family: GTEestiPro, arial, sans-serif;
   font-size: 14px;
   margin: 0 0 0 7px;
-  color:#001a34;
+  color: #001a34;
 }
 
 .filter_section_brands .filter_section_body {
@@ -274,9 +274,9 @@
   margin: 10px -10px 0 -10px;
 }
 
-.brand_content_row {
+/* .brand_content_row {
   margin: 0 10px;
-}
+} */
 
 .goods_content_columns {
   position: relative;
@@ -291,23 +291,20 @@
   text-decoration: none;
   cursor: pointer;
   height: 100%;
-  
 }
-.goods_content_img_bg{
+.goods_content_img_bg {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-
- 
 }
-.goods_content_img_bg::after{
-  content: '';
+.goods_content_img_bg::after {
+  content: "";
   position: absolute;
   width: 96%;
   height: 100%;
-  left:50%;
-  top:0px;
+  left: 50%;
+  top: 0px;
   transform: translate(-50%, 0);
   background-color: rgba(41, 43, 83, 0.055);
   border-radius: 15px;
@@ -478,9 +475,9 @@
   }
 }
 @media (max-width: 768px) {
-  /* .current_goods_title {
-    margin: 5px 0 20px 0;
-  } */
+  .current_goods_title {
+    font-weight: 700;
+  }
 
   .goods_category_all_title {
     margin: 40px 0 0 0;
@@ -519,8 +516,8 @@
   }
   .filter_submenu_list {
     border-bottom: 1px solid #d6dade;
-    padding: 10px;
-    margin: 0 0 0 9px;
+    padding: 8px;
+    margin: 0 0 0 13px;
   }
   .brand_category_title,
   .goods_category_title {
@@ -532,7 +529,7 @@
   .goods_content_row {
     margin: 30px 0 0px 0;
   }
-  .goods_content_row_devices{
+  .goods_content_row_devices {
     margin: 45px 0 0 0;
   }
   .filter_body {
@@ -563,8 +560,7 @@
   .menu_img {
     display: block;
     position: absolute;
-    top:29px;
-    
+    top: 29px;
   }
   .filter_goods_img {
     top: 28px;
@@ -652,7 +648,7 @@
     margin: 0 0 25px 0;
   }
   .brand_content_row {
-    margin: 15px 0 0 0;
+    margin: 10px 0 0 0;
   }
   .current_goods_title {
     font-size: 30px;
@@ -676,8 +672,7 @@
     flex: 0 1 50%;
   }
 
-  .goods_content_item::after{
-
+  .goods_content_item::after {
     /* height: 50%;
     top:0px; */
   }

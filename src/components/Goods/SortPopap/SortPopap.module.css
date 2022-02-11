@@ -182,7 +182,7 @@
   .sort {
     position: relative;
     left: 45%;
-    top: 19px;
+    top: 17px;
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     -ms-transform: translate(-50%, 0);
@@ -194,9 +194,10 @@
     margin: 0;
   }
   .sort__popup_active{
-    left:55%;
+    left:58%;
+    top:30px;
+    width: 175px;
     transform: translate(-50%, 0);
-    width: 155px;
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     -ms-transform: translate(-50%, 0);
@@ -205,8 +206,8 @@
 }
 
   .sort_popup_item{
-    padding: 7px;
-    margin: 8px 0 5px 0;
+    padding: 8px 10px;
+    margin: 0;
   }
   .sort_popup_item::before{
     border: none;
