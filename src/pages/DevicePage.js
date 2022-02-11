@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addDevices, getDevicePageTC } from '../redux/reducers/devices-reducer'
 import BreadCrumbs from '../components/BreadCrumbs/BreadCrumbs'
 import eye from '../assets/images/icons/eye.png'
-import { getAllBrand, getDevices, updateRatign } from '../http/deviceApi'
+import { getAllBrand, getDevices } from '../http/deviceApi'
 import heart from '../assets/images/icons/heart.svg'
+import RecommendList from '../components/RecommendList/RecommendList'
 
 export default function DevicePage() {
 
@@ -32,7 +33,7 @@ export default function DevicePage() {
         .then(({ data }) => {
           let device = data.filter(item => item.brands_name === params.type)
 
-          getDevices(device[0].id, 'rating', 'desc', 1, 6, 0, null, null)
+          getDevices(device[0].id, 'rating', 'desc', 1, 20, 0, null, null)
             .then(({ data }) => {
 
               let filter_device = data.filter(item => item.id !== params.id)
@@ -54,13 +55,6 @@ export default function DevicePage() {
     dispatch(getDevicePageTC(id))
   }, [])
 
-
-  const changeRatingItem = (id, rating) => {
-
-    updateRatign(id, rating += 1)
-      .then(data => console.log(data))
-
-  }
 
   return (
 
@@ -151,34 +145,9 @@ export default function DevicePage() {
           </div>
         }
 
-        {
-          recommended.length
-            ? <div className="recommended_goods">
-              <p className="recommended_goods_title">Рекомендуем также</p>
-              <div className="recommended_goods_row">
-                {
-                  recommended.map(item => (
-                    <div className="recommended_goods_columns" key={item.device_name}>
-                      <a href={item.id} className="recommended_goods_item" onClick={() => changeRatingItem(item.id, item.rating)}>
-                        {
-                          item.img === null
-                            ? <div className="goods_item_img devicePage_img_cancel ibg"></div>
-                            : <div className="goods_item_img ibg"><img src={item.img} alt="" /></div>
-                        }
 
-
-                        <div className="goods_item_title">{item.device_name}</div>
-                        <div className="goods_item_price">{item.price} &#8381;</div>
-                        <a href="#" className='goods_item_btn'>Написать</a>
-                      </a>
-                    </div>
-                  ))
-                }
-
-              </div>
-            </div>
-            : ''
-        }
+        <RecommendList recommended={recommended}/>
+        
 
       </div>
     </div>
