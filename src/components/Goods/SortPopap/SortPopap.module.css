@@ -206,7 +206,7 @@
 
   .sort_popup_item{
     padding: 7px;
-    margin: 6px 0 5px 0;
+    margin: 8px 0 5px 0;
   }
   .sort_popup_item::before{
     border: none;

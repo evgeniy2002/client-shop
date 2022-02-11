@@ -187,7 +187,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
             <div className={s.filter_img + ' ' + s.filter_goods_img} onClick={handleFilterState}>
               <img src={filter} alt="" />
             </div>
-            <div className={s.goods_content_row}>
+            <div className={s.goods_content_row + ' ' + s.goods_content_row_devices}>
 
               {
                 isLoaded
