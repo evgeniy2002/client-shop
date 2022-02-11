@@ -6,6 +6,8 @@ export default React.memo(function SortPopap({ items, activeSortBy, onClickItem 
 
   let currentSortBy = items.find(item => item.type == activeSortBy.type).name;
 
+  const body = document.querySelector('body')
+
   React.useEffect(() => {
     document.body.addEventListener('click', handleOutSideClick)
   }, [])
@@ -14,14 +16,16 @@ export default React.memo(function SortPopap({ items, activeSortBy, onClickItem 
 
   const sortRef = React.useRef()
 
-  const toggleVisiblePopap = () => {
+  const toggleVisiblePopap = (event) => {
     setVisiblePopap(!visiblePopup)
-    console.log(visiblePopup)
+    console.log(event.target)
+    // body.classList.toggle('lock')
   }
 
   const handleOutSideClick = (e) => {
     if (!e.path.includes(sortRef.current)) {
       setVisiblePopap(false)
+      // body.classList.toggle('lock')
     }
   }
 
