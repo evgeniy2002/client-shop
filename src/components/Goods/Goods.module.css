@@ -31,7 +31,7 @@
 .goods_content,
 .goods_category_content {
   display: flex;
-  margin: -10px 0 0 0;
+  margin: -5px 0 0 0;
 }
 .goods_category_content .goods_many_content {
   padding: 0;
