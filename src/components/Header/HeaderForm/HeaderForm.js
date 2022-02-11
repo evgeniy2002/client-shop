@@ -46,7 +46,7 @@ const HeaderForm = (props) => {
 
 
   React.useEffect(() => {
-    getDevices(null, 'rating', 'desc', 1, 6, 0, null, null)
+    getDevices(null, 'rating', 'desc', 1, 15, 0, null, null)
       .then(({ data }) => dispatch(setPopularDevice(data)))
       .catch(err => console.error(err))
 
