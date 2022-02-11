@@ -865,7 +865,7 @@ body {
 
 	.devicePage_item-title {
 		padding: 0 10px 10px 10px;
-		margin: 0px 0 0 0;
+		margin: 20px 0 0 0;
 	}
 	.devicePage_item-title::before {
 		left: 0;
