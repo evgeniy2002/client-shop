@@ -196,7 +196,7 @@
   .sort__popup_active{
     left:55%;
     transform: translate(-50%, 0);
-    width: 140px;
+    width: 155px;
     -webkit-transform: translate(-50%, 0);
     -moz-transform: translate(-50%, 0);
     -ms-transform: translate(-50%, 0);
@@ -206,7 +206,7 @@
 
   .sort_popup_item{
     padding: 7px;
-    margin: 0px 0 5px 0;
+    margin: 6px 0 5px 0;
   }
   .sort_popup_item::before{
     border: none;
@@ -218,7 +218,7 @@
     font-size: 15px;
   }
   .sort_popup_item {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .sort::after {
