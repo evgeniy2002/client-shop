@@ -471,6 +471,7 @@ transition: all 0.3s;
 }
 .products_body_header .products_item_name {
 	font-size: 0;
+	display: none;
 }
 .products_body_footer .products_item_name {
 	font-size: 14px;
@@ -584,6 +585,7 @@ transition: all 0.3s;
 	.products_columns {
 		margin: 0;
 	}
+
 	.products {
 		padding: 60px 10px 70px 10px;
 	}
@@ -624,6 +626,7 @@ transition: all 0.3s;
 	}
 	.products_body_header .products_header_item {
 		flex: 0 1 25%;
+		margin: 0 0 12px 0;
 	}
 	.products_body_footer .products_header_item {
 		flex: 0 1 20%;
