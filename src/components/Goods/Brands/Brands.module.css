@@ -190,7 +190,7 @@
   height: 100%;
   left: 0;
   top: 0;
-  background-color: rgba(0, 0, 0, 20%);
+  background-color: rgba(0, 26, 52, 0.11);
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -230,7 +230,7 @@
   overflow: hidden;
 }
 .brand_item:hover .brand_item_img::before {
-  background-color: rgba(0, 0, 0, 7%);
+  background-color: rgba(0, 26, 52, 0.24);
   transition: all 0.3s;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -304,7 +304,7 @@
     padding: 0 5px;
   }
   .brand_other_img_wrapper::after{
-    background-color: rgba(0, 26, 52, 0.233);
+    background-color: rgba(0, 26, 52, 0.151);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -400,10 +400,10 @@
   }
   
   .brand_other_sub_img {
-    padding: 46px 0;
+    padding: 48px 0;
   }
   .brand_columns_category .brand_item_img {
-    padding: 43px 0;
+    padding: 44.5px 0;
   }
 
 }
