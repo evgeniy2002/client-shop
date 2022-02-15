@@ -1,10 +1,12 @@
 .bread_crumbs {
   margin: 10px 0 15px 0;
+  height: 40px;
 }
 .bread_crumbs_menu {
   display: flex;
   overflow-x: auto;
   list-style-type: none;
+  padding: 0;
 }
 .bread_crumbs_item {
   position: relative;
@@ -37,10 +39,10 @@
 .bread_crumbs_link {
   display: inline-block;
   text-decoration: none;
-  font-family: GTEestiPro, sans-serif;
-  /* color: #005bff; */
-  color: #001a34;
-  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+  color: #005bff;
+  /* color: #001a34; */
+  font-size: 14px;
 
 }
 .bread_crumbs_link:hover {
@@ -50,7 +52,7 @@
 
 @media (max-width: 768px) {
   .bread_crumbs {
-    margin: 60px 0 15px 0;
+    margin: 60px 0 0px 0;
   }
   
 }

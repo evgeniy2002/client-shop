@@ -15,7 +15,7 @@ body {
 	min-width: 320px;
 }
 .container {
-	max-width: 1190px;
+	max-width: 1300px;
 	margin: 0 auto;
 	padding: 0 20px;
 }
@@ -66,8 +66,8 @@ body {
 }
 .preloader img {
 	position: absolute;
-	width: 70px;
-	height: 70px;
+	width: 40px;
+	height: 40px;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
@@ -88,7 +88,7 @@ body {
 	padding: 0 0 0 10px;
 }
 .noUi-connect {
-	background-color: #0661ff75 !important;
+	background-color: #99BDFF !important;
 }
 
 .noUi-handle:first-child {
@@ -111,8 +111,7 @@ body {
 }
 .noUi-handle {
 	position: relative !important;
-	border: 1px solid #484848 !important;
-	background: transparent !important;
+	border: 1px solid #005BFF !important;
 }
 
 .noUi-handle::before {
@@ -121,16 +120,16 @@ body {
 .noUi-handle::after {
 	content: "" !important;
 	position: absolute !important;
-	width: 12px !important;
-	height: 12px !important;
-	left: 3px !important;
-	top: 3px !important;
-	background-color: #8d8888 !important;
-	border-radius: 50% !important;
-	-webkit-border-radius: 50% !important;
-	-moz-border-radius: 50% !important;
-	-ms-border-radius: 50% !important;
-	-o-border-radius: 50% !important;
+	width: 100% !important;
+	height: 100% !important;
+	left: 0px !important;
+	top: 0px !important;
+	background-color: #005BFF !important;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
 }
 
 /* ============================================== PAGINATE =========================================== */
@@ -715,6 +714,34 @@ body {
 	padding: 20px 0 20px 30px;
 }
 
+/* ========================================================= REACT SWIPER ======================================================= */
+
+.swiper {
+	overflow: visible !important;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+	position: absolute;
+	bottom: -30px;
+	/* padding: 222px 0 0px 0; */
+}
+
+.swiper-pagination-bullet {
+	width: 11px !important;
+	height: 11px !important;
+}
+.mySwiper .swiper-pagination-bullet {
+	background: #4489ff;
+}
+.mySwiper .swiper-pagination-bullet-active-main {
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+}
+
+
+
 /* ========================================================= MEDIA ======================================================= */
 
 @media (max-width: 930px) {
@@ -879,9 +906,20 @@ body {
 	.noUi-horizontal .noUi-handle {
 		right: -5px !important;
 	}
+	.noUi-handle{
+		border: none !important;
+	}
 	.all_watch {
 		right: 10px;
 	}
+
+	/* =================================================== SWIPER MEDIA ======================================== */
+	
+	.swiper{
+		padding: 0 10px !important;
+	}
+
+
 }
 @media (max-width: 630px) {
 	.devicePage_img {
@@ -891,7 +929,7 @@ body {
 	.goods_item_title {
 		font-size: 15px;
 	}
-	.goods_item_price{
+	.goods_item_price {
 		font-size: 13px;
 	}
 }

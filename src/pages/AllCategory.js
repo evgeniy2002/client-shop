@@ -80,7 +80,7 @@ export default function AllCategory() {
         </div>
 
 
-        <div className={s.current_goods_title + ' ' + s.goods_category_all_title}><span>Каталог всех товаров</span></div>
+        {/* <div className={s.current_goods_title + ' ' + s.goods_category_all_title}><span>Каталог всех товаров</span></div>
         <div className={s.goods_category_content}>
           <div className={s.goods_many_content}>
             <div className={style_p.products_body_footer}>
@@ -111,7 +111,7 @@ export default function AllCategory() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   )

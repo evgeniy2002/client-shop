@@ -72,6 +72,7 @@ const GoodsList = React.memo(function GoodsList({ device, favorites, displayType
 
         <div className={s.goods_content_description}>
 
+            <div className={s.goods_content_price}>{device.price} &#8381;</div>
           <div className={s.goods_content_title}>{device.device_name}</div>
           <div className={s.goods_content_info}>
 
@@ -82,9 +83,8 @@ const GoodsList = React.memo(function GoodsList({ device, favorites, displayType
 
             }
           </div>
-          <div className={s.goods_content_price}>{device.price} &#8381;</div>
           <div className={s.goods_content_shell}>
-            <Link to="#" className={s.goods_content_link}>Написать продавцу</Link>
+            <Link to="#" className={s.goods_content_link}>Написать</Link>
           </div>
         </div>
 

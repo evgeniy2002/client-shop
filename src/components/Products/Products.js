@@ -4,6 +4,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getTypes, updateRatign } from '../../http/deviceApi'
 import { setPopularBrands } from '../../redux/reducers/brand-reducer'
 import cancel from '../../assets/images/icons/cancel.png'
+import BestsellerProducts from './BestsellerProducts/BestsellerProducts'
+import RecommendBrands from './RecommendBrands/RecommendBrands'
+import PopularCategory from './PopularCategory/PopularCategory'
+import PopularGoods from './PopularGoods/PopularGoods'
 
 
 
@@ -86,7 +90,7 @@ export default function Products() {
       .catch(err => console.error(err))
   }
 
-  
+
   return (
     <section className={s.products}>
       <div className="container">
@@ -95,66 +99,37 @@ export default function Products() {
 
           <div className={s.products_columns}>
             <div className={s.products_body}>
-              <div className={s.products_body_header}>
-                <div className={s.products_body_title}><span>Популярные категории</span></div>
+              <PopularCategory
+                popularBrands={popularBrands}
+                cancel={cancel}
+              />
+              <BestsellerProducts
+                popularGoods={popularGoods}
+                cancel={cancel}
+                changeRatingItem={changeRatingItem}
+              />
+              <RecommendBrands />
+              <PopularGoods
+                popularGoods={popularGoods}
+                cancel={cancel}
+                changeRatingItem={changeRatingItem}
+              /> 
+              {/* <PopularCategory
+                popularBrands={popularBrands}
+                cancel={cancel}
+              />
+              <BestsellerProducts
+                popularGoods={popularGoods}
+                cancel={cancel}
+                changeRatingItem={changeRatingItem}
+              />
+              <RecommendBrands />
+              <PopularGoods
+                popularGoods={popularGoods}
+                cancel={cancel}
+                changeRatingItem={changeRatingItem}
+              /> */}
 
-                <div className={s.products_header_row}>
-                  {popularBrands.length
-                    ?
-                    popularBrands.map(item => (
-                      <a key={item.id} href={"/category/" + item.type_name} className={s.products_header_item}>
-                        {
-                          item.img === null
-                            ? <div className={s.products_item_img  + ' ' + s.products_item_cancel + ' ' + 'ibg'}></div>
-                            : <div className={s.products_item_img + ' ' + 'ibg'}>
-                              <img src={item.img} alt="" />
-                            </div>
-                        }
-                        <div className={s.products_item_name}><span>{item.type_name}</span></div>
-                      </a>
-
-                    ))
-                    : <div className={s.products_header_item + ' ' + s.products_cancel_item}>
-                      <div className={s.products_item_img}>
-
-                        <img src={cancel} alt="" />
-                      </div>
-                    </div>
-                  }
-
-                </div>
-              </div>
-              <div className={s.products_body_footer}>
-                <div className={s.products_body_title}><span>Популярные товары</span></div>
-
-                <div className={s.products_header_row}>
-                  {popularGoods.length
-                    ? popularGoods.map(item => (
-                      <a key={item.id} href={"/device/" + item.id} className={s.products_header_item} onClick={() => changeRatingItem(item.id, item.rating)}>
-                        {
-                          item.img === null
-                            ? <div className={s.products_item_img  + ' ' + s.products_item_cancel + ' ' + 'ibg'}></div>
-                            : <div className={s.products_item_img + ' ' + 'ibg'}>
-                              <img src={item.img} alt="" />
-                            </div>
-                        }
-
-
-                        <div className={s.products_item_price}><span>{item.price} &#8381;</span></div>
-                        <div className={s.products_item_name}><span>{item.device_name}</span></div>
-                      </a>
-
-                    ))
-                    : <div className={s.products_header_item + ' ' + s.products_cancel_item}>
-                      <div className={s.products_item_img}>
-
-                        <img src={cancel} alt="" />
-                      </div>
-                    </div>
-                  }
-
-                </div>
-              </div>
             </div>
           </div>
         </div>

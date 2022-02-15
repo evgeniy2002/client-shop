@@ -45,7 +45,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
   const [showDateFromFilter, setDateFromFilter] = React.useState(false)
   const [filterChange, setFilterChange] = React.useState(false)
 
-  const [displayType, setDisplayType] = React.useState(false)
+  const [displayType, setDisplayType] = React.useState(true)
 
   const body = document.querySelector('body')
 
@@ -144,8 +144,9 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
   return (
     <section className={s.goods}>
       <div className="container">
+      <BreadCrumbs />
+          {/* {memorizedBreadCrumbs} */}
         <div className={s.goods_info}>
-          {memorizedBreadCrumbs}
 
           <div className={s.current_goods_title}><span>{currentCrumbs}</span></div>
           <div className={s.current_goods_subtitle}>товаров &nbsp;<span>{deviceItems.length}</span></div>

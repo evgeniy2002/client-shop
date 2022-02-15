@@ -4,7 +4,7 @@
   align-items: center;
   /* outline: 1px solid red; */
   min-width: 226px;
-  height: 30px;
+  height: 35px;
   z-index: 5;
   border: 2px solid #b3bcc5;
   margin: 0 0 20px 0;
@@ -40,7 +40,7 @@
   border: 2px solid #077eb0;
 }
 .sort_current {
-  font-family: GTEestiPro, arial, sans-serif;
+  font-family: 'Roboto', arial, sans-serif;
   font-weight: 400;
   color: #000;
   font-size: 13px;
@@ -79,7 +79,7 @@
 .sort__popup_active {
   position: absolute;
   left:0;
-  top:30px;
+  top:36px;
   width: 100%;
   min-height: 102px;
   background-color: #fff;
@@ -128,7 +128,7 @@
   position: relative;
   list-style-type: none;
   margin: 0 0 15px 0;
-  font-family: GTEestiPro, arial, sans-serif;
+  font-family: 'Roboto', arial, sans-serif;
   font-size: 13.5px;
   transition: all 0.3s;
   -webkit-transition: all 0.3s;
@@ -195,7 +195,7 @@
   }
   .sort__popup_active{
     left:58%;
-    top:30px;
+    top:37px;
     width: 175px;
     transform: translate(-50%, 0);
     -webkit-transform: translate(-50%, 0);

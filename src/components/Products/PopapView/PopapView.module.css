@@ -1,0 +1,49 @@
+.popapView{
+  position: relative;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 700px;
+  background-color: red;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+  z-index: 2;
+	background-color: rgba(255, 255, 255);
+	box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+
+
+
+}
+.popapView_body{
+  padding: 30px;
+}
+.popapView_row{
+  position: relative;
+  display: flex;
+}
+.popapView_title{}
+.popapView_columns{
+
+  position: relative;
+  flex:0 1 50%;
+}
+.popapView_columns .popapView_img{
+  position: relative;
+  padding: 60px 0;
+}
+.popapView_img img{
+	width: 90px;
+	height: 90px;
+}
+.popapView_info{}
+.popapView_info_price{}
+.popapView_current_price{}
+.popapView_old_price{}
