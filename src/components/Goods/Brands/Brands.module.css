@@ -216,6 +216,7 @@
   overflow: hidden;
   color: #001a34;
   margin: 8px 0 0 0;
+  word-break: break-all;
 }
 .brands_item_title {
   text-align: center;
@@ -228,6 +229,7 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
+  word-break: break-all;
 }
 .brand_item:hover .brand_item_img::before {
   background-color: rgba(0, 26, 52, 0.24);

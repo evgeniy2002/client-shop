@@ -463,9 +463,11 @@ transition: all 0.3s;
 	transition: all 0.3s;
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 4;
+	-webkit-line-clamp: 3;
 	overflow: hidden;
+	line-height: 24px;
 	margin: 3px 0;
+	word-break: break-all;
 }
 .products_body_header .products_item_name {
 	font-size: 0;
