@@ -1,7 +1,7 @@
 .brand_other_sub_columns,
 .brand_columns_category {
   flex: 0 1 16.666%;
-  padding: 0 10px;
+  padding: 0 7px;
   margin: 0 0 10px 0;
   cursor: pointer;
 }
@@ -205,7 +205,7 @@
 
 .brand_item_title {
   font-family: GTEestiPro, arial, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   letter-spacing: 0.2px;
   line-height: 20px;
   text-align: center;
@@ -289,7 +289,7 @@
     padding: 0 5px;
   } */
   .brand_columns_category {
-    padding: 0 5px;
+    padding: 0 3px;
   }
   .brand_other_item {
     padding: 0;
@@ -376,12 +376,13 @@
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
   }
+  .brand_other_sub_columns,
   .brand_columns_category {
     flex: 0 1 33.333%;
   }
 
   .brand_other_sub_columns{
-    flex:0 1 33.333%;
+    margin: 0 0 20px 0;
   }
 }
 

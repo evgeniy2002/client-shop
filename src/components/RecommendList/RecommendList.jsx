@@ -25,7 +25,7 @@ export default function RecommendList({ recommended }) {
             <p className="recommended_goods_title">Рекомендуем также</p>
             <div className="recommended_goods_row">
               <Swiper
-                className="mySwiper"
+               
                 slidesPerView={5}
                 spaceBetween={30}
                 watchOverflow={true}

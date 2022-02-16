@@ -51,7 +51,7 @@ export default function AllCategory() {
         <div className={s.goods_category_content}>
           <div className={s.goods_many_content}>
 
-            <div className={s.goods_content_row}>
+            <div className={s.goods_content_row + ' ' + s.AllCategory_content_row}>
 
               {typeCategory.length
                 ? typeCategory.map(type => (

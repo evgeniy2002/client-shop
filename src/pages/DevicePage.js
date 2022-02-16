@@ -8,6 +8,8 @@ import { getAllBrand, getDevices } from '../http/deviceApi'
 import heart from '../assets/images/icons/heart.svg'
 import RecommendList from '../components/RecommendList/RecommendList'
 
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+
 export default function DevicePage() {
 
   const dispatch = useDispatch()
@@ -16,6 +18,7 @@ export default function DevicePage() {
 
   const [adaptiveBtn, setAdaptiveBtn] = React.useState(false)
   const [modalActive, setModalActive] = React.useState(false)
+  const [stateNextRead, setStateNextRead] = React.useState(false)
 
   const { id } = useParams()
 
@@ -56,6 +59,10 @@ export default function DevicePage() {
   }, [])
 
 
+  const handleNextReat = () => {
+    setStateNextRead(!stateNextRead)
+  }
+
   return (
 
     <div className="devicePage">
@@ -69,11 +76,11 @@ export default function DevicePage() {
           currentDevice.map(device => (
             <div key={device.id} className="device_body">
 
+              <div className="devicePage_item-title"><span>{device.device_name}</span></div>
               <div className="all_watch">
                 <img src={eye} alt="" />
                 <span>{device.rating}</span>
               </div>
-              <div className="devicePage_item-title"><span>{device.device_name}</span></div>
 
               <div className="devicePage_row">
 
@@ -81,9 +88,17 @@ export default function DevicePage() {
                   {
                     device.img === null
                       ? <div className="devicePage_img devicePage_img_cancel ibg"></div>
-                      : <div className="devicePage_img ibg">
-                        <img src={device.img} alt="" />
-                      </div>
+                      : <TransformWrapper
+                        initialScale={1}
+                      
+                      >
+                        <TransformComponent>
+
+                          <div className="devicePage_img ibg">
+                            <img src={device.img} alt="" />
+                          </div>
+                        </TransformComponent>
+                      </TransformWrapper>
                   }
                   {/* <div className='favorite_click'>
                     <img src={heart} alt="" />
@@ -91,17 +106,7 @@ export default function DevicePage() {
                 </div>
                 <div className="devicePage_columns">
                   <div className="devicePage_item">
-                    <div className="devicePage_item-description">
-                      <div className="item_description-title">Описание</div>
-                      <div className="devicePage_sub_description">
-                        {
-                          device.description
-                            ? device.description
-                            : <div> Здесь должно быть описание товара, но к сожалению его нет &#128532;</div>
-                        }
-                      </div>
 
-                    </div>
                     <div className="devicePage_item-body">
                       <div className="body_item">
                         <div className="info">
@@ -128,6 +133,18 @@ export default function DevicePage() {
                   </div>
                 </div>
               </div>
+              <div className={stateNextRead ? "devicePage_item-description item_description-active" : "devicePage_item-description"}>
+                <div className="item_description-title">Описание</div>
+                <div className="devicePage_sub_description">
+                  {
+                    device.description
+                      ? device.description
+                      : <div> Здесь должно быть описание товара, но к сожалению его нет &#128532;</div>
+                  }
+                </div>
+              </div>
+              
+                {/* <button className={stateNextRead ? 'devicePage_buttom_next-read buttom_next_read-false' : 'devicePage_buttom_next-read'} onClick={handleNextReat}>Читать далее</button> */}
             </div>
           ))
         }
@@ -146,8 +163,8 @@ export default function DevicePage() {
         }
 
 
-        <RecommendList recommended={recommended}/>
-        
+        <RecommendList recommended={recommended} />
+
 
       </div>
     </div>

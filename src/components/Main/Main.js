@@ -31,7 +31,7 @@ export default function Main() {
   return (
     <section className={s.online_store}>
       <div className="container">
-        <div className={s.store_row}>
+        <div className={s.store_row + ' ' + 'main_page_slider'}>
           <Swiper
             modules={[Pagination, EffectFade]}
             // pagination={{
@@ -39,7 +39,7 @@ export default function Main() {
               // }}
               loop={true}
               spaceBetween={30}
-              className='mySwiper'
+              className='mySwiperMain'
               spaceBetween={30}
               effect={"fade"}
               grabCursor={true}

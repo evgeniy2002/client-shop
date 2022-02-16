@@ -282,25 +282,34 @@ body {
 	padding: 0 0 10px 0;
 }
 .devicePage_item-title::before {
+
+}
+.devicePage_row {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	margin: 40px 0 50px 0;
+}
+.devicePage_row::before {
 	content: "";
 	position: absolute;
 	width: 100%;
 	height: 0.3px;
 	background-color: #0000003b;
-	top: 100%;
-}
-.devicePage_row {
-	display: flex;
-	margin: 40px 0 0 0;
+	top: -25px;
 }
 .devicePage_columns:first-child {
 	position: relative;
-	flex: 0 0 300px;
+	/* flex: 0 0 380px; */
+	margin: 0 150px 0 0;
+	/* margin: 0 0 0 auto; */
 }
 .devicePage_columns:last-of-type {
-	flex: 1 1 100%;
-	align-self: flex-start;
-	margin: 0 0 50px 0;
+	margin: 30px 80px 0 0;
+	/* margin: 0 auto 0 0; */
+	/* flex: 1 1 100%; */
+	/* align-self: flex-start; */
+	/* margin: 0 0 50px 0; */
 }
 /* .favorite_click{
 	position: absolute;
@@ -314,7 +323,9 @@ body {
 } */
 .devicePage_img {
 	width: 270px;
-	padding: 150px 0;
+	padding: 195px 0;
+	/* margin: 0 auto; */
+	cursor: zoom-in;
 }
 .devicePage_img_cancel::after {
 	content: "";
@@ -337,19 +348,23 @@ body {
 	display: flex;
 }
 .devicePage_sub_description {
-	font-family: GTEestiPro, arial, sans-serif;
-	max-width: 315px;
+	font-family: 'Roboto', arial, sans-serif;
 	font-size: 14px;
-	line-height: 22px;
 	font-weight: 500;
 	color: #001a34;
+	line-height: 23.5px;
+	max-width: 90%;
+}
+
+.devicePage_buttom_next-read{
+	display: none;
 }
 
 .item_description-title {
 	font-family: GTEestiPro, arial, sans-serif;
 	font-size: 20px;
 	font-weight: 700;
-	margin: 0 0 10px 0;
+	margin: 0 0 20px 0;
 }
 .devicePage_item-body {
 	margin: 0 0 0 auto;
@@ -357,8 +372,8 @@ body {
 .body_item {
 	padding: 15px 10px 20px 10px;
 	position: relative;
-	height: 230px;
-	width: 275px;
+	height: 330px;
+	width: 305px;
 	-webkit-box-shadow: 0px 0px 15px 0px rgba(27, 124, 199, 0.3);
 	-moz-box-shadow: 0px 0px 15px 0px rgba(27, 124, 199, 0.3);
 	box-shadow: 0px 0px 15px 0px rgba(27, 124, 199, 0.3);
@@ -368,10 +383,17 @@ body {
 	-ms-border-radius: 10px;
 	-o-border-radius: 10px;
 }
+.info{
+	display: flex;
+	flex-direction: column;
+
+}
 .body_item-price {
+
 	display: inline-block;
 	font-family: GTEestiPro, arial, sans-serif;
-	font-size: 25px;
+	font-size: 30px;
+	line-height: 38px;
 }
 
 .info_icon {
@@ -393,10 +415,10 @@ body {
 }
 
 .info_text {
-	font-size: 13px;
-	color: #333;
-	font-family: GTEestiPro, arial, sans-serif;
-	padding: 8px 0;
+	font-size: 14px;
+	color: #001a34;
+	font-family: 'Roboto', arial, sans-serif;
+	
 	line-height: 22px;
 }
 
@@ -407,15 +429,16 @@ body {
 	background-color: #005bff;
 	color: #fff;
 	text-decoration: none;
-	height: 40px;
-	line-height: 40px;
+	font-size: 16px;
+	min-height: 56px;
+	line-height: 56px;
+	padding: 0 24px;
 	text-align: center;
 	width: calc(100% - 20px);
 	left: 50%;
 	transform: translate(-50%, 0);
 	font-family: GTEestiPro, arial, sans-serif;
 	font-weight: 700;
-	font-size: 13px;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -443,9 +466,9 @@ body {
 .all_watch {
 	display: flex;
 	align-items: center;
-	position: absolute;
+	/* position: absolute;
 	top: 8px;
-	right: 0px;
+	right: 0px; */
 }
 .all_watch img {
 	width: 17px;
@@ -716,25 +739,25 @@ body {
 
 /* ========================================================= REACT SWIPER ======================================================= */
 
-.swiper {
+.main_page_slider .swiper {
 	overflow: visible !important;
 }
 
-.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
-.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+.mySwiperMain .swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.mySwiperMain .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
 	position: absolute;
 	bottom: -30px;
 	/* padding: 222px 0 0px 0; */
 }
 
-.swiper-pagination-bullet {
+.mySwiperMain .swiper-pagination-bullet {
 	width: 11px !important;
 	height: 11px !important;
 }
-.mySwiper .swiper-pagination-bullet {
+.mySwiperMain .swiper-pagination-bullet {
 	background: #4489ff;
 }
-.mySwiper .swiper-pagination-bullet-active-main {
+.mySwiperMain .swiper-pagination-bullet-active-main {
 	display: inline-block;
 	width: 13px;
 	height: 13px;
@@ -803,6 +826,9 @@ body {
 	.devicePage_sub_description {
 		max-width: 100%;
 	}
+	.devicePage_buttom_next-read.buttom_next_read-false{
+		display: none;
+	}
 	.brear_crumbs_container {
 		padding: 0 0 0 10px;
 	}
@@ -812,7 +838,7 @@ body {
 
 	.devicePage_columns:first-child {
 		flex: 1 1 100%;
-		margin: 0 0 35px 0;
+		margin: 0 0 5px 0;
 	}
 
 	.devicePage_item {
@@ -827,6 +853,7 @@ body {
 	}
 	.modal {
 		padding: 0 10px;
+		margin: 30px 0 125px 0
 	}
 	.devicePage_row {
 		padding: 0 10px;
@@ -860,7 +887,7 @@ body {
 		transform: translate(0);
 		margin: 0 auto;
 		font-size: 15px;
-		height: 50px;
+		min-height: 50px;
 		line-height: 25px;
 	}
 
@@ -871,7 +898,29 @@ body {
 		line-height: 25px;
 		font-family: "Open-Sans", sans-serif;
 	}
+	.devicePage_item-description{
+		padding: 0 10px;
+		margin: 0 0 5px 0;
+		/* height: 160px;
+		overflow: hidden; */
+	}
+	/* .devicePage_item-description.item_description-active{
+		height: 100%;
+		overflow: visible;
+	} */
+	.devicePage_buttom_next-read{
+		display: inline-block;
+		margin: 0 10px;
+		background: transparent;
+		color: #005bff;
+		font-size: 14px;
+		border: none;
+		outline: none;
+	}
 
+	.devicePage_row{
+		margin: 40px 0 0 0;
+	}
 	/* 
 	input:-webkit-autofill,
 	input:-webkit-autofill:hover,
@@ -892,7 +941,7 @@ body {
 
 	.devicePage_item-title {
 		padding: 0 10px 10px 10px;
-		margin: 20px 0 0 0;
+		margin: 10px 0 0 0;
 	}
 	.devicePage_item-title::before {
 		left: 0;
@@ -910,7 +959,7 @@ body {
 		border: none !important;
 	}
 	.all_watch {
-		right: 10px;
+		padding: 0 10px;
 	}
 
 	/* =================================================== SWIPER MEDIA ======================================== */
@@ -936,7 +985,7 @@ body {
 
 @media (max-width: 480px) {
 	.devicePage_img {
-		width: 210px;
+		width: 165px;
 		padding: 120px 0;
 	}
 	.goods_item_title {

@@ -1,6 +1,6 @@
 .bread_crumbs {
   margin: 10px 0 15px 0;
-  height: 40px;
+  height: 35px;
 }
 .bread_crumbs_menu {
   display: flex;
@@ -10,7 +10,7 @@
 }
 .bread_crumbs_item {
   position: relative;
-  margin: 0 20px 0 0;
+  margin: 0 28px 0 0;
   white-space: nowrap;
 }
 .bread_crumbs_menu::-webkit-scrollbar {
@@ -27,14 +27,14 @@
   width: 15px;
   height: 15px;
   background-size: 14px 14px;
-  margin: 3.2px;
+  margin: 2px 7.5px;
 }
 .bread_crumbs_item:last-of-type:after {
   content: "";
   display: none;
 }
 .bread_crumbs_item:last-of-type .bread_crumbs_link{
-  color:rgb(77, 46, 46);
+  color:#2B435B;
 }
 .bread_crumbs_link {
   display: inline-block;
