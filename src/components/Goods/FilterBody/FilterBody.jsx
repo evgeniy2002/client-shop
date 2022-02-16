@@ -18,6 +18,7 @@ export default function FilterBody({ maxPrice, upperValue, lowerValue, shopDateF
             <Nouislider
               onUpdate={(value) => rangeValue(value)}
               onChange={changeStateFilter}
+              step={10}
               range={{ min: 0, max: maxPrice ? maxPrice : 1000 }}
               start={[0, maxPrice ? maxPrice : 1000]}
               // tooltips={true}

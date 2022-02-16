@@ -31,11 +31,16 @@ export default function RecommendList({ recommended }) {
                 watchOverflow={true}
                 breakpoints={{
                   320: {
-                    slidesPerView: 3.7, 
+                    slidesPerView: 2.3, 
+                    spaceBetween: 13,
+                  },
+                  370: {
+                    slidesPerView: 2.5, 
                   
                   },
                   425: {
                     slidesPerView: 3.5,  
+                    spaceBetween: 20,
                   },
                   732: {
                     slidesPerView: 4.5,
@@ -61,8 +66,8 @@ export default function RecommendList({ recommended }) {
                           }
 
 
-                          <div className="goods_item_title">{item.device_name}</div>
                           <div className="goods_item_price">{item.price} &#8381;</div>
+                          <div className="goods_item_title">{item.device_name}</div>
                           {/* <a href="#" className='goods_item_btn'>Написать</a> */}
                         </a>
                       </div>

@@ -216,7 +216,7 @@
   overflow: hidden;
   color: #001a34;
   margin: 8px 0 0 0;
-  word-break: break-all;
+  word-break: break-word;
 }
 .brands_item_title {
   text-align: center;
