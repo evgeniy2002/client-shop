@@ -665,7 +665,12 @@ transition: all 0.3s;
 		font-size: 14px;
 	}
 		.info_about_discounts {
-		top: 83.5%;
+		top: 86.7%;
+		width: 45px;
+    height: 20px;
+	}
+	.info_about_discounts span{
+		font-size: 12px;
 	}
 	.products_wrapper_item_img {
 		margin: 0 0 13px 0;
@@ -694,7 +699,7 @@ transition: all 0.3s;
 		flex: 0 1 25%;
 	}
 	.info_about_discounts {
-		top: 85%;
+		top: 88%;
 	}
 	.products_middle_columns {
 		flex: 0 1 33.333%;
@@ -766,10 +771,13 @@ transition: all 0.3s;
 	.products_body_footer .products_item_img {
 		padding: 55px 0; 
 		width: 75px;
+		/* padding: 55px 0;
+    width: 100%;
+    background-size: contain; */
 	}
 
 	.info_about_discounts {
-		top: 83.5%;
+		top: 84.5%;
 	}
 	.products_middle_item .products_item_img {
 		padding: 80px 0;

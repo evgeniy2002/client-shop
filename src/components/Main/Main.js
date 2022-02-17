@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import s from './Main.module.css'
 import main_picture from '../../assets/images/exnxkpgpgvdl7gh5qtge1032cj4.jpeg'
-import main_screen_two from '../../assets/images/two_main-screen.jpg'
+import main_screen_two from '../../assets/images/electronic.jpeg'
 
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import { Pagination, EffectFade } from "swiper";

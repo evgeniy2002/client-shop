@@ -24,10 +24,10 @@
   content: "";
   position: absolute;
   background: url("../../assets/images/icons/next-arrow.svg") no-repeat;
-  width: 15px;
-  height: 15px;
-  background-size: 14px 14px;
-  margin: 3.2px 7.5px;
+  width: 20px;
+  height: 20px;
+  background-size: 16px 16px;
+  margin: 2px 7.5px;
 }
 .bread_crumbs_item:last-of-type:after {
   content: "";
@@ -52,7 +52,7 @@
 
 @media (max-width: 768px) {
   .bread_crumbs {
-    margin: 60px 0 0px 0;
+    margin: 65px 0 0px 0;
   }
   
 }

@@ -2,12 +2,12 @@ import React from 'react'
 import s from '../Header.module.css'
 import { Field, reduxForm } from 'redux-form'
 import { useDispatch, useSelector } from 'react-redux'
-import loupe from '../../../assets/images/icons/loupe-form.svg'
 import { getDevices, getDeviceWithSearch } from '../../../http/deviceApi'
 import { setPopularDevice, setSearchDevice } from '../../../redux/reducers/devices-reducer'
 import HeaderFormColumn from './HeaderFormColumn/HeaderFormColumn'
 import Preloader from '../../../assets/loader/Preloader'
 
+import loupe from '../../../assets/images/icons/loupe-form.svg'
 
 
 const HeaderForm = (props) => {
@@ -100,7 +100,18 @@ const HeaderForm = (props) => {
     <div ref={formRef} className={`${s.header_search} ${adaptiveSearch ? s.active : ''}`} >
       <form onSubmit={props.handleSubmit} onClick={clickOnForm}>
 
-        <Field component={'input'} type="text" name="name" value={formValue} onClick={handleStateSearch} className={s.header_input} onChange={handleFormState} autoCapitalize={'off'} autoComplete={'off'} placeholder={'Искать товары'} />
+        <Field
+          component={'input'}
+          type="text"
+          name="name"
+          value={formValue}
+          onClick={handleStateSearch}
+          className={s.header_input}
+          onChange={handleFormState}
+          autoCapitalize={'off'}
+          autoComplete={'off'}
+          placeholder={'Поиск товаров'}
+        />
 
         <div className={s.btn}><img src={loupe} alt="" /></div>
 
@@ -118,12 +129,16 @@ const HeaderForm = (props) => {
           }
           {
             searchDevice.length === 0 && !renderFormPopulation
+            && <div className={s.popularProducts}>Ни чего не найдено</div>
+          }
+          {/* {
+            searchDevice.length === 0 && !renderFormPopulation
             && <div className={s.popularProducts}>Ни одного товара не найдено</div>
           }
           {
             searchDevice.length !== 0 && !renderFormPopulation
             && <div className={s.popularProducts}>Найденные товары</div>
-          }
+          } */}
 
           {renderFormPopulation
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addDevices, getDevicePageTC } from '../redux/reducers/devices-reducer'
 import BreadCrumbs from '../components/BreadCrumbs/BreadCrumbs'
@@ -15,6 +15,7 @@ export default function DevicePage() {
   const dispatch = useDispatch()
 
   const params = useParams()
+  const history = useHistory()
 
   const [adaptiveBtn, setAdaptiveBtn] = React.useState(false)
   const [modalActive, setModalActive] = React.useState(false)
@@ -28,7 +29,7 @@ export default function DevicePage() {
       currentDevice: devices.currentDevice
     }
   })
-
+  // console.log(params.type)
   React.useEffect(() => {
     if (params.type) {
 
@@ -59,9 +60,9 @@ export default function DevicePage() {
   }, [])
 
 
-  const handleNextReat = () => {
-    setStateNextRead(!stateNextRead)
-  }
+  // const handleNextReat = () => {
+  //   setStateNextRead(!stateNextRead)
+  // }
 
   return (
 
@@ -69,7 +70,14 @@ export default function DevicePage() {
 
       <div className="container">
         <div className="brear_crumbs_container">
-          <BreadCrumbs />
+          {
+            !params.type
+              ? <div className='go_back'>
+                <button onClick={history.goBack}>Назад</button>
+              </div>
+              : <BreadCrumbs />
+          }
+
         </div>
 
         {
@@ -90,7 +98,7 @@ export default function DevicePage() {
                       ? <div className="devicePage_img devicePage_img_cancel ibg"></div>
                       : <TransformWrapper
                         initialScale={1}
-                      
+
                       >
                         <TransformComponent>
 
@@ -143,8 +151,8 @@ export default function DevicePage() {
                   }
                 </div>
               </div>
-              
-                {/* <button className={stateNextRead ? 'devicePage_buttom_next-read buttom_next_read-false' : 'devicePage_buttom_next-read'} onClick={handleNextReat}>Читать далее</button> */}
+
+              {/* <button className={stateNextRead ? 'devicePage_buttom_next-read buttom_next_read-false' : 'devicePage_buttom_next-read'} onClick={handleNextReat}>Читать далее</button> */}
             </div>
           ))
         }
