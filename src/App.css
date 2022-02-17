@@ -770,6 +770,24 @@ body {
 	height: 13px;
 }
 
+/* ========================================================= GENERAL STYLE ======================================================= */
+
+.brand_item_title {
+  font-family: GTEestiPro, arial, sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  line-height: 20px;
+  text-align: center;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  white-space: normal;
+  overflow: hidden;
+  color: #001a34;
+  margin: 8px 0 0 0;
+  word-break: break-word;
+}
+
 
 
 /* ========================================================= MEDIA ======================================================= */
@@ -818,6 +836,11 @@ body {
 		padding: 0 10px;
 		margin: 70px 0 0 0;
 	}
+	.brand_item_title {
+    font-size: 12px;
+    letter-spacing: 0.2px;
+    line-height: 16px;
+  }
 	/* .wrapper{
 		overflow: hidden;
 	} */
@@ -1053,8 +1076,5 @@ body {
 	.devicePage_item-title span {
 		display: block;
 		max-width: 261px;
-	}
-	.goods_item_img {
-		width: 94%;
 	}
 }

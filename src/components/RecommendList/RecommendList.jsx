@@ -32,7 +32,7 @@ export default function RecommendList({ recommended }) {
                 breakpoints={{
                   320: {
                     slidesPerView: 2.3, 
-                    spaceBetween: 13,
+                    spaceBetween: 30,
                   },
                   370: {
                     slidesPerView: 2.5, 

@@ -1,6 +1,8 @@
 import React from 'react'
 import s from '../Products.module.css'
 
+import '../../../App.css'
+
 export default function PopularCategory({popularBrands, cancel}) {
   return (
     <div className={s.products_body_header}>
@@ -18,7 +20,7 @@ export default function PopularCategory({popularBrands, cancel}) {
                     <img src={item.img} alt="" />
                   </div>
               }
-              <div className={s.products_item_name}><span>{item.type_name}</span></div>
+              <div className='brand_item_title'><span>{item.type_name}</span></div>
             </a>
 
           ))

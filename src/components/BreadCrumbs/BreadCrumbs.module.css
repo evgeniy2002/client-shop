@@ -27,7 +27,7 @@
   width: 15px;
   height: 15px;
   background-size: 14px 14px;
-  margin: 3.5px 7.5px;
+  margin: 3.2px 7.5px;
 }
 .bread_crumbs_item:last-of-type:after {
   content: "";

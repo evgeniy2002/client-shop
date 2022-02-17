@@ -58,7 +58,7 @@ const GoodsList = React.memo(function GoodsList({ device, favorites, displayType
     <div key={device.id} className={displayType ? s.goods_content_columns + ' ' + s.goods_columns_square_mod : s.goods_content_columns}>
 
       <a href={location.pathname + '/device/' + device.id} className={s.goods_content_item} onClick={() => changeRatingItem(device.id, device.rating)}>
-        
+
         <div className={s.goods_content_img_bg}>
 
           {
@@ -70,11 +70,13 @@ const GoodsList = React.memo(function GoodsList({ device, favorites, displayType
           }
         </div>
 
-        <div className={s.goods_content_description}>
+
+          <div className={s.goods_many_info_item}>
 
             <div className={s.goods_content_price}>{device.price} &#8381;</div>
-          <div className={s.goods_content_title}>{device.device_name}</div>
-          <div className={s.goods_content_info}>
+            <div className={s.goods_content_title}>{device.device_name}</div>
+          </div>
+          {/* <div className={s.goods_content_info}>
 
             {
               device.description !== ''
@@ -82,11 +84,11 @@ const GoodsList = React.memo(function GoodsList({ device, favorites, displayType
                 : <div> По данному товару нет никакой информации &#128532;</div>
 
             }
-          </div>
+          </div> */}
           <div className={s.goods_content_shell}>
             <Link to="#" className={s.goods_content_link}>Написать</Link>
           </div>
-        </div>
+      
 
       </a>
 

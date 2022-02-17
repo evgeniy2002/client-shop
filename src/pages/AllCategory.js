@@ -6,8 +6,10 @@ import ProductNotFound from '../components/ProductNotFound/ProductNotFound'
 import { getDevices, updateRatign, updateRatignType } from '../http/deviceApi'
 import { addDevices } from '../redux/reducers/devices-reducer'
 
-import style_p from '../components/Products/Products.module.css'
 import s from '../components/Goods/Goods.module.css'
+
+
+import '../App.css'
 
 export default function AllCategory() {
 
@@ -36,14 +38,6 @@ export default function AllCategory() {
   }, [])
 
 
-  const changeRatingItem = (id, rating) => {
-
-
-    updateRatign(id, rating += 1)
-      .then(data => console.log(data))
-      .catch(err => console.error(err))
-  }
-
   return (
     <section className={s.goods}>
       <div className='container'>
@@ -68,7 +62,7 @@ export default function AllCategory() {
 
 
                     </a>
-                    <div className={style.brand_item_title}>{type.type_name}</div>
+                    <div className='brand_item_title'>{type.type_name}</div>
                   </div>
                 ))
 

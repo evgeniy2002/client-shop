@@ -470,10 +470,10 @@ transition: all 0.3s;
 	margin: 3px 0;
 	word-break: break-all;
 }
-.products_body_header .products_item_name {
+/* .products_body_header .products_item_name {
 	font-size: 0;
 	display: none;
-}
+} */
 .products_body_footer .products_item_name {
 	font-size: 14px;
 }
