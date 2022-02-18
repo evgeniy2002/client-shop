@@ -4,14 +4,15 @@
   background-color: #fff;
   width: 100%;
   text-align: center;
-  padding: 8px 5px;
   box-shadow: 0px 0px 20px 0px rgb(34 60 80 / 20%);
-  z-index: 10;
+  z-index: 100;
 }
 .footer_info_row {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 8px 5px;
 }
 .footer_info_columns {
   flex: 0 1 33.333%;
@@ -31,7 +32,7 @@
 }
 .footer_info_label,
 .footer_info_label_active {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 12px;
 }

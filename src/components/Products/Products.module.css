@@ -458,7 +458,7 @@ transition: all 0.3s;
 
 .products_item_name {
 	flex:1 1 100%;
-	font-family: GTEestiPro, arial, sans-serif;
+	font-family: 'Roboto', arial, sans-serif;
 	font-weight: 400;
 	color: #001a34;
 	transition: all 0.3s;
@@ -466,7 +466,7 @@ transition: all 0.3s;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 3;
 	overflow: hidden;
-	line-height: 24px;
+	line-height: 20px;
 	margin: 3px 0;
 	word-break: break-all;
 }

@@ -107,7 +107,7 @@ export default function Header() {
           </div>
          
             <HeaderForm onSubmit={onSubmit} setStateCatalog={setStateCatalog} catalogState={catalogState} handleClick={handleClick} />
-            {/* <div className={classNames(s.form_subdate, formState ? s.form_active : '')}> */}
+            
 
           <div className={s.social_network}>
             <a href="" className={s.header_icons}><img src={vk_logo} alt="" /></a>

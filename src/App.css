@@ -21,6 +21,7 @@ body {
 }
 
 .wrapper {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	/* overflow: hidden; */
@@ -301,7 +302,7 @@ body {
 .devicePage_columns:first-child {
 	position: relative;
 	/* flex: 0 0 380px; */
-	margin: 0 150px 0 0;
+	margin: 0 120px 0 0;
 	/* margin: 0 0 0 auto; */
 }
 .devicePage_columns:last-of-type {
@@ -322,9 +323,10 @@ body {
   height: 24px;
 } */
 .devicePage_img {
-	width: 270px;
+	width: 350px;
 	padding: 195px 0;
 	/* margin: 0 auto; */
+	background-size: contain;
 	cursor: zoom-in;
 }
 .devicePage_img_cancel::after {
@@ -835,6 +837,7 @@ body {
 @media (max-width: 768px) {
 	.container {
 		padding: 0;
+		
 	}
 	body.lock {
 		overflow: hidden;
@@ -889,7 +892,8 @@ body {
 	
 	.devicePage_columns:first-child {
 		flex: 1 1 100%;
-		margin: 0 0 5px 0;
+		/* margin: 0 0 5px 0; */
+		margin: 0;
 	}
 
 	.devicePage_item {
@@ -1026,7 +1030,7 @@ body {
 @media (max-width: 630px) {
 	.devicePage_img {
 		padding: 150px 0;
-		width: 260px;
+		/* width: 260px; */
 	}
 	.goods_item_title {
 		font-size: 15px;
@@ -1038,7 +1042,7 @@ body {
 
 @media (max-width: 480px) {
 	.devicePage_img {
-		width: 165px;
+		/* width: 165px; */
 		padding: 120px 0;
 	}
 	.goods_item_title {
