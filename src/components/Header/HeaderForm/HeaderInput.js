@@ -1,6 +1,5 @@
 import React from 'react'
 import s from '../Header.module.css'
-import { Field, reduxForm } from 'redux-form'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDevices, getDeviceWithSearch } from '../../../http/deviceApi'
 import { setPopularDevice, setSearchDevice } from '../../../redux/reducers/devices-reducer'
@@ -10,7 +9,7 @@ import Preloader from '../../../assets/loader/Preloader'
 import loupe from '../../../assets/images/icons/loupe-form.svg'
 
 
-const HeaderForm = (props) => {
+const HeaderInput = (props) => {
 
   const dispatch = useDispatch()
 
@@ -97,11 +96,12 @@ const HeaderForm = (props) => {
 
   return (
     //ref={formRef}
-    <div ref={formRef} className={`${s.header_search} ${adaptiveSearch ? s.active : ''}`} >
-      <form onSubmit={props.handleSubmit} onClick={clickOnForm}>
+    <div ref={formRef} className={`${s.header_search} ${adaptiveSearch ? s.active : ''}`} onClick={clickOnForm}>
+      {/* <form onSubmit={props.handleSubmit} onClick={clickOnForm}> */}
 
-        <Field
-          component={'input'}
+      <div className={s.header_input_info_row}>
+
+        <input
           type="text"
           name="name"
           value={formValue}
@@ -113,50 +113,45 @@ const HeaderForm = (props) => {
           placeholder={'Поиск товаров'}
         />
 
-        <div className={s.btn}><img src={loupe} alt="" /></div>
 
 
+        <div className={`${s.form_subdate} ${toggleFormState ? s.active : ''}`}>
 
-      </form>
-      <div onClick={closeAdaptiveForm} className={s.closeAdaptiveSearch}>Отмена</div>
+          <div className={s.form_subdate_content}>
+            {
+              renderFormPopulation
+              && <div className={s.popularProducts}>Популярные товары</div>
+            }
+            {
+              searchDevice.length === 0 && !renderFormPopulation
+              && <div className={s.popularProducts}>Ни чего не найдено</div>
+            }
 
-      <div className={`${s.form_subdate} ${toggleFormState ? s.active : ''}`}>
+            {renderFormPopulation
 
-        <div className={s.form_subdate_content}>
-          {
-            renderFormPopulation
-            && <div className={s.popularProducts}>Популярные товары</div>
-          }
-          {
-            searchDevice.length === 0 && !renderFormPopulation
-            && <div className={s.popularProducts}>Ни чего не найдено</div>
-          }
-          {/* {
-            searchDevice.length === 0 && !renderFormPopulation
-            && <div className={s.popularProducts}>Ни одного товара не найдено</div>
-          }
-          {
-            searchDevice.length !== 0 && !renderFormPopulation
-            && <div className={s.popularProducts}>Найденные товары</div>
-          } */}
+              ? popularDevice.map(item => (
+                <HeaderFormColumn item={item} key={item.id} />
+              ))
+              : searchDevice.map(item => (
+                <HeaderFormColumn item={item} key={item.id} />
+              ))
+            }
 
-          {renderFormPopulation
-
-            ? popularDevice.map(item => (
-              <HeaderFormColumn item={item} key={item.id} />
-            ))
-            : searchDevice.map(item => (
-              <HeaderFormColumn item={item} key={item.id} />
-            ))
-          }
-
+          </div>
         </div>
       </div>
+
+
+
+<div onClick={closeAdaptiveForm} className={s.closeAdaptiveSearch}>Отмена</div>
+
+      {/* </form> */}
+
+
     </div >
   )
 }
 
-let ReduxHeaderForm = reduxForm({ form: 'headerForm' })(HeaderForm)
 
-export default ReduxHeaderForm
+export default HeaderInput
 

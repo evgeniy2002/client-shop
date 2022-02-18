@@ -32,7 +32,7 @@ export default function Main() {
     <section className={s.online_store}>
       <div className="container">
         <div className={s.store_row + ' ' + 'main_page_slider'}>
-          <Swiper
+          {/* <Swiper
             modules={[Pagination, EffectFade]}
             // pagination={{
               //   clickable: true,
@@ -47,14 +47,14 @@ export default function Main() {
                 dynamicBullets: true,
               }}
           >
-            <SwiperSlide>
+            <SwiperSlide> */}
               <h1 className={s.store_title}>Интернет Магазин</h1>
               <div className={s.store_subtitle}><span>Успей</span> <span>купить</span> <span>по низкой цене</span></div>
 
               <div className={s.online_store_preview + ' ' + "ibg"}>
                 <img src={main_picture} alt="" />
               </div>
-            </SwiperSlide>
+            {/* </SwiperSlide>
             <SwiperSlide>
               <h1 className={s.store_title}>Интернет Магазин</h1>
               <div className={s.store_subtitle}><span>Успей</span> <span>купить</span> <span>по низкой цене</span></div>
@@ -64,7 +64,7 @@ export default function Main() {
               </div>
             </SwiperSlide>
             
-          </Swiper>
+          </Swiper> */}
         </div>
       </div>
     </section>

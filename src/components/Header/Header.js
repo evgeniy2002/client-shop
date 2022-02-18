@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
 import { getTypeTC } from '../../redux/reducers/type-reducer'
 import {  updateRatignType } from '../../http/deviceApi'
-import HeaderForm from './HeaderForm/HeaderForm'
+import HeaderInput from './HeaderForm/HeaderInput'
 
 
 
@@ -81,9 +81,6 @@ export default function Header() {
     }
   }, [])
 
-  const onSubmit = (data) => {
-    console.log(data)
-  }
 
   const changeRatingType = React.useCallback((id, rating) => {
 
@@ -106,7 +103,7 @@ export default function Header() {
             <div className={s.catalog_text}>Каталог</div>
           </div>
          
-            <HeaderForm onSubmit={onSubmit} setStateCatalog={setStateCatalog} catalogState={catalogState} handleClick={handleClick} />
+            <HeaderInput setStateCatalog={setStateCatalog} catalogState={catalogState} handleClick={handleClick} />
             
 
           <div className={s.social_network}>

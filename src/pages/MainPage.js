@@ -6,12 +6,15 @@ import SuggestBrand from '../components/SuggestBrand/SuggestBrand'
 
 export default function MainPage() {
   return (
-    <div>
-      <Main />
-      <Products />
-      {/* <SuggestBrand /> */}
+   
+      <div >
 
-      <About />
-    </div>
+        <Main />
+        <Products />
+        {/* <SuggestBrand /> */}
+
+        <About />
+      </div>
+  
   )
 }

@@ -80,9 +80,10 @@
 	}
 	.online_store {
 		margin: 85px 0 0 0;
+		padding: 0 10px;
 	}
 	.online_store_preview {
-		padding: 0 10px;
+		padding: 0;
 		min-height: 430px;
 		/* height: 85vh; */
 	}

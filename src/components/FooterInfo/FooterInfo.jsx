@@ -16,56 +16,43 @@ function FooterInfo() {
   const [activeIconVk, setActiveIconVk] = React.useState(false)
 
   const changeIconStateHome = () => {
-    setActiveHome(!activeIconHome)
-    setActiveCatalog(false)
-    setActiveIconVk(false)
+    // setActiveHome(!activeIconHome)
+    // setActiveCatalog(false)
+    // setActiveIconVk(false)
     
-    window.scrollTo(0, 0)
+    // window.scrollTo(0, 0)
   }
   const changeIconStateCatalog = () => {
-    setActiveCatalog(!activeIconCatalog)
-    setActiveHome(false)
-    setActiveIconVk(false)
+    // setActiveCatalog(!activeIconCatalog)
+    // setActiveHome(false)
+    // setActiveIconVk(false)
 
-    window.scrollTo(0, 0)
+    // window.scrollTo(0, 0)
   }
   const changeIconStateVk = () => {
-    setActiveIconVk(!activeIconVk)
-    setActiveHome(false)
-    setActiveCatalog(false)
+    // setActiveIconVk(!activeIconVk)
+    // setActiveHome(false)
+    // setActiveCatalog(false)
   }
 
 
   return (
     
     <div className={s.footerInfo}>
-      <div className="container">
-        <div className={s.footer_info_row}>
-          <div className={s.footer_info_columns}>
-            <a href="/" className={s.footer_info_item} onClick={changeIconStateHome}>
-              <div className={s.footer_item_img}><img src={home} alt="" /></div>
-              <div className={s.footer_info_label}>Главная</div>
-              {/* <div className={s.footer_item_img}><img src={activeIconHome ? home_hover : home} alt="" /></div>
-              <div className={activeIconHome ? s.footer_info_label_active : s.footer_info_label}>Главная</div> */}
-            </a>
-          </div>
-          <div className={s.footer_info_columns}>
-            <a href="/all_category" className={s.footer_info_item} onClick={changeIconStateCatalog}>
-              <div className={s.footer_item_img + ' ' + s.footer_icon_img}><img src={catalog} alt="" /></div>
-              <div className={s.footer_info_label}>Каталог</div>
-              {/* <div className={s.footer_item_img + ' ' + s.footer_icon_img}><img src={activeIconCatalog ? catalog_hover : catalog} alt="" /></div>
-              <div className={activeIconCatalog ? s.footer_info_label_active : s.footer_info_label}>Каталог</div> */}
-            </a>
-          </div>
-          <div className={s.footer_info_columns}>
-            <a href="#" className={s.footer_info_item} onClick={changeIconStateVk}>
-              {/* <div className={s.footer_item_img + ' ' + s.footer_icon_img}><img src={activeIconVk? vk_hover : vk} alt="" /></div>
-              <div className={activeIconVk ? s.footer_info_label_active : s.footer_info_label}>В Контакте</div> */}
-              <div className={s.footer_item_img + ' ' + s.footer_icon_img}><img src={vk} alt="" /></div>
-              <div className={s.footer_info_label}>В Контакте</div>
-            </a>
-          </div>
-
+      <div className={s.footerInfo_body}>
+        <div className={s.footer_row_info}>
+          <Link to="/" className={s.footer_columns_info}>
+            <img src={home} alt="" />
+            <div className={s.footer_info_label}>Главная</div>
+          </Link>
+          <Link to="all_category" className={s.footer_columns_info}>
+            <img src={catalog} alt="" />
+            <div className={s.footer_info_label}>Каталог</div>
+          </Link>
+          <Link to="#" className={s.footer_columns_info}>
+            <img src={vk} alt="" />
+            <div className={s.footer_info_label}>В контакте</div>
+          </Link>
         </div>
       </div>
     </div>

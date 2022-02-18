@@ -30,7 +30,7 @@ export default function AppRouter() {
   return (
     <div className="wrapper">
       <div className="page">
-
+      
         {
           location.pathname.includes('admin')
             ? ''
