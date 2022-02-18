@@ -19,7 +19,7 @@ function FooterInfo() {
     // setActiveHome(!activeIconHome)
     // setActiveCatalog(false)
     // setActiveIconVk(false)
-    
+
     // window.scrollTo(0, 0)
   }
   const changeIconStateCatalog = () => {
@@ -37,20 +37,27 @@ function FooterInfo() {
 
 
   return (
-    
+
     <div className={s.footerInfo}>
       <div className={s.footerInfo_body}>
         <div className={s.footer_row_info}>
           <Link to="/" className={s.footer_columns_info}>
-            <img src={home} alt="" />
+            <div className={s.footer_info_img}>
+
+              <img src={home} alt="" />
+            </div>
             <div className={s.footer_info_label}>Главная</div>
           </Link>
-          <Link to="all_category" className={s.footer_columns_info}>
-            <img src={catalog} alt="" />
+          <Link to="/all_category" className={s.footer_columns_info}>
+            <div className={s.footer_info_img + ' ' + s.footer_info_img_catalog}>
+              <img src={catalog} alt="" />
+            </div>
             <div className={s.footer_info_label}>Каталог</div>
           </Link>
           <Link to="#" className={s.footer_columns_info}>
-            <img src={vk} alt="" />
+            <div className={s.footer_info_img}>
+              <img src={vk} alt="" />
+            </div>
             <div className={s.footer_info_label}>В контакте</div>
           </Link>
         </div>

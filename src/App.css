@@ -280,7 +280,8 @@ body {
 	font-size: 24px;
 	color: #001a34;
 	font-weight: 700;
-	padding: 0 0 10px 0;
+	margin: 20px 0 10px 0;
+	/* padding: 0 0 10px 0; */
 }
 .devicePage_item-title::before {
 
@@ -554,14 +555,15 @@ body {
 }
 .goods_item_img {
 	position: relative;
-	width: 110px;
+	width: 100%;
 	padding: 77px 0;
-	margin: 0 0 12px 0;
+	margin: 0 0 10px 0;
 	transition: all 0.3s;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	-ms-transition: all 0.3s;
 	-o-transition: all 0.3s;
+	background-size: contain;
 }
 /* .recommend_item_img{
 	width: 110px;
@@ -588,11 +590,13 @@ body {
 	font-weight: 400;
 	font-size: 16.6px;
 	color: #333;
-	margin: 0 0 5px 0;
+	/* margin: 0 0 5px 0; */
+	line-height: 23px;
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;
 	overflow: hidden;
+	word-break: break-word;
 }
 .goods_item_price {
 	display: flex;
@@ -602,7 +606,7 @@ body {
 	font-weight: 700;
 	font-size: 18px;
 	color: #333;
-	margin: 0 0 10px 0;
+	margin: 0 0 5px 0;
 }
 
 .goods_item_btn {
@@ -748,15 +752,23 @@ body {
 
 /* ========================================================= REACT SWIPER ======================================================= */
 
-.main_page_slider .swiper {
-	overflow: visible !important;
+.mySwiperMain .swiper-wrapper{
+	/* overflow: visible !important; */
+	
 }
 
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal, 
+.swiper-pagination-custom, 
+.swiper-pagination-fraction{
+	top:100%;
+	width: 100%;
+}
 .mySwiperMain .swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
 .mySwiperMain .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
 	position: absolute;
 	bottom: -30px;
-	/* padding: 222px 0 0px 0; */
+	padding: 200px 0 0 0;
 }
 
 .mySwiperMain .swiper-pagination-bullet {
@@ -771,6 +783,9 @@ body {
 	width: 13px;
 	height: 13px;
 }
+
+/* =================================================================================================================== */
+
 
 .go_back{
 	margin: 5px 0 25px 0;
@@ -847,9 +862,7 @@ body {
 		margin: -85px 0 0px 0;
 		padding: 0 10px 95px 10px;
 	}
-	.goods_item_img {
-		width: 96%;
-	}
+
 	/* .recommend_item_img{
 		width: 108.5px;
 	} */
@@ -996,8 +1009,8 @@ body {
 	} */
 
 	.devicePage_item-title {
-		padding: 0 10px 10px 10px;
-		margin: 10px 0 0 0;
+		margin: 15px 10px 10px 10px;
+		/* padding: ; */
 	}
 	.devicePage_item-title::before {
 		left: 0;
@@ -1023,7 +1036,7 @@ body {
 	/* =================================================== SWIPER MEDIA ======================================== */
 	
 	.swiper{
-		padding: 0 10px !important;
+		padding: 0 10px 0 9px !important;
 	}
 
 
@@ -1074,6 +1087,7 @@ body {
 	}
 	.goods_item_img {
 		width: 100%;
+		padding: 65px 0;
 	}
 	/* .info_icon {
 		top: 11px;

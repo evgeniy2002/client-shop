@@ -19,7 +19,7 @@
 .footer_row_info {
   display: flex;
   justify-content: center;
-  padding: 7px 5px;
+  padding:7px 5px;
   /* display: flex; */
   /* position: relative;
   display: flex;
@@ -35,12 +35,19 @@
   text-decoration: none;
   /* flex: 0 1 33.333%; */
 }
+.footer_info_img{
+  flex:1 1 100%;
+}
 .footer_info_item {
   /* text-decoration: none; */
 }
 .footer_item_img {
 }
-.footer_columns_info img {
+.footer_info_img img {
+  width: 22px;
+  height: 22px;
+}
+.footer_info_img_catalog img{
   width: 24px;
   height: 24px;
 }
@@ -55,7 +62,7 @@
   color: #5a6c7d;
 }
 .footer_info_label {
-  margin: 5px 0 0 0;
+  /* margin: 5px 0 0 0; */
 }
 .footer_info_label_active {
   /* color: #005bff; */

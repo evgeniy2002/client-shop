@@ -467,8 +467,8 @@ transition: all 0.3s;
 	-webkit-line-clamp: 3;
 	overflow: hidden;
 	line-height: 20px;
-	margin: 3px 0;
-	word-break: break-all;
+	margin: 5px 0 10px 0;
+	word-break: break-word;
 }
 /* .products_body_header .products_item_name {
 	font-size: 0;
