@@ -5,6 +5,7 @@
 .bread_crumbs_menu {
   display: flex;
   overflow-x: auto;
+  flex-wrap: wrap;
   list-style-type: none;
   padding: 0;
 }
@@ -54,7 +55,9 @@
   .bread_crumbs {
     margin: 65px 0 0px 0;
   }
-  
+  .bread_crumbs_menu{
+    flex-wrap: nowrap;
+  }
 }
 
 @media (max-width: 560px) {

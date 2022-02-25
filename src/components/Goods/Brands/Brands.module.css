@@ -6,6 +6,7 @@
   cursor: pointer;
 }
 .brand_other_sub_columns{
+  flex: 0 1 20%;
   margin: 0 0 30px 0;
 }
 .brand_other_sub_item{
@@ -41,13 +42,15 @@
   background-color: rgba(0, 26, 52, 0.158);
 }
 .brand_other_sub_img{
-  padding: 75px 0;
+  padding: 85px 0;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  
 }
+
 .brand_other_sub_img img{
   max-width: 100%;
 }

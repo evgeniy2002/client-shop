@@ -5,7 +5,7 @@ import SortPopap from './SortPopap/SortPopap';
 import { useDispatch, useSelector } from 'react-redux';
 import { addDevices, setLoaded, setSortBy } from '../../redux/reducers/devices-reducer';
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
-import { getAllBrand, getDevices } from '../../http/deviceApi';
+import { getAllBrand, getDevices, updateRatignLink } from '../../http/deviceApi';
 import Preloader from '../../assets/loader/Preloader';
 import Paginate from '../Paginate';
 import ProductNotFound from '../ProductNotFound/ProductNotFound';
@@ -20,12 +20,11 @@ const sortItems = [
   { name: 'Популярные', type: 'rating', order: 'desc' },
   { name: 'Сначала дорогие', type: 'price', order: 'desc' },
   { name: 'Сначала дешевые', type: 'low_price', order: 'asc' },
-  { name: 'Новинки', type: 'create_at', order: 'desc' },
-  { name: 'За последние 24 часа', type: 'in_24_hour', order: 'asc' },
+  { name: 'Новинки', type: 'create_at', order: 'desc' }
 ]
 
 
-export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) {
+export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, getNoun }) {
 
   const dispatch = useDispatch()
 
@@ -139,17 +138,26 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
     setDisplayType(!displayType)
   }
 
+  const changeRatingLinkCount = (id, click_to_link) => {
+
+    updateRatignLink(id, click_to_link += 1)
+      .then(data => { })
+      .catch(err => console.error(err))
+
+  }
+
   const memorizedBreadCrumbs = React.useMemo(() => <BreadCrumbs />)
 
   return (
     <section className={s.goods}>
       <div className="container">
-      <BreadCrumbs />
+      {memorizedBreadCrumbs}
           {/* {memorizedBreadCrumbs} */}
         <div className={s.goods_info}>
 
           <div className={s.current_goods_title}><span>{currentCrumbs}</span></div>
-          <div className={s.current_goods_subtitle}>товаров &nbsp;<span>{deviceItems.length}</span></div>
+          
+          <div className={s.current_goods_subtitle}><span>{deviceItems.length + ' ' + getNoun(deviceItems.length, 'товар', 'товара', 'товаров')}</span></div>
         </div>
 
 
@@ -204,6 +212,8 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded }) 
                       device={device}
                       favorites={favorites}
                       displayType={displayType}
+                      changeRatingLinkCount={changeRatingLinkCount}
+             
                     />
                   ))
               }

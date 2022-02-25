@@ -1,4 +1,4 @@
-import { getOneDevice } from "../../http/deviceApi"
+import { getDevices, getOneDevice } from "../../http/deviceApi"
 
 const ADD_DEVICES = 'ADD-DEVICES'
 const SET_COUNT = 'SET-COUNT'
@@ -6,6 +6,7 @@ const SET_PAGE = 'SET-PAGE'
 const SET_TOTAL_COUNT = 'SET-TOTAL-COUNT'
 const SET_SORT_BY = 'SET-SORT-BY'
 const SET_POPULAR_DEVICE = 'SET-POPULAR-DEVICE'
+const SET_BESTSELLER_DEVICE = 'SET-BESTSELLER-DEVICE'
 const SET_SEARCH_DEVICE = 'SET-SEARCH-DEVICE'
 const SET_CURRENT_DEVICE = 'SET-CURRENT_DEVICE'
 const SET_LOADED = 'SET-LOADED'
@@ -14,6 +15,7 @@ const initialState = {
   items: [],
   popularDevice: [],
   searchDevice: [],
+  bestsellerDevice: [],
   currentDevice: [],
   maxPrice: 0,
   count: 0,
@@ -65,6 +67,12 @@ const DevicesReducer = (state = initialState, action) => {
         popularDevice: action.payload
       }
     }
+    case SET_BESTSELLER_DEVICE: {
+      return {
+        ...state,
+        bestsellerDevice: action.payload
+      }
+    }
     case SET_SEARCH_DEVICE: {
       return {
         ...state,
@@ -97,6 +105,7 @@ export const setTotalCount = (num) => ({type: SET_TOTAL_COUNT, payload: num})
 export const setSortBy = (type) => ({type: SET_SORT_BY, payload: type})
 // export const setCurrentDevice = ({type, order}) => ({type: SET_POPULAR_DEVICE, payload: {type, order}})
 export const setPopularDevice = (device) => ({type: SET_POPULAR_DEVICE, payload: device})
+export const setBestsellerDevice = (device) => ({type: SET_BESTSELLER_DEVICE, payload: device})
 export const setSearchDevice = (devices) => ({type: SET_SEARCH_DEVICE, payload: devices})
 export const setLoaded = (state) => ({type: SET_LOADED, payload: state})
 export const setCurrentDevicePage = (device) => ({type: SET_CURRENT_DEVICE, payload: device})
@@ -109,6 +118,23 @@ export const getDevicePageTC = (id) => {
     dispatch(setCurrentDevicePage([data]))
   }
 }
+// export const getPopularDeviceTC = (id, typeOrder, orderBy, limit, page, maxPrice, lowerRange, upperRange) => {
+//   return async (dispatch) => {
+
+//     let {data} = await getDevices(id, typeOrder, orderBy, page, limit, maxPrice, lowerRange, upperRange)
+
+//     dispatch(setPopularDevice(data))
+//     // dispatch(setCurrentDevicePage([data]))
+//   }
+// }
+// export const getDevicePageTC = (id) => {
+//   return async (dispatch) => {
+//     let {data} = await getOneDevice(id)
+
+   
+//     dispatch(setCurrentDevicePage([data]))
+//   }
+// }
 
 
 

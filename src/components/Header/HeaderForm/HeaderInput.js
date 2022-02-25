@@ -45,9 +45,7 @@ const HeaderInput = (props) => {
 
 
   React.useEffect(() => {
-    getDevices(null, 'rating', 'desc', 1, 15, 0, null, null)
-      .then(({ data }) => dispatch(setPopularDevice(data)))
-      .catch(err => console.error(err))
+
 
     document.body.addEventListener('click', handleOutSideClick)
   }, [])

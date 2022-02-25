@@ -18,7 +18,6 @@ export default React.memo(function SortPopap({ items, activeSortBy, onClickItem 
 
   const toggleVisiblePopap = (event) => {
     setVisiblePopap(!visiblePopup)
-    console.log(event.target)
     // body.classList.toggle('lock')
   }
 

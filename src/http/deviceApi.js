@@ -1,9 +1,9 @@
 import { host } from './index'
 
-export const getDevices = async (brandId, typeOrder, orderBy, page, limit, maxPrice, lowerRange, upperRange) => {
+export const getDevices = async (brandId, typeOrder, orderBy, page, limit, maxPrice, lowerRange, upperRange, getBestseller) => {
   const data = await host.get('/api/device', {
     params: {
-      brandId, typeOrder, orderBy, limit, page, maxPrice, lowerRange, upperRange
+      brandId, typeOrder, orderBy, limit, page, maxPrice, lowerRange, upperRange, getBestseller
     }
   })
   return data
@@ -23,8 +23,16 @@ export const updateRatign = async (eyeId, rating) => {
   const data = await host.put(`/api/device?eyeId=${eyeId}&rating=${rating}`)
   return data
 }
+export const updateRatignLink = async (linkId, click_to_link) => {
+  const data = await host.put(`/api/device?linkId=${linkId}&click_to_link=${click_to_link}`)
+  return data
+}
 export const updateRatignType = async (typeId, rating) => {
   const data = await host.put(`/api/type?typeId=${typeId}&rating=${rating}`)
+  return data
+}
+export const updateRatignBrand = async (brandId, rating) => {
+  const data = await host.put(`/api/brand?eyeId=${brandId}&rating=${rating}`)
   return data
 }
 
@@ -46,8 +54,8 @@ export const getDeviceWithSearch = async (name) => {
   return data
 }
 
-export const getAllBrand = async (typeId) => {
-  const data = await host.get('/api/brand', { params: { typeId } })
+export const getAllBrand = async (brandId, brandOrder) => {
+  const data = await host.get('/api/brand', { params: { brandId, brandOrder } })
   return data
 }
 

@@ -32,7 +32,7 @@ export default function Main() {
     <section className={s.online_store}>
       <div className="container">
         <div className='store_row'>
-          <Swiper
+          {/* <Swiper
             modules={[Pagination, EffectFade]}
             // pagination={{
               //   clickable: true,
@@ -45,25 +45,25 @@ export default function Main() {
               grabCursor={true}
               pagination={true}
        
-          >
-            <SwiperSlide>
+          > */}
+            {/* <SwiperSlide> */}
               <h1 className={s.store_title}>Интернет Магазин</h1>
               <div className={s.store_subtitle}><span>Успей</span> <span>купить</span> <span>по низкой цене</span></div>
 
               <div className={s.online_store_preview + ' ' + "ibg"}>
                 <img src={main_picture} alt="" />
               </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <h1 className={s.store_title}>Интернет Магазин</h1>
+            {/* </SwiperSlide>
+            <SwiperSlide> */}
+              {/* <h1 className={s.store_title}>Интернет Магазин</h1>
               <div className={s.store_subtitle}><span>Успей</span> <span>купить</span> <span>по низкой цене</span></div>
 
               <div className={s.online_store_preview + ' ' + "ibg"}>
                 <img src={main_screen_two} alt="" />
-              </div>
-            </SwiperSlide>
+              </div> */}
+            {/* </SwiperSlide>
             
-          </Swiper>
+          </Swiper> */}
         </div>
       </div>
     </section>

@@ -8,14 +8,19 @@
 
 .current_goods_title {
   display: inline-block;
-  font-family: GTEestiPro, arial, sans-serif;
-  font-size: 37px;
+  font-family: 'Roboto', arial, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
   color: #000000;
-  word-break: break-all;
+  word-break: break-word;
   margin: 10px 0 0 0;
+}
+.goods_category_title{
+  font-weight: 400;
 }
 .current_brands_count {
   font-family: GTEestiPro, arial, sans-serif;
+  margin: 2220px 0 0;
 }
 .goods_category_all_title {
   font-size: 25px;
@@ -36,9 +41,8 @@
 .goods_content,
 .goods_category_content {
   display: flex;
-  
 }
-.goods_content{
+.goods_content {
   margin: -5px 0 0 0;
 }
 
@@ -60,17 +64,18 @@
   text-decoration: none;
 }
 .filter_title {
-  display: inline-block;
-  font-family: GTEestiPro, arial, sans-serif;
+  font-family: 'Roboto', arial, sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 1.25;
   text-decoration: none;
-  color: #000;
+  color: #001a34;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   overflow: hidden;
+  line-height: 22px;
+  word-break: break-word;
   text-transform: capitalize;
   transition: all 0.3s;
   -webkit-transition: all 0.3s;
@@ -107,10 +112,12 @@
 .filter_submenu_link {
   display: block;
   text-decoration: none;
-  font-family: GTEestiPro, arial, sans-serif;
+  font-family: 'Roboto', arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #001a34;
+  line-height: 1.25;
+  word-break: break-word;
 }
 .filter_submenu_list:hover .filter_submenu_link {
   color: #2252ac;
@@ -321,8 +328,11 @@
   height: 1px;
   background-color: #d2d9df;
 }
-.AllCategory_content_row::before{
+.AllCategory_content_row::before {
   display: none;
+}
+.AllCategory_content_row{
+  margin: 35px 0 0 0;
 }
 .brand_content_row {
   margin: 50px -10px 0 -10px;
@@ -348,11 +358,88 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  /* overflow: hidden; */
   width: 100%;
   padding: 8px;
 }
 
+.device_about_time span{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	width: 45%;
+	height: 25px;
+	left:0;
+	top:5px;
+  font-weight: 200;
+	/* background-color: #ec22cb; */
+	background-color: #d4d107;
+	padding: 3px;
+	font-family: 'Roboto', arial, sans-serif;
+	font-size: 13.5px;
+	/* line-height: 14px; */
+	color: #fff;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-bottom-left-radius: 0;
+	z-index: 2;
+}
+
+.device_about_time::after{
+	content: '';
+	position: absolute;
+	width: 5px;
+	height: 10px;
+	top:30px;
+	left:0;
+	/* background-color: #b6239d; */
+	background-color: #8f8d18;
+	z-index: 2;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.device_about_time::before{
+	content: '';
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	top:30px;
+	left:0;
+	background-color: #d4d107;
+	z-index: 2;
+	/* 
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px; */
+}
+
+.goods_info_about_disconts span{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  min-width: 50px;
+  height: 25px;
+  left: 5px;
+  top: 87.6%;
+  background: #f91155;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.goods_info_about_disconts span {
+  font-family: GTEestiPro, arial, sans-serif;
+  color: #fff;
+  font-size: 14px;
+}
 /* .goods_content_description {
   display: flex;
   flex-direction: column;
@@ -360,14 +447,19 @@
   text-decoration: none;
   padding: 0 5px;
 } */
-.goods_many_info_item{
-  flex:1 1 100%;
+.goods_many_info_item {
+  flex: 1 1 100%;
+}
+.goods_many_info_price {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .favorite_icon {
   position: absolute;
   left: 0;
   top: 0;
-
+  
   cursor: pointer;
 }
 .favorite_icon img {
@@ -427,12 +519,13 @@
   max-width: 100%;
 }
 .goods_content_title {
-  font-family: 'Roboto', arial, sans-serif;
+  font-family: GTEestiPro, arial, sans-serif;
+  /* font-family: "Roboto", arial, sans-serif; */
   font-weight: 400;
   color: #001a34;
   font-size: 14px;
   line-height: 22px;
-  margin: 7px 0 25px 0;
+  margin: 5px 0 20px 0;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
@@ -441,18 +534,18 @@
 
   word-break: break-word;
 }
-.goods_content_item:hover .goods_content_img_bg .goods_content_img {
-  transform: scale(1.08);
-  /* flex:0 0 150px; */
+.goods_content_item:hover .goods_content_title {
+  color: #005bff;
+  /* transform: scale(1.04);
   transition: all 0.3s;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
-  -webkit-transform: scale(1.08);
-  -moz-transform: scale(1.08);
-  -ms-transform: scale(1.08);
-  -o-transform: scale(1.08);
+  -webkit-transform: scale(1.04);
+  -moz-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  -o-transform: scale(1.04); */
 }
 .goods_content_item:hover .goods_content_cancel {
   transform: none;
@@ -463,7 +556,7 @@
 }
 .goods_content_info {
   flex: 1 1 100%;
-  font-family: 'Roboto', arial, sans-serif;
+  font-family: "Roboto", arial, sans-serif;
   font-weight: 400;
   color: #001a34;
   font-size: 13px;
@@ -474,12 +567,40 @@
   margin: 0 0 17px 0;
   line-height: 20px;
 }
+
 .goods_content_price {
   font-family: "Roboto", arial, sans-serif;
   font-weight: 700;
   font-size: 20px;
-  margin: 10px 0 0px 0;
+  margin: 10px 8px 0px 0;
   color: rgb(0, 26, 52);
+  word-break: break-all;
+}
+.goods_content_price_color {
+  color: #f91155;
+  font-size: 20px;
+  font-weight: 700;
+  /* line-height: 26px; */
+}
+.goods_content_old_price {
+  font-family: "Roboto", arial, sans-serif;
+  position: relative;
+  color: #001a34;
+  font-weight: 400;
+  font-size: 16px;
+  /* margin: 10px 0 0 8px; */
+  margin: 5px 0 0 0px;
+}
+.goods_content_old_price::after {
+  background: #f91155;
+  content: "";
+  display: block;
+  height: 1.3px;
+  position: absolute;
+  top: 50%;
+  transform: rotate(-3deg);
+  width: 100%;
+  -webkit-transform: rotate(-3deg);
 }
 .goods_content_shell {
 }
@@ -506,14 +627,18 @@
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
 }
+
 .goods_content_link:hover {
-  background-color: #0059ffd3;
+  background-color: #184daf;
   transition: all 0.3s;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
 }
+
+
+
 .filter_img,
 .filter_sub_modal,
 .menu_img,
@@ -567,14 +692,11 @@
     padding: 0;
   }
   .filter_submenu_link {
-    font-size: 15px;
+    font-size: 14px;
   }
   .filter_title {
+    display: block;
     padding: 10px 0;
-    font-size: 16px;
-    color: #001a34;
-    font-weight: 400;
-    font-family: GTEestiPro, arial, sans-serif;
     border-bottom: 1px solid #d6dade;
   }
   .filter_submenu_list {
@@ -589,7 +711,7 @@
   .goods_content_row {
     margin: 30px 0 0px 0;
   }
-  .AllCategory_content_row{
+  .AllCategory_content_row {
     margin: 20px 0 0 0;
   }
   .goods_content_row_devices {
@@ -715,12 +837,22 @@
   .goods_content_columns {
     flex: 1 1 100%;
   }
+  .goods_columns_square_mod .device_about_time span{
+    left: -5px;
+  }
+  .goods_content_columns:not(.goods_columns_square_mod) .device_about_time span{
+    left:-5px;
+    width: 20%;
+  }
+
+  .goods_content_columns .device_about_time::before,
+  .goods_content_columns .device_about_time::after{
+    left:-5px;
+  }
   .goods_columns_square_mod {
     flex: 0 1 33.333%;
   }
-  .filter_title {
-    -webkit-line-clamp: 2;
-  }
+
   .brand_many_content_info {
     flex-direction: column;
     align-items: flex-start;
@@ -730,13 +862,17 @@
     margin: 10px 0 0 0;
     color: #3d5165;
   }
-  .goods_content_img_bg::after{
+  .goods_content_img_bg::after {
+    width: 100%;
     border-radius: 3px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
-}
+  }
+  .goods_info_about_disconts span{
+    left: 0;
+  }
   /* .goods_columns_square_mod .goods_content_img_bg .goods_content_img{
     width: 50%;
   }
@@ -751,19 +887,20 @@
   .goods_content_columns {
     margin: 0 0 30px 0;
   }
-  .goods_content_title{
-    font-size: 13.5px;
-    margin: 7px 0 20px 0;
+  .goods_content_title {
+    margin: 5px 0 15px 0;
   }
-  .goods_content_img_bg .goods_content_img{
+  .goods_content_img_bg .goods_content_img {
     padding: 75px 0;
   }
-  .goods_content_img_bg{
+  .goods_content_img_bg {
     padding: 0px;
   }
-  .goods_content_img_bg::after{
-    width: 100%;
+
+  .goods_info_about_disconts span{
+    top: 83.5%;
   }
+
   /* .goods_content_img_bg{
     padding: 8px;
   } */
@@ -779,8 +916,9 @@
     flex: 0 1 50%;
     /* margin: 0 0 25px 0; */
   }
+
   .current_goods_title {
-    font-size: 30px;
+    font-size: 25px;
   }
   .goods_category_all_title {
     font-size: 21px;
@@ -802,7 +940,7 @@
   .filter_info_column {
     flex: 0 1 50%;
   }
-  
+
   .goods_content_item::after {
     /* height: 50%;
     top:0px; */
@@ -811,11 +949,11 @@
     font-size: 11px;
     -webkit-line-clamp: 2;
   }
-  
+
   /* .goods_content_item {
     flex-direction: row;
   } */
-  
+
   /* .goods_content_columns {
     padding: 0;
   } */
@@ -840,14 +978,39 @@
   .goods_content_cancel::after {
     background-size: 60px 60px;
   }
+  .goods_content_columns:not(.goods_columns_square_mod) .device_about_time span{
+
+    width: 35%;
+  }
+
+  /* .goods_content_columns:not(.goods_columns_square_mod) .device_about_time::before,
+  .goods_content_columns:not(.goods_columns_square_mod) .device_about_time::after{
+    left:-5px;
+  } */
 }
-/* @media (max-width: 375px) {
-  .goods_content_item {
-    justify-content: space-between;
+@media (max-width: 376px) {
+  .device_about_time span{
+    font-size: 12.5px;
   }
-} */
-/* @media (max-width: 350px) {
-  .goods_content_img_bg{
-    padding: 5px;
+  .goods_columns_square_mod .device_about_time span{
+    width: 42%;
   }
-} */
+  .goods_columns_square_mod .device_about_time span{
+    font-size: 11px;
+    height: 22px;
+  }
+  .goods_columns_square_mod .device_about_time::before,
+  .goods_columns_square_mod .device_about_time::after{
+    top:27px;
+  }
+}
+@media (max-width: 350px) {
+  .device_about_time span{
+    font-size: 12px;
+    height: 23px;
+  }
+  .device_about_time::before,
+  .device_about_time::after{
+    top:28px;
+  }
+}

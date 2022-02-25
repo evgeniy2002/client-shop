@@ -13,12 +13,9 @@ import '../App.css'
 
 export default function AllCategory() {
 
-  const dispatch = useDispatch()
-
-  let { typeCategory, devices } = useSelector(({ types, devices }) => {
+  let { typeCategory } = useSelector(({ types }) => {
     return {
-      typeCategory: types.typesArr,
-      devices: devices.items
+      typeCategory: types.typesArr
     }
 
   })
@@ -31,11 +28,7 @@ export default function AllCategory() {
       .catch(err => console.error(err))
   })
 
-  React.useEffect(() => {
-    getDevices()
-      .then(({ data }) => dispatch(addDevices(data)))
-      .catch(err => console.error(err))
-  }, [])
+
 
 
   return (
@@ -74,38 +67,7 @@ export default function AllCategory() {
         </div>
 
 
-        {/* <div className={s.current_goods_title + ' ' + s.goods_category_all_title}><span>Каталог всех товаров</span></div>
-        <div className={s.goods_category_content}>
-          <div className={s.goods_many_content}>
-            <div className={style_p.products_body_footer}>
-
-              <div className={s.goods_content_row}>
-
-                {devices.length
-                  ? devices.map(item => (
-
-                    <a key={item.id} href={"/device/" + item.id} className={style_p.products_header_item} onClick={() => changeRatingItem(item.id, item.rating)}>
-                      {
-                        item.img === null
-                          ? <div className={style_p.products_item_img + ' ' + style_p.products_item_cancel + ' ' + 'ibg'}></div>
-                          : <div className={style_p.products_item_img + ' ' + 'ibg'}>
-                            <img src={item.img} alt="" />
-                          </div>
-                      }
-
-
-                      <div className={style_p.products_item_price}><span>{item.price} &#8381;</span></div>
-                      <div className={style_p.products_item_name}><span>{item.device_name}</span></div>
-                    </a>
-                  ))
-
-                  : ''
-                }
-
-              </div>
-            </div>
-          </div>
-        </div> */}
+        
       </div>
     </section>
   )

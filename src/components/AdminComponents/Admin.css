@@ -117,7 +117,7 @@ input[type="file"] {
   border: 1px solid #35445a83;
 }
 
-.delete_unit,.edit_unit{
+.delete_unit,.edit_unit,.product_availability{
   margin: 50px 0 0 0;
 }
 

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addDevices, getDevicePageTC } from '../redux/reducers/devices-reducer'
 import BreadCrumbs from '../components/BreadCrumbs/BreadCrumbs'
 import eye from '../assets/images/icons/eye.png'
-import { getAllBrand, getDevices } from '../http/deviceApi'
+import { getAllBrand, getDevices, updateRatignLink } from '../http/deviceApi'
 import heart from '../assets/images/icons/heart.svg'
 import RecommendList from '../components/RecommendList/RecommendList'
 
@@ -64,6 +64,14 @@ export default function DevicePage() {
   //   setStateNextRead(!stateNextRead)
   // }
 
+  const changeRatingLinkCount = (id, click_to_link) => {
+
+    updateRatignLink(id, click_to_link += 1)
+      .then(data => { })
+      .catch(err => console.error(err))
+
+  }
+
   return (
 
     <div className="devicePage">
@@ -85,9 +93,32 @@ export default function DevicePage() {
             <div key={device.id} className="device_body">
 
               <div className="devicePage_item-title"><span>{device.device_name}</span></div>
-              <div className="all_watch">
-                <img src={eye} alt="" />
-                <span>{device.rating}</span>
+              <div className="devicePage_item_info_main">
+                <div className="all_watch">
+                  <img src={eye} alt="" />
+                  <span>{device.rating}</span>
+                </div>
+
+                {
+                  device.percent === 0
+                    ? ''
+                    : <div className='goods_info_about_disconts'>
+                      <span>&ndash;{device.percent}&#x25;</span>
+                    </div>
+                }
+                {
+                  Math.abs(new Date().getTime() - new Date(device.create_at).getTime()) / (1000 * 3600 * 24) < 1
+                    ? <div className='devicePage_about_time'>
+                      <span>Новинка</span>
+                    </div>
+                    : ''
+                }
+
+                {
+                  device.click_to_link > 1
+                    ? <div className="devicePage_bestseller_info bestseller_info"><span>Бестселлер</span></div>
+                    : ''
+                }
               </div>
 
               <div className="devicePage_row">
@@ -116,25 +147,47 @@ export default function DevicePage() {
                   <div className="devicePage_item">
 
                     <div className="devicePage_item-body">
-                      <div className="body_item">
+                      <div className={device.product_availability ? "body_item" : "body_item body_item_other"}>
                         <div className="info">
-                          <div className="body_item-price">{device.price} &#8381;</div>
-                          <div className="info_body">
+                          <div className="info_price">
 
-                            <div className="info_text">
-                              Вы можете написать продавцу,
-                              чтобы он отложил товар,
-                              если нет возможности купить и забрать его сейчас.
-                            </div>
+                            <div className={device.old_price === 0 ? "body_item-price" : "body_item-price body_item-price_color"}><span>{device.price} &#8381;</span></div>
+                            {
+                              device.old_price === 0
+                                ? ''
+                                : <div className="body_item-old_price"><span>{device.old_price} &#8381;</span></div>
+                            }
+
                           </div>
+                          {
+                            device.product_availability
+                              ? <div className="info_body">
+
+                                <div className="info_text">
+                                  Вы можете написать продавцу,
+                                  чтобы он отложил товар,
+                                  если нет возможности купить и забрать его сейчас.
+                                </div>
+                              </div>
+                              : ''
+                          }
+
 
                         </div>
-                        <a href="https://vk.com/id520073022" className="body_btn">Написать продавцу {
-                          adaptiveBtn
-                            ? <span>{device.price} &#8381;</span>
-                            : ''
+                        {
+                          device.product_availability
+                            ? <a href="https://vk.com/id520073022" target="_blank" onClick={() => changeRatingLinkCount(device.id, device.click_to_link)} className="body_btn">Написать продавцу {
+                              adaptiveBtn
+                                ? <span>{device.price} &#8381;</span>
+                                : ''
+                            }
+                            </a>
+                            : <div className='devicePage_product_is_out product_is_out'>
+                              Нет в наличии
+                            </div>
+
                         }
-                        </a>
+
                       </div>
                     </div>
 
@@ -142,6 +195,7 @@ export default function DevicePage() {
                 </div>
               </div>
               <div className={stateNextRead ? "devicePage_item-description item_description-active" : "devicePage_item-description"}>
+
                 <div className="item_description-title">Описание</div>
                 <div className="devicePage_sub_description">
                   {
@@ -171,7 +225,10 @@ export default function DevicePage() {
         }
 
 
-        <RecommendList recommended={recommended} />
+        <RecommendList
+          recommended={recommended}
+          changeRatingLinkCount={changeRatingLinkCount}
+        />
 
 
       </div>

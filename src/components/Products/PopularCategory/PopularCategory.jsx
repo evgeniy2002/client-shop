@@ -24,12 +24,10 @@ export default function PopularCategory({popularBrands, cancel}) {
             </a>
 
           ))
-          : <div className={s.products_header_item + ' ' + s.products_cancel_item}>
-            <div className={s.products_item_img}>
+          : <div className={s.products_cancel_img}>
 
-              <img src={cancel} alt="" />
-            </div>
-          </div>
+          <img src={cancel} alt="" />
+        </div>
         }
 
       </div>

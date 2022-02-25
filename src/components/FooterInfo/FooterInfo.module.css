@@ -44,13 +44,13 @@
 .footer_item_img {
 }
 .footer_info_img img {
-  width: 22px;
-  height: 22px;
-}
-.footer_info_img_catalog img{
   width: 24px;
   height: 24px;
 }
+/* .footer_info_img_catalog img{
+  width: 24px;
+  height: 24px;
+} */
 .footer_icon_img img{
   /* width: 26px;
   height: 26px; */

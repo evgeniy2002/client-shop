@@ -1,13 +1,14 @@
 import React from 'react'
 import s from './Products.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { getTypes, updateRatign } from '../../http/deviceApi'
-import { setPopularBrands } from '../../redux/reducers/brand-reducer'
+import { getAllBrand, getDevices, getTypes, updateRatign, updateRatignLink } from '../../http/deviceApi'
+import { setPopularBrands, setRecommendBrands } from '../../redux/reducers/brand-reducer'
 import cancel from '../../assets/images/icons/cancel.png'
 import BestsellerProducts from './BestsellerProducts/BestsellerProducts'
 import RecommendBrands from './RecommendBrands/RecommendBrands'
 import PopularCategory from './PopularCategory/PopularCategory'
 import PopularGoods from './PopularGoods/PopularGoods'
+import { setBestsellerDevice, setPopularDevice } from '../../redux/reducers/devices-reducer'
 
 
 
@@ -15,21 +16,40 @@ export default function Products() {
 
   const dispatch = useDispatch()
 
-  let { popularGoods, popularBrands } = useSelector(({ devices, brands }) => {
+  let { bestsellerDevice, popularGoods, popularBrands, recommendBrands } = useSelector(({ devices, brands }) => {
     return {
+      bestsellerDevice: devices.bestsellerDevice,
       popularGoods: devices.popularDevice,
-      popularBrands: brands.popularBrands
+      popularBrands: brands.popularBrands,
+      recommendBrands: brands.recommendBrands
     }
   })
 
+  // React.useEffect(() => {
+  //   getDevices(null, 'rating', 'desc', 1, 15, 0, null, null)
+  //     .then(({ data }) => dispatch(setPopularDevice(data)))
+  //     .catch(err => console.error(err))
+
+  //   document.body.addEventListener('click', handleOutSideClick)
+  // }, [])
   React.useEffect(() => {
     // var deadline = new Date(Date.parse(new Date()) + 7 * 24 * 60 * 60 * 1000); // for endless timer
     // initializeClock('countdown', deadline);
+    getDevices(null, 'rating', 'desc', 1, 15, 0, null, null)
+      .then(({ data }) => dispatch(setPopularDevice(data)))
+      .catch(err => console.error(err))
 
+    getDevices(null, 'rating', 'desc', 1, 15, 0, null, null, true)
+      .then(({ data }) => dispatch(setBestsellerDevice(data)))
+      .catch(err => console.error(err))
 
 
     getTypes(null, 'rating')
       .then(({ data }) => dispatch(setPopularBrands(data)))
+      .catch(err => console.error(err))
+
+    getAllBrand(null, 'rating')
+      .then(({ data }) => dispatch(setRecommendBrands(data)))
       .catch(err => console.error(err))
   }, [])
 
@@ -90,6 +110,13 @@ export default function Products() {
       .catch(err => console.error(err))
   }
 
+  const changeRatingLinkCount = (id, click_to_link) => {
+
+    updateRatignLink(id, click_to_link += 1)
+      .then(data => { })
+      .catch(err => console.error(err))
+
+  }
 
   return (
     <section className={s.products}>
@@ -102,23 +129,29 @@ export default function Products() {
               <PopularCategory
                 popularBrands={popularBrands}
                 cancel={cancel}
-              />
+                />
               <BestsellerProducts
-                popularGoods={popularGoods}
+                bestsellerDevice={bestsellerDevice}
                 cancel={cancel}
+                changeRatingLinkCount={changeRatingLinkCount}
                 changeRatingItem={changeRatingItem}
-              />
-              <RecommendBrands />
+                />
+
+              <RecommendBrands
+                recommendBrands={recommendBrands}
+                cancel={cancel}
+                />
               <PopularGoods
                 popularGoods={popularGoods}
                 cancel={cancel}
+                changeRatingLinkCount={changeRatingLinkCount}
                 changeRatingItem={changeRatingItem}
-              /> 
+                />
               {/* <PopularCategory
                 popularBrands={popularBrands}
                 cancel={cancel}
-              />
-              <BestsellerProducts
+                />
+                <BestsellerProducts
                 popularGoods={popularGoods}
                 cancel={cancel}
                 changeRatingItem={changeRatingItem}

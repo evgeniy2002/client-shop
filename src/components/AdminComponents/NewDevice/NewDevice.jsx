@@ -18,13 +18,14 @@ const NewDevice = (props) => {
   const [description, setDescription] = React.useState('')
 
   const [deleteDeviceName, setDeleteDeviceName] = React.useState('')
-
-
+  
+  
   const [oldName, setOldName] = React.useState('')
   const [newPrice, setNewPrice] = React.useState('')
   const [newDescription, setNewDescription] = React.useState('')
   const [newName, setNewName] = React.useState('')
   const [changeFile, setChangeFile] = React.useState(null)
+  const [availabilityDeviceName, setAvailabilityDeviceName] = React.useState('')
 
   React.useEffect(() => {
     getAllBrand()
@@ -50,11 +51,12 @@ const NewDevice = (props) => {
     formData.append('newPrice', newPrice)
     formData.append('img', changeFile)
     formData.append('newDesc', newDescription)
+    formData.append('availabelProduct', availabilityDeviceName)
 
     changeDeviceInfo(formData)
       .then(data => {
         alert('Успешно изменено')
-        
+
       })
       .catch(err => {
         alert('Упс, произошла ошибка')
@@ -374,9 +376,48 @@ const NewDevice = (props) => {
 
           </div>
 
+          <div className="form_group">
+            <label for='product_availability' className='form_label'>Наличие товара (есть | нет)</label>
+            <Field
+              id="product_availability"
+              component={'input'}
+              type={"text"}
+              name='product_availability'
+              className='header_input'
+              autoCapitalize={'off'}
+              autoComplete={'off'}
+              value={availabilityDeviceName}
+              onChange={e => setAvailabilityDeviceName(e.target.value)}
+            />
+          </div>
+          {/* <Field
+              component={'input'}
+              className={checkedTwo ? 'custom_checkbox active' : 'custom_checkbox'}
+              type={'checkbox'}
+              name={'product_availability_editor'}
+              id={'product_availability_editor'}
+              value={checkedTwo}
+              onChange={handleChangeTwo}
+            /> */}
+
           <button className='form_btn change_btn' onClick={changeInfoDevice}>Редактировать</button>
 
         </div>
+
+        {/* <div className="title">Наличие товара</div>
+          
+
+          <Field
+            component={'input'}
+            className={checkedTwo ? 'custom_checkbox active' : 'custom_checkbox'}
+            type={'checkbox'}
+            name={'delete_seized_device'}
+            id={'delete_seized_device'}
+            value={checkedTwo}
+            onChange={handleChangeTwo}
+          />
+          <label for='delete_seized_device' className='form_group_label'>Наличие товара</label> */}
+
       </form >
     </div>
   )

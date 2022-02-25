@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
-import { getAllBrand  } from '../http/deviceApi'
+import { getAllBrand } from '../http/deviceApi'
 import Goods from '../components/Goods/Goods'
 import { getDevices, getTypes } from '../http/deviceApi'
 import { addDevices, setLoaded, setTotalCount } from '../redux/reducers/devices-reducer'
@@ -15,7 +15,7 @@ export default function Shop() {
 
   const dispatch = useDispatch()
 
-
+  const [generalCountGoods, setgeneralCountGoods] = React.useState(0)
   const [currentCrumbs, setCurrentCrumbs] = React.useState('')
 
   let { brandsArr, items, typeCategory, sortBy, breadCrumbs, lowerValue, upperValue, isLoaded, limit, page } = useSelector(({ brands, devices, types, shop }) => {
@@ -56,8 +56,21 @@ export default function Shop() {
           let device = data.find(item => item.type_name === params.brand)
 
           getAllBrand(device.id)
-            .then(({ data }) => dispatch(setBrands(data)))
-            dispatch(setLoaded(false))
+            .then(({ data }) => {
+              dispatch(setBrands(data))
+
+              let findBrandIndex = data.map(item => Number(item.id))
+
+              getDevices()
+                .then(({ data }) => {
+
+                  let devicesGetId = data.map(item => item.brand_id)
+
+                  setgeneralCountGoods(devicesGetId.filter(item => findBrandIndex.indexOf(item) > -1).length)
+                })
+
+            })
+          dispatch(setLoaded(false))
         })
         .catch(err => console.error(err))
     }
@@ -78,18 +91,18 @@ export default function Shop() {
             .then(({ data }) => {
               dispatch(addDevices(data))
               dispatch(setTotalCount(data.length))
-              
+
             })
             .catch(err => console.error(err))
-            
-            dispatch(setLoaded(false))
+
+          dispatch(setLoaded(false))
 
         })
         .catch(err => console.error(err))
     }
   }, [sortBy.type])
-  
-  
+
+
   // React.useEffect(() => {
   //   if (params.type) {
   //   getBrand()
@@ -108,20 +121,45 @@ export default function Shop() {
   //     }
   // },[])
 
+
+  const getNoun = (number, one, two, five) => {
+    let n = Math.abs(number);
+    n %= 100;
+    if (n >= 5 && n <= 20) {
+      return five;
+    }
+    n %= 10;
+    if (n === 1) {
+      return one;
+    }
+    if (n >= 2 && n <= 4) {
+      return two;
+    }
+    return five;
+  }
+
   return (
     <div className="shop_content">
       {
         !params.type
-          ? <Brands brandsArr={brandsArr} typeCategory={typeCategory} currentCrumbs={currentCrumbs} isLoaded={isLoaded} />
-          : <Goods
+          ? <Brands
+            brandsArr={brandsArr}
+            // typeCategory={typeCategory}
+            currentCrumbs={currentCrumbs}
+            isLoaded={isLoaded}
+            generalCountGoods={generalCountGoods}
+            getNoun={getNoun}
+            />
+            : <Goods
             currentCrumbs={currentCrumbs}
             deviceItems={items}
             lowerValue={lowerValue}
             upperValue={upperValue}
             isLoaded={isLoaded}
             params={params}
-          />
-      }
+            getNoun={getNoun}
+            />
+          }
 
     </div>
   )

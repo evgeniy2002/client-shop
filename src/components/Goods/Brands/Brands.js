@@ -9,8 +9,9 @@ import style from './Brands.module.css'
 import Preloader from '../../../assets/loader/Preloader'
 
 import arrow from '../../../assets/images/icons/next-arrow.svg'
+import { updateRatignBrand } from '../../../http/deviceApi'
 
-export default function Brands({ brandsArr, currentCrumbs, isLoaded }) {
+export default function Brands({ brandsArr, currentCrumbs, isLoaded, generalCountGoods, getNoun }) {
 
   const dispatch = useDispatch()
 
@@ -44,6 +45,14 @@ export default function Brands({ brandsArr, currentCrumbs, isLoaded }) {
   })
 
 
+  const changeRatingBrand = (id, rating) => {
+
+    updateRatignBrand(id, rating += 1)
+      .then(data => { })
+      .catch(err => console.error(err))
+
+  }
+
   return (
     <section className={s.goods}>
       <div className="container">
@@ -60,7 +69,7 @@ export default function Brands({ brandsArr, currentCrumbs, isLoaded }) {
         {
 
           <div className={s.goods_content}>
-  
+
             <div className={visibleFilter ? s.filter + ' ' + s.filter_active : s.filter}>
               <div className={s.filter_body_title}>Категории</div>
               <div className={s.filter_close}>
@@ -71,7 +80,7 @@ export default function Brands({ brandsArr, currentCrumbs, isLoaded }) {
                 panelBrands.map(item => (
 
                   <div key={item.title} className={s.filter_content}>
-                    
+
                     <a href={'/category/' + item.title} className={s.filter_title}>{item.title}</a>
                     <ul className={s.filter_submenu}>{item.otherBrands.map(list => (
                       <li key={list.brands_name} className={s.filter_submenu_list}><a href={item.title + '/' + list.brands_name} className={s.filter_submenu_link}>{list.brands_name}</a></li>
@@ -88,7 +97,7 @@ export default function Brands({ brandsArr, currentCrumbs, isLoaded }) {
               <div className={s.brand_many_content_info}>
 
                 <div className={s.current_goods_title}><span>{currentCrumbs}</span></div>
-                <div className={s.current_goods_count_device}><span>12 351 товаров</span></div>
+                <div className={s.current_goods_count_device}><span>{generalCountGoods + ' ' + getNoun(generalCountGoods, 'товар', 'товара', 'товаров')} </span></div>
               </div>
 
               <div className={s.filter_sub_modal} onClick={handleFilterState}>
@@ -110,7 +119,7 @@ export default function Brands({ brandsArr, currentCrumbs, isLoaded }) {
                     ? <Preloader />
                     : brandsArr.map(brand => (
                       <div key={brand.brands_name} className={style.brand_other_sub_columns}>
-                        <a href={location.pathname + '/' + brand.brands_name} className={style.brand_other_sub_item} >
+                        <a href={location.pathname + '/' + brand.brands_name} className={style.brand_other_sub_item} onClick={() => changeRatingBrand(brand.id, brand.rating)}>
                           {
                             brand.img === null
                               ? <div className={style.brand_other_sub_img + ' ' + style.brand_other_sub_cancel + ' ' + 'ibg'}> </div>
@@ -123,7 +132,7 @@ export default function Brands({ brandsArr, currentCrumbs, isLoaded }) {
                               </div>
                           }
 
-                          <div className={style.brands_item_title}>&shy;{brand.brands_name}</div>
+                          <div className={style.brands_item_title}>{brand.brands_name}</div>
                         </a>
                       </div>
                       // <div key={brand.brands_name} className={style.brand_other_columns}>

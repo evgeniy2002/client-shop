@@ -294,8 +294,8 @@
   display: inline-block;
 }
 .header_icons img {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
 }
 
 .header_burger {
@@ -502,15 +502,16 @@ input:-webkit-autofill::first-line {
 .menu_item_label {
   flex: 1 1 auto;
   color: #001a34;
-  font-family: GTEestiPro, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 17px;
-  font-weight: 300;
+  font-weight: 400;
   transition: all 0.4s;
   margin: 0 0 0 16px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   overflow: hidden;
+  word-break: break-word;
   z-index: 2;
 }
 .menu_item:hover .menu_item_label {
