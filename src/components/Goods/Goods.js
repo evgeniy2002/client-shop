@@ -55,6 +55,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
 
   React.useEffect(() => {
+    dispatch(setLoaded(true))
     getAllBrand()
       .then(({ data }) => {
         let device = data.find(item => item.brands_name === params.type)
@@ -70,6 +71,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
           .then(({ data }) => setMaxPrice(data[0].max))
           .catch(err => console.error(err))
 
+        dispatch(setLoaded(false))
       })
 
 
@@ -110,7 +112,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
 
   const filterByPrice = (from, to) => {
-   dispatch(setLoaded(true))
+    dispatch(setLoaded(true))
     getDevices(currentBrand, null, null, 1, 40, 0, null)
       .then(({ data }) => {
         let filter = data.filter(item => {

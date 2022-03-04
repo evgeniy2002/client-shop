@@ -109,7 +109,7 @@ export default function DevicePage() {
                 }
 
                 {
-                  device.click_to_link > 1
+                  device.click_to_link >= 1
                     ? <div className="devicePage_bestseller_info bestseller_info"><span>Бестселлер</span></div>
                     : ''
                 }
