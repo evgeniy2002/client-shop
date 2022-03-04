@@ -1,5 +1,5 @@
 import React from 'react'
-import { updateRatignLink } from '../../../http/deviceApi'
+import Preloader from '../../../assets/loader/Preloader'
 
 import s from '../Products.module.css'
 
@@ -47,29 +47,40 @@ export default function BestsellerProducts({ bestsellerDevice, cancel, changeRat
 
 
               </div>
-              {
-                Math.abs(new Date().getTime() - new Date(item.create_at).getTime()) / (1000 * 3600 * 24) < 1
-                  ? <div className={s.products_about_time}>
+              <div className='goods_info_product_bonus'>
+
+                {
+                  item.click_to_link >= 1
+                  && <div className="bestseller_info"><span>Бестселлер</span></div>
+
+                }
+                {
+                  Math.abs(new Date().getTime() - new Date(item.create_at).getTime()) / (1000 * 3600 * 24) < 1
+                  && <div className='device_about_time'>
                     <span>Новинка</span>
                   </div>
-                  : ''
-              }
+
+                }
+              </div>
               <div className={s.products_item_name}><span>{item.device_name}</span></div>
               {
                 item.product_availability
                   ? <a href='https://vk.com/id520073022' target='_blank' onClick={() => changeRatingLinkCount(item.id, item.click_to_link)} className={s.products_item_btn}><span>Написать</span></a>
                   : <div className={s.products_is_out + ' ' + 'product_is_out'}>
-                    Товар закончился
+                    <span>Товар закончился</span>
                   </div>
               }
             </a>
 
           ))
-          : <div className={s.products_cancel_img}>
+          : !bestsellerDevice.length
+
+            ? <div className={s.products_cancel_img}>
 
               <img src={cancel} alt="" />
             </div>
-          
+            : <Preloader />
+
         }
 
       </div>

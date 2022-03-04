@@ -1,12 +1,12 @@
 import React from 'react'
 import s from '../Header.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { getDevices, getDeviceWithSearch } from '../../../http/deviceApi'
-import { setPopularDevice, setSearchDevice } from '../../../redux/reducers/devices-reducer'
+import { getDeviceWithSearch } from '../../../http/deviceApi'
+import { setSearchDevice } from '../../../redux/reducers/devices-reducer'
 import HeaderFormColumn from './HeaderFormColumn/HeaderFormColumn'
-import Preloader from '../../../assets/loader/Preloader'
 
-import loupe from '../../../assets/images/icons/loupe-form.svg'
+
+
 
 
 const HeaderInput = (props) => {
@@ -25,7 +25,6 @@ const HeaderInput = (props) => {
   const [toggleFormState, setToggleFormState] = React.useState(false)
   const [formValue, setFormValue] = React.useState('')
   const [renderFormPopulation, setRenderFormPopulation] = React.useState(false)
-  // const [notFoundGoods, setNotFoundGoods] = React.useState(false)
   const [adaptiveSearch, setAdaptiveSearch] = React.useState(false)
 
 
@@ -93,9 +92,8 @@ const HeaderInput = (props) => {
   }
 
   return (
-    //ref={formRef}
+
     <div ref={formRef} className={`${s.header_search} ${adaptiveSearch ? s.active : ''}`} onClick={clickOnForm}>
-      {/* <form onSubmit={props.handleSubmit} onClick={clickOnForm}> */}
 
       <div className={s.header_input_info_row}>
 
@@ -141,7 +139,7 @@ const HeaderInput = (props) => {
 
 
 
-<div onClick={closeAdaptiveForm} className={s.closeAdaptiveSearch}>Отмена</div>
+      <div onClick={closeAdaptiveForm} className={s.closeAdaptiveSearch}>Отмена</div>
 
       {/* </form> */}
 

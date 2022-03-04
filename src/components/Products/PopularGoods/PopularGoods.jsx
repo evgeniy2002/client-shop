@@ -1,20 +1,8 @@
 import React from 'react'
+import Preloader from '../../../assets/loader/Preloader'
 import s from '../Products.module.css'
 
 export default function PopularGoods({ popularGoods, cancel, changeRatingItem, changeRatingLinkCount }) {
-
-
-  // const [stateQuickView, setStateQuickView] = React.useState(false)
-  // const [itemInfo, setItemInfo] = React.useState([])
-
-  // const testFunc = (e, item) => {
-  //   e.preventDefault()
-  //   e.stopPropagation();
-  //   e.nativeEvent.stopImmediatePropagation();
-  //   setStateQuickView(!stateQuickView)
-  //   setItemInfo(item)
-  // }
-
 
 
   return (
@@ -33,9 +21,7 @@ export default function PopularGoods({ popularGoods, cancel, changeRatingItem, c
                     <div className={s.products_item_img + ' ' + 'ibg'}>
                       <img src={item.img} alt="" />
                     </div>
-                    {/* <button className={s.quick_view_item} onClick={(e) => testFunc(e, item)}>
-                      Быстрый просмотр
-                    </button> */}
+
                     {
                       item.percent === 0
                         ? ''
@@ -55,19 +41,27 @@ export default function PopularGoods({ popularGoods, cancel, changeRatingItem, c
                 }
 
               </div>
-              {
-                Math.abs(new Date().getTime() - new Date(item.create_at).getTime()) / (1000 * 3600 * 24) < 1
-                  ? <div className={s.products_about_time}>
+              <div className='goods_info_product_bonus'>
+
+                {
+                  item.click_to_link >= 1
+                  && <div className="bestseller_info"><span>Бестселлер</span></div>
+
+                }
+                {
+                  Math.abs(new Date().getTime() - new Date(item.create_at).getTime()) / (1000 * 3600 * 24) < 1
+                  && <div className='device_about_time'>
                     <span>Новинка</span>
                   </div>
-                  : ''
-              }
+
+                }
+              </div>
               <div className={s.products_item_name}><span>{item.device_name}</span></div>
               {
                 item.product_availability
-                  ? <a  href='https://vk.com/id520073022' target='_blank' onClick={() => changeRatingLinkCount(item.id, item.click_to_link)} className={s.products_item_btn}><span>Написать</span></a>
+                  ? <a href='https://vk.com/id520073022' target='_blank' onClick={() => changeRatingLinkCount(item.id, item.click_to_link)} className={s.products_item_btn}><span>Написать</span></a>
                   : <div className={s.products_is_out + ' ' + 'product_is_out'}>
-                    Товар закончился
+                    <span>Товар закончился</span>
                   </div>
               }
 
@@ -76,17 +70,17 @@ export default function PopularGoods({ popularGoods, cancel, changeRatingItem, c
             </a>
 
           ))
-          : <div className={s.products_cancel_img}>
+          : !popularGoods.length
 
-          <img src={cancel} alt="" />
-        </div>
+            ? <div className={s.products_cancel_img}>
+
+              <img src={cancel} alt="" />
+            </div>
+            : <Preloader />
         }
 
       </div>
-      {/* {
-        stateQuickView
-        && <PopapView item={itemInfo} />
-      } */}
+   
     </div>
   )
 }

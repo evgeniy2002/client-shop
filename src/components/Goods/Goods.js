@@ -2,7 +2,7 @@ import React from 'react'
 
 import s from './Goods.module.css'
 import SortPopap from './SortPopap/SortPopap';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addDevices, setLoaded, setSortBy } from '../../redux/reducers/devices-reducer';
 import BreadCrumbs from '../BreadCrumbs/BreadCrumbs';
 import { getAllBrand, getDevices, updateRatignLink } from '../../http/deviceApi';
@@ -12,7 +12,7 @@ import ProductNotFound from '../ProductNotFound/ProductNotFound';
 import FilterBody from './FilterBody/FilterBody';
 import GoodsList from './GoodsList/GoodsList';
 
-import filter from '../../assets/images/icons/filter_icon.svg'
+import filter from '../../assets/images/icons/filter-icon.svg'
 import menu from '../../assets/images/icons/menu-square.svg'
 import menu_line from '../../assets/images/icons/menu-line.svg'
 
@@ -24,21 +24,17 @@ const sortItems = [
 ]
 
 
-export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, getNoun }) {
+export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, getNoun, sortBy }) {
+
 
   const dispatch = useDispatch()
 
   let favorites = [JSON.parse(localStorage.getItem('favorites'))]
 
-  const { sortBy } = useSelector(({ devices }) => {
-    return {
-      sortBy: devices.sortBy,
-
-    }
-  })
 
   const [lowerValue, setLowerValue] = React.useState(0)
   const [upperValue, setUpperValue] = React.useState(0)
+  const [currentBrand, setCurrentBrand] = React.useState(null)
   const [maxPrice, setMaxPrice] = React.useState(0)
   const [visibleFilter, setVisibleFilter] = React.useState(false)
   const [showDateFromFilter, setDateFromFilter] = React.useState(false)
@@ -62,16 +58,40 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
 
   React.useEffect(() => {
+    getAllBrand()
+      .then(({ data }) => {
+        let device = data.find(item => item.brands_name === params.type)
+
+        setCurrentBrand(device.id)
+
+        getDevices(device.id, null, null, 1, 50, 0, null)
+          .then(({ data }) => {
+            dispatch(addDevices(data))
+          })
+
+        getDevices(device.id, null, null, null, null, 1, null)
+          .then(({ data }) => setMaxPrice(data[0].max))
+          .catch(err => console.error(err))
+
+      })
+
+
+  }, [])
+
+
+  React.useEffect(() => {
     if (window.matchMedia("(min-width: 769px)").matches) {
-      getDevicesFromFilter(0, lowerValue, upperValue)
+      filterByPrice(lowerValue, upperValue)
     }
 
   }, [lowerValue, upperValue])
 
+
+
   React.useEffect(() => {
     if (window.matchMedia("(max-width: 768px)").matches && showDateFromFilter) {
 
-      getDevicesFromFilter(0, lowerValue, upperValue)
+      filterByPrice(lowerValue, upperValue)
       setDateFromFilter(false)
 
     }
@@ -79,12 +99,33 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
   }, [showDateFromFilter])
 
 
-
   React.useEffect(() => {
-    getDevicesFromFilter(1, null, null)
+    dispatch(setLoaded(true))
+    getDevices(currentBrand, sortBy.type, sortBy.order, 1, 50, 0, null)
+      .then(({ data }) => {
+        dispatch(addDevices(data.filter(item => item.price >= lowerValue && item.price <= upperValue)))
+        dispatch(setLoaded(false))
+      })
 
-    // console.log([JSON.parse(localStorage.getItem('favorites'))])
-  }, [])
+
+  }, [sortBy.type])
+
+
+
+  const filterByPrice = (from, to) => {
+   dispatch(setLoaded(true))
+    getDevices(currentBrand)
+      .then(({ data }) => {
+        let filter = data.filter(item => {
+          if (item.price >= from && item.price <= to) {
+            return item;
+          }
+        })
+        dispatch(addDevices(filter))
+        dispatch(setLoaded(false))
+      })
+
+  }
 
 
 
@@ -101,26 +142,6 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
   const setCurrentSortBy = React.useCallback((type) => {
     dispatch(setSortBy({ type: type.type, order: type.order }))
   })
-
-  const getDevicesFromFilter = (selectPrice, lowVal, UpperVal) => {
-    dispatch(setLoaded(true))
-    getAllBrand()
-      .then(({ data }) => {
-        let device = data.find(item => item.brands_name === params.type)
-
-        selectPrice === 1
-          ? getDevices(device.id, sortBy.type, sortBy.order, null, null, selectPrice, lowVal, UpperVal)
-            .then(({ data }) => setMaxPrice(data[0].max))
-            .catch(err => console.error(err))
-          : getDevices(device.id, sortBy.type, sortBy.order, null, null, selectPrice, lowVal, UpperVal)
-            .then(({ data }) => dispatch(addDevices(data)))
-            .catch(err => console.error(err))
-
-
-        dispatch(setLoaded(false))
-      })
-      .catch(err => console.error(err))
-  }
 
   const shopDateFilter = () => {
     setDateFromFilter(true)
@@ -141,22 +162,27 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
   const changeRatingLinkCount = (id, click_to_link) => {
 
     updateRatignLink(id, click_to_link += 1)
-      .then(data => { })
       .catch(err => console.error(err))
 
   }
+
+
+
+
+
+
 
   const memorizedBreadCrumbs = React.useMemo(() => <BreadCrumbs />)
 
   return (
     <section className={s.goods}>
       <div className="container">
-      {memorizedBreadCrumbs}
-          {/* {memorizedBreadCrumbs} */}
+        {memorizedBreadCrumbs}
+
         <div className={s.goods_info}>
 
           <div className={s.current_goods_title}><span>{currentCrumbs}</span></div>
-          
+
           <div className={s.current_goods_subtitle}><span>{deviceItems.length + ' ' + getNoun(deviceItems.length, 'товар', 'товара', 'товаров')}</span></div>
         </div>
 
@@ -197,26 +223,23 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
               <img src={filter} alt="" />
             </div>
             <div className={s.goods_content_row + ' ' + s.goods_content_row_devices}>
-
               {
-                isLoaded
-                  && <Preloader />
-                
-                  
-
-
-              }
-              {
-                deviceItems.map(device => (
+                deviceItems.length
+                  ? deviceItems.map(device => (
                     <GoodsList
+                      key={device.device_name}
                       device={device}
                       favorites={favorites}
                       displayType={displayType}
                       changeRatingLinkCount={changeRatingLinkCount}
-             
+
                     />
                   ))
+                  : isLoaded
+                  && <Preloader />
+
               }
+
               {
 
                 !deviceItems.length && filterChange

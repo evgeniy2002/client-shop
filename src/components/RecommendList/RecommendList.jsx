@@ -80,24 +80,25 @@ export default function RecommendList({ recommended, changeRatingLinkCount }) {
                               }
 
                             </div>
-                            {
-                              item.click_to_link >= 1
-                                ? <div className="bestseller_info goods_item_bestseller_info"><span>Бестселлер</span></div>
-                                : ''
-                            }
+                            <div className='goods_info_product_bonus'>
+
+                              {
+                                item.click_to_link >= 1
+                                && <div className="bestseller_info"><span>Бестселлер</span></div>
+
+                              }
+                              {
+                                Math.abs(new Date().getTime() - new Date(item.create_at).getTime()) / (1000 * 3600 * 24) < 1
+                                && <div className='device_about_time'>
+                                  <span>Новинка</span>
+                                </div>
+
+                              }
+                            </div>
                             <div className="goods_item_title"><span>{item.device_name}</span></div>
                           </div>
 
-                          {/* {
-                            item.product_availability
-                              ? <div className='goods_item_shell'>
-                                <a href="https://vk.com/id520073022" target={"_blank"} className='goods_item_btn' onClick={() => changeRatingLinkCount(item.id, item.click_to_link)}>Написать</a>
-                              </div>
-                              : <div className='product_is_out'>
-                                Товар закончился
-                              </div>
-
-                          } */}
+                        
                         </a>
                       </div>
                     </SwiperSlide>
@@ -107,9 +108,9 @@ export default function RecommendList({ recommended, changeRatingLinkCount }) {
 
             </div>
           </div>
-          : recommended.length === 0
-          ? ''
-          : <Preloader />
+          : !recommended.length
+            ? ''
+            : <Preloader />
       }
     </div>
   )

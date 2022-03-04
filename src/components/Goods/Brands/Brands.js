@@ -48,7 +48,6 @@ export default function Brands({ brandsArr, currentCrumbs, isLoaded, generalCoun
   const changeRatingBrand = (id, rating) => {
 
     updateRatignBrand(id, rating += 1)
-      .then(data => { })
       .catch(err => console.error(err))
 
   }
@@ -57,11 +56,7 @@ export default function Brands({ brandsArr, currentCrumbs, isLoaded, generalCoun
     <section className={s.goods}>
       <div className="container">
         <div className={s.goods_info}>
-
           <BreadCrumbs />
-          {/*           
-          
-          <div className={s.current_brands_count}>товаров<span>{brandsArr.length}</span></div> */}
 
         </div>
 
@@ -122,7 +117,7 @@ export default function Brands({ brandsArr, currentCrumbs, isLoaded, generalCoun
                         <a href={location.pathname + '/' + brand.brands_name} className={style.brand_other_sub_item} onClick={() => changeRatingBrand(brand.id, brand.rating)}>
                           {
                             brand.img === null
-                              ? <div className={style.brand_other_sub_img + ' ' + style.brand_other_sub_cancel + ' ' + 'ibg'}> </div>
+                              ? <div className={style.brand_other_sub_img + ' ' + style.brand_other_sub_cancel + ' ' + 'ibg'}></div>
                               : <div className={style.brand_other_img_wrapper}>
 
                                 <div className={style.brand_other_sub_img + ' ' + 'ibg'}>
@@ -135,24 +130,7 @@ export default function Brands({ brandsArr, currentCrumbs, isLoaded, generalCoun
                           <div className={style.brands_item_title}>{brand.brands_name}</div>
                         </a>
                       </div>
-                      // <div key={brand.brands_name} className={style.brand_other_columns}>
-                      //   <a href={location.pathname + '/' + brand.brands_name} className={style.brand_other_item} >
-                      //     {
-                      //       brand.img === null
-                      //         ? <div className={style.brand_other_img + ' ' + style.brand_other_cancel + ' ' + 'ibg'}> </div>
-                      //         : <div className={style.brand_other_img_wrapper}>
-
-                      //           <div className={style.brand_other_img + ' ' + 'ibg'}>
-                      //             <img src={brand.img} alt="" />
-
-                      //           </div>
-                      //         </div>
-                      //     }
-
-
-                      //   </a>
-                      //   <div className={style.brands_item_title}>{brand.brands_name}</div>
-                      // </div>
+                     
 
                     ))
 

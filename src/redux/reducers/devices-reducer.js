@@ -20,7 +20,6 @@ const initialState = {
   maxPrice: 0,
   count: 0,
   page:1,
-  totalCount: 0,
   limit: 15,
   isLoaded: false,
   sortBy: {
@@ -49,12 +48,7 @@ const DevicesReducer = (state = initialState, action) => {
         page: action.payload
       }
     }
-    case SET_TOTAL_COUNT: {
-      return {
-        ...state,
-        totalCount: action.payload
-      }
-    }
+
     case SET_SORT_BY: {
       return {
         ...state,
@@ -101,9 +95,7 @@ const DevicesReducer = (state = initialState, action) => {
 export const addDevices = (devices) => ({type: ADD_DEVICES, payload: devices})
 export const setCount = (num) => ({type: SET_COUNT, payload: num})
 export const setPage = (num) => ({type: SET_PAGE, payload: num})
-export const setTotalCount = (num) => ({type: SET_TOTAL_COUNT, payload: num})
 export const setSortBy = (type) => ({type: SET_SORT_BY, payload: type})
-// export const setCurrentDevice = ({type, order}) => ({type: SET_POPULAR_DEVICE, payload: {type, order}})
 export const setPopularDevice = (device) => ({type: SET_POPULAR_DEVICE, payload: device})
 export const setBestsellerDevice = (device) => ({type: SET_BESTSELLER_DEVICE, payload: device})
 export const setSearchDevice = (devices) => ({type: SET_SEARCH_DEVICE, payload: devices})
@@ -118,23 +110,7 @@ export const getDevicePageTC = (id) => {
     dispatch(setCurrentDevicePage([data]))
   }
 }
-// export const getPopularDeviceTC = (id, typeOrder, orderBy, limit, page, maxPrice, lowerRange, upperRange) => {
-//   return async (dispatch) => {
 
-//     let {data} = await getDevices(id, typeOrder, orderBy, page, limit, maxPrice, lowerRange, upperRange)
-
-//     dispatch(setPopularDevice(data))
-//     // dispatch(setCurrentDevicePage([data]))
-//   }
-// }
-// export const getDevicePageTC = (id) => {
-//   return async (dispatch) => {
-//     let {data} = await getOneDevice(id)
-
-   
-//     dispatch(setCurrentDevicePage([data]))
-//   }
-// }
 
 
 

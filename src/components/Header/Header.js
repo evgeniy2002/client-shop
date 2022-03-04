@@ -4,7 +4,7 @@ import vk_logo from '../../assets/images/icons/vk.svg'
 import classNames from 'classnames'
 import { useDispatch, useSelector } from 'react-redux'
 import { getTypeTC } from '../../redux/reducers/type-reducer'
-import {  updateRatignType } from '../../http/deviceApi'
+import { updateRatignType } from '../../http/deviceApi'
 import HeaderInput from './HeaderForm/HeaderInput'
 
 
@@ -12,6 +12,9 @@ import HeaderInput from './HeaderForm/HeaderInput'
 
 export default function Header() {
   const dispatch = useDispatch()
+
+  const item_img = React.useRef()
+  const headerRef = React.useRef()
 
   const [catalogState, setStateCatalog] = React.useState(false)
 
@@ -21,10 +24,6 @@ export default function Header() {
       types: types.typesArr
     }
   })
-
-  let item_img = React.useRef()
-
-  const headerRef = React.useRef()
 
   React.useEffect(() => {
 
@@ -86,7 +85,6 @@ export default function Header() {
 
 
     updateRatignType(id, rating += 1)
-      .then(data => console.log(data))
       .catch(err => console.error(err))
   })
 
@@ -102,9 +100,9 @@ export default function Header() {
             </div>
             <div className={s.catalog_text}>Каталог</div>
           </div>
-         
-            <HeaderInput setStateCatalog={setStateCatalog} catalogState={catalogState} handleClick={handleClick} />
-            
+
+          <HeaderInput setStateCatalog={setStateCatalog} catalogState={catalogState} handleClick={handleClick} />
+
 
           <div className={s.social_network}>
             <a href="" className={s.header_icons}><img src={vk_logo} alt="" /></a>
@@ -113,10 +111,10 @@ export default function Header() {
         <div className={classNames(s.popup_menu_product, {
           [s.active]: catalogState === true,
         })}
-       
+
         >
 
-          
+
 
           <ul className={s.sub_menu}>
 
@@ -125,16 +123,16 @@ export default function Header() {
                 return <li className={s.menu_columns} key={item.id}>
                   <a
                     href={'/category/' + item.type_name}
-                  
+
                   >
                     <div className={s.menu_item} onClick={() => changeRatingType(item.id, item.rating)}>
                       <div className={s.menu_item_row}>
                         {
                           item.img === null
-                          ? <div ref={item_img} className={s.menu_item_img + ' ' + s.menu_item_cancel + ' ' + 'ibg'}> </div>
-                          : <div ref={item_img} className={s.menu_item_img + ' ' + 'ibg'}><img src={item.img} alt="" /></div>
+                            ? <div ref={item_img} className={s.menu_item_img + ' ' + s.menu_item_cancel + ' ' + 'ibg'}> </div>
+                            : <div ref={item_img} className={s.menu_item_img + ' ' + 'ibg'}><img src={item.img} alt="" /></div>
                         }
-              
+
                         <div className={s.menu_item_label}><span>{item.type_name}</span></div>
                       </div>
                     </div>
@@ -144,7 +142,7 @@ export default function Header() {
             }
 
           </ul>
-          
+
         </div>
       </div>
     </header>

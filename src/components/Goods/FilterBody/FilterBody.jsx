@@ -39,7 +39,7 @@ export default function FilterBody({ maxPrice, upperValue, lowerValue, shopDateF
         </div>
       </div>
       <button className={s.filter_btn} onClick={shopDateFilter}>Посмотреть</button>
-      {/* <button className={s.filter_btn} onClick={shopDateFilter}>Показать <span>товаров {deviceItems.length}</span></button> */}
+      
     </div>
   )
 }

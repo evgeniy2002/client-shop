@@ -24,7 +24,6 @@ export default function AllCategory() {
 
 
     updateRatignType(id, rating += 1)
-      .then(data => { })
       .catch(err => console.error(err))
   })
 
@@ -55,7 +54,7 @@ export default function AllCategory() {
 
 
                     </a>
-                    <div className='brand_item_title'>{type.type_name}</div>
+                    <div className='brand_item_title'><span>{type.type_name}</span></div>
                   </div>
                 ))
 

@@ -1,9 +1,10 @@
 import React from 'react'
 import s from '../Products.module.css'
+import Preloader from '../../../assets/loader/Preloader'
 
-import '../../../App.css'
 
-export default function PopularCategory({popularBrands, cancel}) {
+
+export default function PopularCategory({ popularBrands, cancel }) {
   return (
     <div className={s.products_body_header}>
       <div className={s.products_body_title}><span>Популярные категории</span></div>
@@ -24,10 +25,13 @@ export default function PopularCategory({popularBrands, cancel}) {
             </a>
 
           ))
-          : <div className={s.products_cancel_img}>
+          : !popularBrands.length
 
-          <img src={cancel} alt="" />
-        </div>
+            ? <div className={s.products_cancel_img}>
+
+              <img src={cancel} alt="" />
+            </div>
+            : <Preloader />
         }
 
       </div>

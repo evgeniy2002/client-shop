@@ -3,9 +3,8 @@ import { useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addDevices, getDevicePageTC } from '../redux/reducers/devices-reducer'
 import BreadCrumbs from '../components/BreadCrumbs/BreadCrumbs'
-import eye from '../assets/images/icons/eye.png'
+import eye from '../assets/images/icons/eye.svg'
 import { getAllBrand, getDevices, updateRatignLink } from '../http/deviceApi'
-import heart from '../assets/images/icons/heart.svg'
 import RecommendList from '../components/RecommendList/RecommendList'
 
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
@@ -19,7 +18,6 @@ export default function DevicePage() {
 
   const [adaptiveBtn, setAdaptiveBtn] = React.useState(false)
   const [modalActive, setModalActive] = React.useState(false)
-  const [stateNextRead, setStateNextRead] = React.useState(false)
 
   const { id } = useParams()
 
@@ -29,7 +27,7 @@ export default function DevicePage() {
       currentDevice: devices.currentDevice
     }
   })
-  // console.log(params.type)
+
   React.useEffect(() => {
     if (params.type) {
 
@@ -37,7 +35,7 @@ export default function DevicePage() {
         .then(({ data }) => {
           let device = data.filter(item => item.brands_name === params.type)
 
-          getDevices(device[0].id, 'rating', 'desc', 1, 20, 0, null, null)
+          getDevices(device[0].id, 'rating', 'desc', 1, 20, 0, null)
             .then(({ data }) => {
 
               let filter_device = data.filter(item => item.id !== params.id)
@@ -60,14 +58,10 @@ export default function DevicePage() {
   }, [])
 
 
-  // const handleNextReat = () => {
-  //   setStateNextRead(!stateNextRead)
-  // }
 
   const changeRatingLinkCount = (id, click_to_link) => {
 
     updateRatignLink(id, click_to_link += 1)
-      .then(data => { })
       .catch(err => console.error(err))
 
   }
@@ -139,9 +133,6 @@ export default function DevicePage() {
                         </TransformComponent>
                       </TransformWrapper>
                   }
-                  {/* <div className='favorite_click'>
-                    <img src={heart} alt="" />
-                  </div> */}
                 </div>
                 <div className="devicePage_columns">
                   <div className="devicePage_item">
@@ -183,7 +174,7 @@ export default function DevicePage() {
                             }
                             </a>
                             : <div className='devicePage_product_is_out product_is_out'>
-                              Нет в наличии
+                              <span>Нет в наличии</span>
                             </div>
 
                         }
@@ -194,19 +185,9 @@ export default function DevicePage() {
                   </div>
                 </div>
               </div>
-              <div className={stateNextRead ? "devicePage_item-description item_description-active" : "devicePage_item-description"}>
 
-                <div className="item_description-title">Описание</div>
-                <div className="devicePage_sub_description">
-                  {
-                    device.description
-                      ? device.description
-                      : <div> Здесь должно быть описание товара, но к сожалению его нет &#128532;</div>
-                  }
-                </div>
-              </div>
 
-              {/* <button className={stateNextRead ? 'devicePage_buttom_next-read buttom_next_read-false' : 'devicePage_buttom_next-read'} onClick={handleNextReat}>Читать далее</button> */}
+           
             </div>
           ))
         }

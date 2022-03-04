@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
-@import url(//db.onlinewebfonts.com/c/3f1909d292eedb322edf56b440e78693?family=GT+Eesti+Pro+Text);
+
 
 *,
 *:after,
@@ -21,7 +20,6 @@ body {
 }
 
 .wrapper {
-	/* position: relative; */
 	display: flex;
 	flex-direction: column;
 	/* overflow: hidden; */
@@ -133,141 +131,7 @@ body {
 	-o-border-radius: 10px;
 }
 
-/* ============================================== PAGINATE =========================================== */
 
-.pagination {
-	display: flex;
-	list-style: none;
-	cursor: pointer;
-	align-items: center;
-	margin: 0 0 20px 0;
-	overflow: hidden;
-	cursor: auto;
-}
-.pagination__link--active {
-	color: #fff;
-	background: #6c7ac9;
-}
-.previous,
-.next {
-	display: none;
-	opacity: 0;
-	visibility: hidden;
-}
-.pagination__link--active a {
-}
-
-.pagination__link--disabled a {
-}
-.pagination li {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 40px;
-	height: 40px;
-	font-family: "Roboto", sans-serif;
-	font-size: 22px;
-	border: 1px solid #005bff;
-	cursor: pointer;
-}
-.pagination li a {
-	display: flex;
-	height: 100%;
-	width: 100%;
-	justify-content: center;
-	align-items: center;
-}
-
-.content_loader {
-	margin: -30px auto 20px auto;
-	padding: 0 12px;
-}
-
-/* ======================================= ONLINE STORE ================================================= */
-.online-store {
-	position: relative;
-}
-.online-store_preview {
-	position: relative;
-	padding: 265px 0;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-}
-
-.store-title {
-	color: #fff;
-	position: absolute;
-	top: 10%;
-	font-size: 60px;
-	max-width: 345px;
-	border-radius: 5px;
-	z-index: 1;
-	background: radial-gradient(#45485a27, #00000007);
-	padding: 0 0 0 20px;
-	margin: 0 0 0 100px;
-}
-.store-subtitle {
-	position: absolute;
-	top: calc(100% - 40%);
-	font-size: 30px;
-	max-width: 284px;
-	color: #fff;
-	padding: 0 0 15px 20px;
-	margin: 0 0 0 105px;
-	border-radius: 15px;
-	background: radial-gradient(#60637054, #00000008);
-	z-index: 1;
-}
-.store-subtitle span:nth-child(1) {
-	color: rgb(255, 255, 255);
-}
-.store-subtitle span:nth-child(2) {
-	color: red;
-}
-.store-subtitle span:nth-child(3) {
-	background-color: #c4c4c4;
-	padding: 0 5px;
-}
-.store-title,
-.store-subtitle {
-	font-family: "Open Sans", sans-serif;
-	font-weight: 700;
-}
-/* =========================================== PRODUCTS =================================== */
-
-.countdown-title {
-	text-align: center;
-	font-family: "Open Sans", sans-serif;
-	font-weight: 400;
-	color: #fff;
-	font-size: 18px;
-}
-.timer {
-	display: flex;
-	justify-content: center;
-}
-.countdown-number {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 0 12px 0 0;
-	text-align: center;
-}
-.countdown-number:last-of-type {
-	margin: 0;
-}
-.countdown-time {
-	font-family: "Open Sans", sans-serif;
-	font-weight: 700;
-	color: #499cb7;
-	font-size: 30px;
-}
-.countdown-text {
-	font-family: "Open Sans", sans-serif;
-	font-weight: 700;
-	color: #fff;
-	font-size: 10px;
-}
 
 /*=================================================== DevicePage ======================================================== */
 
@@ -281,10 +145,8 @@ body {
 	color: #001a34;
 	font-weight: 700;
 	margin: 20px 0;
-	/* padding: 0 0 10px 0; */
 }
-.devicePage_item-title::before {
-}
+
 .devicePage_row {
 	position: relative;
 	display: flex;
@@ -301,31 +163,16 @@ body {
 }
 .devicePage_columns:first-child {
 	position: relative;
-	/* flex: 0 0 380px; */
 	margin: 0 120px 0 0;
-	/* margin: 0 0 0 auto; */
 }
 .devicePage_columns:last-of-type {
 	margin: 30px 80px 0 0;
-	/* margin: 0 auto 0 0; */
-	/* flex: 1 1 100%; */
-	/* align-self: flex-start; */
-	/* margin: 0 0 50px 0; */
-}
-/* .favorite_click{
-	position: absolute;
-	top:-20px;
-	right: -32.5px;
 
 }
-.favorite_click img{
-  width: 24px;
-  height: 24px;
-} */
+
 .devicePage_img {
 	width: 350px;
 	padding: 195px 0;
-	/* margin: 0 auto; */
 	background-size: contain;
 	cursor: zoom-in;
 }
@@ -336,7 +183,7 @@ body {
 	height: 100%;
 	left: 0;
 	top: 0;
-	background: url("./assets/images/icons/no-photos.png") center center no-repeat;
+	background: url("./assets/images/icons/no-photos.svg") center center no-repeat;
 	background-size: 80px 80px;
 }
 .devicePage_img img {
@@ -358,19 +205,6 @@ body {
 	max-width: 90%;
 }
 
-.devicePage_buttom_next-read {
-	display: none;
-}
-
-.item_description-title {
-	font-family: GTEestiPro, arial, sans-serif;
-	font-size: 20px;
-	font-weight: 700;
-	margin: 0 0 20px 0;
-}
-.devicePage_item-body {
-	margin: 0 0 0 auto;
-}
 .body_item {
 	padding: 30px 20px;
 	position: relative;
@@ -410,7 +244,7 @@ body {
 }
 .body_item-price span {
 	display: inline-block;
-	font-family: GTEestiPro, arial, sans-serif;
+	font-family: 'Roboto', arial, sans-serif;
 	font-size: 30px;
 	line-height: 38px;
 	font-weight: 700;
@@ -422,7 +256,7 @@ body {
 .body_item-old_price span {
 	position: relative;
 	display: inline-block;
-	font-family: GTEestiPro, arial, sans-serif;
+	font-family: 'Roboto', arial, sans-serif;
 	font-size: 20px;
 	font-weight: 700;
 	line-height: 26px;
@@ -441,39 +275,7 @@ body {
 	-webkit-transform: rotate(-3deg);
 	
 }
-/* .body_item-old_price span{
-	position: relative;
-	display: inline-block;
-	font-family: GTEestiPro, arial, sans-serif;
-	font-size: 20px;
-	font-weight: 700;
-	line-height: 26px;
-}
-.body_item-old_price span::before{
-	background-color: #f91155;
-	content: "";
-	display: block;
-	left: 0;
-	position: absolute;
-	top: calc(50% - 1px);
-	transform: rotate(-2deg);
-	width: 100%;
-	z-index: -1;
-} */
-.info_icon {
-	position: absolute;
-	right: 10px;
-	display: inline-block;
-	width: 25px;
-	height: 25px;
-	color: #fff;
-	background-color: rgba(0, 0, 0, 50%);
-	border-radius: 50%;
-	text-align: center;
-	font-size: 20px;
-	line-height: 25px;
-	text-decoration: none;
-}
+
 .info_body {
 	margin: 15px 0 0 0;
 }
@@ -501,7 +303,7 @@ body {
 	width: calc(100% - 30px);
 	left: 50%;
 	transform: translate(-50%, 0);
-	font-family: GTEestiPro, arial, sans-serif;
+	font-family: "Roboto", arial, sans-serif;
 	font-weight: 700;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -522,17 +324,19 @@ body {
 	-ms-transition: all 0.3s;
 	-o-transition: all 0.3s;
 }
-.product_is_out {
+.product_is_out{
+	margin: auto 0 0 0;
+}
+.product_is_out span{
 	font-family: "Roboto", arial, sans-serif;
 	color: #5a6c7d;
 	font-size: 14px;
 	line-height: 1.29;
-	margin: 0 0 10px 0;
 }
 
-.devicePage_product_is_out {
+.devicePage_product_is_out span{
 	position: absolute;
-	bottom: 20px;
+	bottom: 30px;
 	left: 50%;
 	transform: translate(-50%, 0);
 	-webkit-transform: translate(-50%, 0);
@@ -554,16 +358,13 @@ body {
 	display: flex;
 	align-items: center;
 	margin: 0 10px 0 0;
-	/* position: absolute;
-	top: 8px;
-	right: 0px; */
 }
 .all_watch img {
 	width: 17px;
 	height: 17px;
 }
 .all_watch span {
-	font-family: GTEestiPro, arial, sans-serif;
+	font-family: 'Roboto', arial, sans-serif;
 	font-weight: 400;
 	font-size: 12px;
 	color: #000;
@@ -578,7 +379,7 @@ body {
 }
 
 .goods_info_about_disconts span {
-	font-family: GTEestiPro, arial, sans-serif;
+	font-family: 'Roboto', arial, sans-serif;
 	color: #fff;
 	font-size: 14px;
 	display: flex;
@@ -598,7 +399,7 @@ body {
 }
 
 .devicePage_about_time span {
-	font-family: GTEestiPro, arial, sans-serif;
+	font-family: 'Roboto', arial, sans-serif;
 	color: rgb(96, 184, 0);
 	background-color: rgb(255, 255, 255);
 	border: 1px solid rgb(96, 184, 0);
@@ -611,7 +412,6 @@ body {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	margin: 0 10px 0 0;
-	/* margin: 0 0 0 10px; */
 }
 .devicePage_bestseller_info span{
 	border-radius: 12px;
@@ -623,7 +423,6 @@ body {
 	border: 1px solid transparent;
 	background-color: #ffffff;
 	border-color: #ff8400;
-	/* margin-left: 10px; */
 }
 .modal {
 	margin: 5px 0 125px 0;
@@ -633,14 +432,14 @@ body {
 	padding: 10px 0;
 }
 .modal_title {
-	font-family: GTEestiPro, arial, sans-serif;
+	font-family: 'Roboto', arial, sans-serif;
 	font-weight: 400;
 	font-size: 15px;
 	color: #005bff;
 	margin: 0 0 10px 0;
 }
 .modal_info {
-	font-family: GTEestiPro, arial, sans-serif;
+	font-family: 'Roboto', arial, sans-serif;
 	font-size: 12.5px;
 	line-height: 22px;
 	color: #001a34;
@@ -651,19 +450,16 @@ body {
 	padding: 70px 0 0px 0;
 }
 .recommended_goods_title {
-	font-family: GTEestiPro, arial, sans-serif;
+	font-family: 'Roboto', arial, sans-serif;
 	font-size: 20px;
 	color: #333;
 }
 .recommended_goods_row {
 	position: relative;
-	/* display: flex; */
 	margin: 35px -10px 0 -10px;
 }
 .recommended_goods_columns {
 	cursor: pointer;
-	/* display: flex; */
-	/* justify-content: center; */
 	min-height: 100%;
 	padding: 0 15px;
 	cursor: pointer;
@@ -677,9 +473,7 @@ body {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	/* min-height: 100%; */
 	text-decoration: none;
-	/* outline: 1px solid red; */
 }
 .goods_item_img {
 	position: relative;
@@ -692,17 +486,13 @@ body {
 	-o-transition: all 0.3s;
 	background-size: contain;
 }
-/* .recommend_item_img{
-	width: 110px;
-	padding: 77px 0;
-	margin:0 auto 12px auto;
-} */
+
 
 .goods_item_img img {
 	max-width: 100%;
 }
 .goods_item_title span{
-	font-family: GTEestiPro, arial, sans-serif;
+	font-family: 'Roboto', arial, sans-serif;
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 20px;
@@ -723,8 +513,7 @@ body {
 }
 .goods_item_price span {
 	display: inline-flex;
-	/* flex: 1 1 100%; */
-	font-family: GTEestiPro, arial, sans-serif;
+	font-family: 'Roboto', arial, sans-serif;
 	font-weight: 700;
 	font-size: 18px;
 	color: #001a34;
@@ -734,70 +523,36 @@ body {
 .goods_item_old_price span {
 	position: relative;
 	display: inline-block;
-	font-family: GTEestiPro, arial, sans-serif;
+	font-family: 'Roboto', arial, sans-serif;
 	font-size: 14px;
 	line-height: 14px;
 	color: #001a34;
-	/* margin: 0 0 0px 5px; */
 }
 
-.bestseller_info {
-	margin: 5px 0;
+.goods_info_product_bonus{
+	margin: 0px 0 5px 0;
+	
+}
+.goods_list_info_bonus{
+	margin: 5px 0 0 0;
+}
+.device_about_time{
+	margin: 3px 0 0 0;
 }
 .goods_item_bestseller_info{
 	margin: 0 0 5px 0;
 }
+.device_about_time span,
 .bestseller_info span {
-	font-family: GTEestiPro, arial, sans-serif;
+	font-family: 'Roboto', arial, sans-serif;
 	color: rgb(255, 132, 0);
 	font-size: 14px;
 	line-height: 18px;
-	/* margin: 5px 0 0 0; */
+}
+.device_about_time span{
+	color: #10ad44;
 }
 
-/* .goods_item_shell{
-	margin: auto 0 0 0;
-} */
-.goods_item_btn {
-	display: inline-block;
-	background-color: #005bff;
-	color: #fff;
-	text-decoration: none;
-	height: 35px;
-	line-height: 35px;
-	width: 100px;
-	text-align: center;
-	font-family: GTEestiPro, arial, sans-serif;
-	font-weight: 700;
-	font-size: 13px;
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-ms-border-radius: 5px;
-	-o-border-radius: 5px;
-	transition: all 0.3s;
-	-webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	-ms-transition: all 0.3s;
-	-o-transition: all 0.3s;
-}
-.goods_item_btn:hover {
-	background-color: rgb(0, 61, 173);
-	transition: all 0.3s;
-	-webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	-ms-transition: all 0.3s;
-	-o-transition: all 0.3s;
-}
-/* ==================================================== PRESENT ================================================== */
-
-.present_page_desc {
-	font-family: GTEestiPro, arial, sans-serif;
-	font-weight: 400;
-	font-size: 20px;
-	color: #000;
-	margin: 30px 0 0 0;
-}
 
 /* ======================================================== ADMIN PANEL ================================================= */
 
@@ -817,14 +572,14 @@ body {
 	height: 70px;
 }
 .admin_header_text {
-	font-family: "Open Sans", sans-serif;
+	font-family: "Roboto", sans-serif;
 	font-weight: 400;
 	color: #001a34;
 	font-size: 25px;
 }
 .admin_header_btn {
 	display: inline-block;
-	font-family: "Open Sans", sans-serif;
+	font-family: "Roboto", sans-serif;
 	font-size: 19px;
 	border: none;
 	background-color: transparent;
@@ -834,8 +589,7 @@ body {
 .admin_content_row {
 	display: flex;
 }
-.admin_content {
-}
+
 .admin_left_columns {
 	position: sticky;
 	flex: 0 1 28%;
@@ -895,7 +649,6 @@ body {
 }
 .admin_right_columns {
 	flex: 1 1 100%;
-	/* outline: 1px solid red; */
 	padding: 20px 0 20px 30px;
 }
 
@@ -940,7 +693,7 @@ body {
 	background-size: 12px 12px;
 }
 .go_back button {
-	font-family: GTEestiPro, sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 400;
 	font-size: 16px;
 	color: #0059ff;
@@ -953,9 +706,9 @@ body {
 
 /* ========================================================= GENERAL STYLE ======================================================= */
 
-.brand_item_title {
-	font-family: GTEestiPro, arial, sans-serif;
-	font-size: 15px;
+.brand_item_title span{
+	font-family: 'Roboto', arial, sans-serif;
+	font-size: 16px;
 	letter-spacing: 0.2px;
 	line-height: 20px;
 	text-align: center;
@@ -965,7 +718,7 @@ body {
 	white-space: normal;
 	overflow: hidden;
 	color: #001a34;
-	margin: 8px 0 0 0;
+	margin: 15px 0 0 0;
 	word-break: break-word;
 }
 
@@ -976,11 +729,7 @@ body {
 		padding: 65px 0;
 	}
 }
-@media (max-width: 930px) {
-	.devicePage_item-body {
-		padding: 0 0 0 50px;
-	}
-}
+
 @media (max-width: 860px) {
 	.products_row {
 		flex-wrap: wrap-reverse;
@@ -1002,8 +751,6 @@ body {
 @media (max-width: 768px) {
 	.container {
 		padding: 0;
-		/* margin: 0; */
-		/* max-width: 768px; */
 	}
 	body.lock {
 		overflow: hidden;
@@ -1012,40 +759,21 @@ body {
 		margin: -85px 0 130px 0;
 		padding: 0 10px 0px 10px;
 	}
-
-	/* .recommend_item_img{
-		width: 108.5px;
-	} */
-	.present_page_desc {
-		padding: 0 10px;
-		margin: 70px 0 0 0;
+	.brand_item_title span{
+		font-size: 14px;
+		margin: 8px 0 0 0;
 	}
 	.brand_item_title {
 		font-size: 12px;
 		letter-spacing: 0.2px;
 		line-height: 16px;
 	}
-	/* .wrapper{
-		overflow: hidden;
-	} */
-	.sub-menu-list {
-		position: absolute;
-		left: 112.5%;
-		top: 0;
-		padding: 0;
-		background-color: rgba(54, 59, 66, 90%);
-		min-width: 166px;
-		border-bottom-right-radius: 12px;
-	}
-	.sub-menu-list > li {
-		background-color: rgba(54, 59, 66, 90%);
-	}
+
+
 	.devicePage_sub_description {
 		max-width: 100%;
 	}
-	.devicePage_buttom_next-read.buttom_next_read-false {
-		display: none;
-	}
+
 	.brear_crumbs_container {
 		padding: 0 0 0 10px;
 	}
@@ -1056,16 +784,11 @@ body {
 
 	.devicePage_columns:first-child {
 		flex: 1 1 100%;
-		/* margin: 0 0 5px 0; */
 		margin: 0;
 	}
 
 	.devicePage_item {
 		display: block;
-	}
-	.devicePage_item-body {
-		margin: 20px 0 0 0;
-		padding: 0;
 	}
 	.info_text {
 		font-size: 13px;
@@ -1115,52 +838,19 @@ body {
 		font-weight: 400;
 		font-size: 16px;
 		line-height: 25px;
-		font-family: "Open-Sans", sans-serif;
+		font-family: "Roboto", sans-serif;
 	}
 	.devicePage_item-description {
 		padding: 0 10px;
 		margin: 0 0 5px 0;
-		/* height: 160px;
-		overflow: hidden; */
-	}
-	/* .devicePage_item-description.item_description-active{
-		height: 100%;
-		overflow: visible;
-	} */
-	.devicePage_buttom_next-read {
-		display: inline-block;
-		margin: 0 10px;
-		background: transparent;
-		color: #005bff;
-		font-size: 14px;
-		border: none;
-		outline: none;
-	}
 
+	}
 	.devicePage_row {
 		margin: 40px 0 0 0;
 	}
-	/* 
-	input:-webkit-autofill,
-	input:-webkit-autofill:hover,
-	input:-webkit-autofill:focus,
-	input:-webkit-autofill:active {
-		transition: background-color 5000s ease-in-out 0s;
-	}
-
-	input:-webkit-autofill {
-		-webkit-text-fill-color: #fff;
-	}
-	input:-webkit-autofill {
-		caret-color: white;
-	}
-	input:-webkit-autofill::first-line {
-		font-size: 12px;
-	} */
 
 	.devicePage_item-title {
 		margin: 15px 10px 20px 10px;
-		/* padding: ; */
 	}
 	.devicePage_item-title::before {
 		left: 0;
@@ -1187,11 +877,9 @@ body {
 	.goods_info_about_disconts span {
 		margin: 0 10px 0 0;
 	}
-	.devicePage_about_time span {
-		/* margin: 0 0 0 15px; */
-	}
+
 	.go_back {
-		margin: 70px 0 35px 0;
+		margin: 70px 0 30px 0;
 	}
 	/* =================================================== SWIPER MEDIA ======================================== */
 
@@ -1202,11 +890,8 @@ body {
 @media (max-width: 630px) {
 	.devicePage_img {
 		padding: 150px 0;
-		/* width: 260px; */
 	}
-	/* .goods_item_title span{
-		font-size: 15px;
-	} */
+
 	.goods_item_price {
 		font-size: 16px;
 	}
@@ -1217,9 +902,6 @@ body {
 		width: 310px;
 		padding: 120px 0;
 	}
-	/* .goods_item_title span{
-		font-size: 14px;
-	} */
 }
 @media (max-width: 450px) {
 	.devicePage_columns:last-of-type {
@@ -1230,9 +912,6 @@ body {
 	.body_item {
 		max-width: 100%;
 	}
-	.devicePage_item-body {
-		margin: 0px 0 35px 0;
-	}
 
 	.recommended_goods_columns {
 		padding: 0;
@@ -1240,32 +919,26 @@ body {
 	.devicePage_img_cancel::after {
 		background-size: 65px 65px;
 	}
-	/* .info_icon {
-		top: 11px;
-	} */
+
 }
 @media (max-width: 376px) {
-	/* .goods_item_img {
-		padding: 50px 0;
-		width: 80%;
-		margin: 0 auto 12px auto;
-	} */
-	/* .recommend_item_img{
-		width: 85px;
-		padding: 60px;
-	} */
+
 	.recommended_goods_columns {
 		padding: 0;
 	}
 	.recommended_goods_row {
 		margin: 30px 0 0 0;
 	}
-	.goods_item_btn {
-		width: 90px;
-	}
+
 	.devicePage_item-title span {
 		display: block;
 		max-width: 261px;
 		font-size: 20px;
+	}
+	.product_is_out span{
+		font-size: 12px;
+	}
+	.devicePage_product_is_out span{
+		font-size: 14px;
 	}
 }

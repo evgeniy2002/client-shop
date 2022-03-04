@@ -9,14 +9,16 @@
 }
 .about_title,
 .about_description p{
+  font-family: 'Roboto', sans-serif;
   color: #fff;
   text-align: left;
 }
-.about_title {
-	font-family: GTEestiPro, sans-serif;
+.about_title{
+  margin: 0 0 15px 0;
+}
+.about_title span{
 	font-weight: 700;
 	font-size: 33px;
-	margin: 0 0 15px 0;
 }
 .about_info{
   flex:1 1 auto;
@@ -26,7 +28,6 @@
   max-width: 695px;
 }
 .about_description p {
-	font-family: "Roboto", sans-serif;
   font-weight: 400;
 	font-size: 17px;
 	line-height: 1.67;

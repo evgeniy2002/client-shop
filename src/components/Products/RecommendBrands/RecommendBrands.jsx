@@ -1,4 +1,5 @@
 import React from 'react'
+import Preloader from '../../../assets/loader/Preloader'
 
 
 import s from '../Products.module.css'
@@ -26,10 +27,13 @@ export default function RecommendBrands({ recommendBrands, cancel }) {
                 </a>
               </div>
             ))
-            : <div className={s.products_cancel_img}>
+            : !recommendBrands.length
 
-            <img src={cancel} alt="" />
-          </div>
+              ? <div className={s.products_cancel_img}>
+
+                <img src={cancel} alt="" />
+              </div>
+              : <Preloader />
         }
 
 

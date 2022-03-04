@@ -57,14 +57,6 @@ export const setPopularBrands = (data) => ({ type: SET_POPULAR_BRANDS, payload: 
 export const setRecommendBrands = (data) => ({ type: SET_RECOMMEND_BRANDS, payload: data })
 
 
-
-// export const setPopularBrandsThunkCreator = (typeOrder, orderBy) => {
-//   return async (dispatch) => {
-//     let data = await getAllBrand(null, typeOrder, orderBy)
-
-//     dispatch(setBrands(data))
-//   }
-// }
 export const setPunelBrandsThunkCreator = (paramsBrand) => {
   return async (dispatch) => {
 

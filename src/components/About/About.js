@@ -11,7 +11,7 @@ export default function About() {
         
         <div className={s.about_body}>
           <div className={s.about_info}>
-            <div className={s.about_title}>Немного о нашей деятельности</div>
+            <div className={s.about_title}><span>Немного о нашей деятельности</span></div>
             <div className={s.about_description}>
               <p>У нас вы найдете все, что нужно для каждого студента. Этот сайт позволит вам сэкономить кучу времени,
                 так как весь товар вы сможете купить прямо в общежитие. Здесь вы сможете выбрать все, что вам
