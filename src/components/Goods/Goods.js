@@ -226,7 +226,6 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
                     <GoodsList
                       key={device.device_name}
                       device={device}
-                      favorites={favorites}
                       displayType={displayType}
                       changeRatingLinkCount={changeRatingLinkCount}
 
