@@ -114,7 +114,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
   const filterByPrice = (from, to) => {
    dispatch(setLoaded(true))
-    getDevices(currentBrand)
+    getDevices(currentBrand, null, null, 1, 50, 0, null)
       .then(({ data }) => {
         let filter = data.filter(item => {
           if (item.price >= from && item.price <= to) {
