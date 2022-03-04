@@ -29,9 +29,6 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
   const dispatch = useDispatch()
 
-  let favorites = [JSON.parse(localStorage.getItem('favorites'))]
-
-
   const [lowerValue, setLowerValue] = React.useState(0)
   const [upperValue, setUpperValue] = React.useState(0)
   const [currentBrand, setCurrentBrand] = React.useState(null)
@@ -64,21 +61,19 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
         setCurrentBrand(device.id)
 
+        getDevices(device.id, null, null, 1, 40, 0, null)
+          .then(({ data }) => {
+            dispatch(addDevices(data))
+          })
+
         getDevices(device.id, null, null, null, null, 1, null)
           .then(({ data }) => setMaxPrice(data[0].max))
           .catch(err => console.error(err))
+
       })
 
+
   }, [])
-
-
-  React.useEffect(() => {
-    getDevices(currentBrand, null, null, 1, 40, 0, null)
-      .then(({ data }) => {
-        dispatch(addDevices(data))
-      })
-  }, [])
-
 
 
   React.useEffect(() => {
@@ -115,7 +110,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
 
   const filterByPrice = (from, to) => {
-    dispatch(setLoaded(true))
+   dispatch(setLoaded(true))
     getDevices(currentBrand, null, null, 1, 40, 0, null)
       .then(({ data }) => {
         let filter = data.filter(item => {
