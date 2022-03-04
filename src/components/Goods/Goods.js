@@ -64,15 +64,21 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
         setCurrentBrand(device.id)
 
-
         getDevices(device.id, null, null, null, null, 1, null)
           .then(({ data }) => setMaxPrice(data[0].max))
           .catch(err => console.error(err))
-
       })
 
-
   }, [])
+
+
+  React.useEffect(() => {
+    getDevices(currentBrand, null, null, 1, 40, 0, null)
+      .then(({ data }) => {
+        dispatch(addDevices(data))
+      })
+  }, [])
+
 
 
   React.useEffect(() => {
@@ -97,7 +103,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
   React.useEffect(() => {
     dispatch(setLoaded(true))
-    getDevices(currentBrand, sortBy.type, sortBy.order, 1, 50, 0, null)
+    getDevices(currentBrand, sortBy.type, sortBy.order, 1, 40, 0, null)
       .then(({ data }) => {
         dispatch(addDevices(data.filter(item => item.price >= lowerValue && item.price <= upperValue)))
         dispatch(setLoaded(false))
@@ -109,8 +115,8 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
 
   const filterByPrice = (from, to) => {
-   dispatch(setLoaded(true))
-    getDevices(currentBrand, null, null, 1, 50, 0, null)
+    dispatch(setLoaded(true))
+    getDevices(currentBrand, null, null, 1, 40, 0, null)
       .then(({ data }) => {
         let filter = data.filter(item => {
           if (item.price >= from && item.price <= to) {
