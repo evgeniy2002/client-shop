@@ -1,10 +1,7 @@
 import React, {Suspense} from 'react'
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom'
 import Admin from '../pages/Admin'
-// import DevicePage from '../pages/DevicePage'
-// import MainPage from '../pages/MainPage'
-// import Shop from '../pages/Shop'
-// import AllCategory from '../pages/AllCategory'
+import AllCategory from '../pages/AllCategory'
 import { ADMIN_ROUTE, DEVICE_ROUTE, MAIN_ROUTE, SHOP_ROUTE } from '../utils/constans'
 import Header from '../components/Header/Header'
 import { useSelector } from 'react-redux'
@@ -16,7 +13,6 @@ import Preloader from '../assets/loader/Preloader'
 const MainPage = React.lazy(() => import('../pages/MainPage'));
 const Shop = React.lazy(() => import('../pages/Shop'));
 const DevicePage = React.lazy(() => import('../pages/DevicePage'));
-const AllCategory = React.lazy(() => import('../pages/AllCategory'));
 
 
 
@@ -48,7 +44,7 @@ export default function AppRouter() {
 
         <div className="content">
           <Switch>
-            <Route path='/all_category/' component={() => <Suspense fallback={<div className='loading'><Preloader /></div>}><AllCategory/></Suspense>} />
+            <Route path='/all_category/' component={<AllCategory/>} />
             <Route path='/category/:brand?/:type?/device/:id' component={() => <Suspense fallback={<div className='loading'><Preloader /></div>}><DevicePage/></Suspense>} />
             <Route path={DEVICE_ROUTE} component={() => <Suspense fallback={<div className='loading'><Preloader /></div>}><DevicePage/></Suspense>} />
             <Route path={ADMIN_ROUTE} component={() => <Admin isAuth={isAuth} />} />
