@@ -32,6 +32,7 @@ export default function PopularCategory({ popularBrands, cancel }) {
               <img src={cancel} alt="" />
             </div>
             : <Preloader />
+
         }
 
       </div>

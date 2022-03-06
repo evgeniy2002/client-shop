@@ -9,7 +9,7 @@ import Preloader from '../../assets/loader/Preloader';
 // import 'swiper/swiper-react.css';
 
 
-export default function RecommendList({ recommended, changeRatingLinkCount }) {
+export default function RecommendList({ recommended }) {
 
   const changeRatingItem = (id, rating) => {
 

@@ -56,6 +56,7 @@ body {
 .flex-content {
 	display: flex;
 }
+
 .preloader {
 	position: relative;
 	width: 100%;
@@ -151,7 +152,7 @@ body {
 	position: relative;
 	display: flex;
 	justify-content: center;
-	margin: 40px 0 50px 0;
+	margin: 40px 0 80px 0;
 }
 .devicePage_row::before {
 	content: "";
@@ -196,13 +197,22 @@ body {
 .devicePage_item {
 	display: flex;
 }
-.devicePage_sub_description {
+
+.devicePage_description_title{
+	font-family: "Roboto", arial, sans-serif;
+	color: #001a34;
+	margin-bottom: 12px;
+}
+
+.devicePage_description_body{
+	max-width: 60%;
+}
+
+.devicePage_sub_description span{
 	font-family: "Roboto", arial, sans-serif;
 	font-size: 14px;
-	font-weight: 500;
+	line-height: 1.5;
 	color: #001a34;
-	line-height: 23.5px;
-	max-width: 90%;
 }
 
 .body_item {
@@ -755,6 +765,9 @@ body {
 	body.lock {
 		overflow: hidden;
 	}
+	.devicePage_description{
+		padding: 0 10px;
+	}
 	.recommended_goods {
 		margin: -85px 0 130px 0;
 		padding: 0 10px 0px 10px;
@@ -767,11 +780,6 @@ body {
 		font-size: 12px;
 		letter-spacing: 0.2px;
 		line-height: 16px;
-	}
-
-
-	.devicePage_sub_description {
-		max-width: 100%;
 	}
 
 	.brear_crumbs_container {
@@ -801,6 +809,7 @@ body {
 		padding: 0 10px;
 		flex-direction: column;
 		align-items: center;
+		margin: 40px 0 50px 0;
 	}
 	.body_item {
 		display: flex;
@@ -840,14 +849,12 @@ body {
 		line-height: 25px;
 		font-family: "Roboto", sans-serif;
 	}
-	.devicePage_item-description {
-		padding: 0 10px;
-		margin: 0 0 5px 0;
 
+	.loading{
+		position: relative;
+		top:200px;
 	}
-	.devicePage_row {
-		margin: 40px 0 0 0;
-	}
+
 
 	.devicePage_item-title {
 		margin: 15px 10px 20px 10px;
@@ -901,6 +908,9 @@ body {
 	.devicePage_img {
 		width: 310px;
 		padding: 120px 0;
+	}
+	.devicePage_description_body{
+		max-width: 100%;
 	}
 }
 @media (max-width: 450px) {

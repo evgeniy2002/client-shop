@@ -186,8 +186,21 @@ export default function DevicePage() {
                 </div>
               </div>
 
+              <div className="devicePage_description">
+                <div className="devicePage_description_title"><h2>Описание</h2></div>
+                <div className="devicePage_description_body">
+                  <div className="devicePage_sub_description">
+                    {
+                      device.description
+                        ? <span>{device.description}</span>
+                        : <span>По данному товару нет информации &#128542;</span>
+                    }
+                  </div>
+                  
+                </div>
+              </div>
 
-           
+
             </div>
           ))
         }
@@ -208,7 +221,6 @@ export default function DevicePage() {
 
         <RecommendList
           recommended={recommended}
-          changeRatingLinkCount={changeRatingLinkCount}
         />
 
 

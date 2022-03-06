@@ -80,7 +80,7 @@ export default function PopularGoods({ popularGoods, cancel, changeRatingItem, c
         }
 
       </div>
-   
+
     </div>
   )
 }

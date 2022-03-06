@@ -33,6 +33,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
   const [upperValue, setUpperValue] = React.useState(0)
   const [currentBrand, setCurrentBrand] = React.useState(null)
   const [maxPrice, setMaxPrice] = React.useState(0)
+  const [onSetUiSlider, setUiSlider] = React.useState(null)
   const [visibleFilter, setVisibleFilter] = React.useState(false)
   const [showDateFromFilter, setDateFromFilter] = React.useState(false)
   const [filterChange, setFilterChange] = React.useState(false)
@@ -74,16 +75,16 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
         dispatch(setLoaded(false))
       })
 
-
   }, [])
 
 
   React.useEffect(() => {
     if (window.matchMedia("(min-width: 769px)").matches) {
+      
       filterByPrice(lowerValue, upperValue)
     }
 
-  }, [lowerValue, upperValue])
+  }, [onSetUiSlider])
 
 
 
@@ -193,6 +194,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
             <FilterBody
 
               maxPrice={maxPrice}
+              setUiSlider={setUiSlider}
               lowerValue={lowerValue}
               upperValue={upperValue}
               shopDateFilter={shopDateFilter}

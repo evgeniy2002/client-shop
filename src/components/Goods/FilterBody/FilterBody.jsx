@@ -3,7 +3,7 @@ import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.css";
 import s from '../Goods.module.css'
 
-export default function FilterBody({ maxPrice, upperValue, lowerValue, shopDateFilter, closeFilter, rangeValue, changeStateFilter }) {
+export default React.memo(function FilterBody({ maxPrice, setUiSlider, upperValue, lowerValue, shopDateFilter, closeFilter, rangeValue, changeStateFilter }) {
 
   return (
     <div className={s.filter_body}>
@@ -16,12 +16,14 @@ export default function FilterBody({ maxPrice, upperValue, lowerValue, shopDateF
           <div className={s.filter_section_title}>Цена</div>
           <div className={s.filter_section_body}>
             <Nouislider
+              onSet={(value) => setUiSlider(value)}
               onUpdate={(value) => rangeValue(value)}
               onChange={changeStateFilter}
               step={10}
               range={{ min: 0, max: maxPrice ? maxPrice : 1000 }}
               start={[0, maxPrice ? maxPrice : 1000]}
               // tooltips={true}
+              
               connect
 
             />
@@ -42,4 +44,4 @@ export default function FilterBody({ maxPrice, upperValue, lowerValue, shopDateF
       
     </div>
   )
-}
+})
