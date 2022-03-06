@@ -1,10 +1,8 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Preloader from '../assets/loader/Preloader'
 import style from '../components/Goods/Brands/Brands.module.css'
-import ProductNotFound from '../components/ProductNotFound/ProductNotFound'
-import { getDevices, updateRatign, updateRatignType } from '../http/deviceApi'
-import { addDevices } from '../redux/reducers/devices-reducer'
+import { updateRatignType } from '../http/deviceApi'
 
 import s from '../components/Goods/Goods.module.css'
 
