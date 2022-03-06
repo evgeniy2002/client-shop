@@ -730,6 +730,7 @@ body {
 	color: #001a34;
 	margin: 15px 0 0 0;
 	word-break: break-word;
+	white-space: pre-line;
 }
 
 /* ========================================================= MEDIA ======================================================= */
@@ -775,11 +776,6 @@ body {
 	.brand_item_title span{
 		font-size: 14px;
 		margin: 8px 0 0 0;
-	}
-	.brand_item_title {
-		font-size: 12px;
-		letter-spacing: 0.2px;
-		line-height: 16px;
 	}
 
 	.brear_crumbs_container {
