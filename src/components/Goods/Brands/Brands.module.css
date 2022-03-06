@@ -197,7 +197,7 @@
     padding: 0 5px;
   }
   .brand_other_img_wrapper::after {
-    background-color: rgba(0, 26, 52, 0.151);
+    background-color: rgba(0, 26, 52, 0.1);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
