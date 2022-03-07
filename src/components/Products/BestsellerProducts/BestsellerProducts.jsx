@@ -65,7 +65,7 @@ export default function BestsellerProducts({ bestsellerDevice, cancel, changeRat
               <div className={s.products_item_name}><span>{item.device_name}</span></div>
               {
                 item.product_availability
-                  ? <a href='https://vk.com/id520073022' target='_blank' onClick={() => changeRatingLinkCount(item.id, item.click_to_link)} className={s.products_item_btn}><span>Написать</span></a>
+                  ? <a href={item.link_to_vk} target='_blank' onClick={() => changeRatingLinkCount(item.id, item.click_to_link)} className={s.products_item_btn}><span>Написать</span></a>
                   : <div className={s.products_is_out + ' ' + 'product_is_out'}>
                     <span>Товар закончился</span>
                   </div>

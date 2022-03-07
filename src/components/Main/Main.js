@@ -47,7 +47,7 @@ export default function Main() {
           > */}
             {/* <SwiperSlide> */}
               <h1 className={s.store_title}>Интернет Магазин</h1>
-              <div className={s.store_subtitle}><span>Успей</span> <span>купить</span> <span>по низкой цене</span></div>
+              {/* <div className={s.store_subtitle}><span>Успей</span> <span>купить</span> <span>по низкой цене</span></div> */}
 
               <div className={s.online_store_preview + ' ' + "ibg"}>
                 <img src={main_picture} alt="" />

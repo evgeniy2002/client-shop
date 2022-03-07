@@ -81,7 +81,7 @@ const GoodsList = React.memo(function GoodsList({ device, displayType, changeRat
         {
           device.product_availability
             ? <div className={s.goods_content_shell}>
-              <a href="https://vk.com/id520073022" target={"_blank"} className={s.goods_content_link} onClick={() => changeRatingLinkCount(device.id, device.click_to_link)}>Написать</a>
+              <a href={device.link_to_vk} target={"_blank"} className={s.goods_content_link} onClick={() => changeRatingLinkCount(device.id, device.click_to_link)}>Написать</a>
             </div>
             : <div className='product_is_out'>
               <span>Товар закончился</span>

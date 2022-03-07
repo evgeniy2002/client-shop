@@ -167,7 +167,8 @@ export default function DevicePage() {
                         </div>
                         {
                           device.product_availability
-                            ? <a href="https://vk.com/id520073022" target="_blank" onClick={() => changeRatingLinkCount(device.id, device.click_to_link)} className="body_btn">Написать продавцу {
+                            // ? <a href={"https://vk.com/id520073022"} target="_blank" onClick={() => changeRatingLinkCount(device.id, device.click_to_link)} className="body_btn">Написать продавцу {
+                            ? <a href={device.link_to_vk} target="_blank" onClick={() => changeRatingLinkCount(device.id, device.click_to_link)} className="body_btn">Написать продавцу {
                               adaptiveBtn
                                 ? <span>{device.price} &#8381;</span>
                                 : ''

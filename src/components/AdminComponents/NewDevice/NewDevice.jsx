@@ -16,10 +16,11 @@ const NewDevice = (props) => {
   const [file, setFile] = React.useState(null)
   const [currentSubCategory, setSubCategory] = React.useState('')
   const [description, setDescription] = React.useState('')
+  const [linkToVk, setLinkToVk] = React.useState('')
 
   const [deleteDeviceName, setDeleteDeviceName] = React.useState('')
-  
-  
+
+
   const [oldName, setOldName] = React.useState('')
   const [newPrice, setNewPrice] = React.useState('')
   const [newDescription, setNewDescription] = React.useState('')
@@ -75,6 +76,7 @@ const NewDevice = (props) => {
     formData.append('img', file)
     formData.append('brandId', brandId)
     formData.append('desc', description)
+    formData.append('link_to_vk', linkToVk)
 
 
     createDevice(formData)
@@ -214,6 +216,22 @@ const NewDevice = (props) => {
             />
 
           </div>
+
+          <div className="form_group">
+            <label for='link_to_vk' className='form_label'>Ссылка на вк</label>
+            <Field
+              id="link_to_vk"
+              component={'input'}
+              type={"text"}
+              name='link_to_vk'
+              className='header_input'
+              autoCapitalize={'off'}
+              autoComplete={'off'}
+              value={linkToVk}
+              onChange={e => setLinkToVk(e.target.value)}
+            />
+          </div>
+
 
           <button className='form_btn' onClick={addDevice}>Добавить</button>
 
@@ -390,6 +408,7 @@ const NewDevice = (props) => {
               onChange={e => setAvailabilityDeviceName(e.target.value)}
             />
           </div>
+
           {/* <Field
               component={'input'}
               className={checkedTwo ? 'custom_checkbox active' : 'custom_checkbox'}
