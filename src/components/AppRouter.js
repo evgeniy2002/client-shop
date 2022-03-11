@@ -47,10 +47,10 @@ export default function AppRouter() {
 
         <div className="content">
           <Switch>
+            <Route path={ADMIN_ROUTE} component={() => <Admin isAuth={isAuth} />} />
             <Route path='/all_category/' component={() => <AllCategory/>} />
             <Route path='/category/:brand?/:type?/device/:id' component={() => <Suspense fallback={<div className='loading'><Preloader /></div>}><DevicePage/></Suspense>} />
             <Route path={DEVICE_ROUTE} component={() => <Suspense fallback={<div className='loading'><Preloader /></div>}><DevicePage/></Suspense>} />
-            <Route path={ADMIN_ROUTE} component={() => <Admin isAuth={isAuth} />} />
             <Route path={SHOP_ROUTE} component={() => <Suspense fallback={<div className='loading'><Preloader /></div>}><Shop/></Suspense>} />
             <Route path={MAIN_ROUTE} component={() => <Suspense fallback={<div className='loading'><Preloader /></div>}><MainPage/></Suspense>} />
 

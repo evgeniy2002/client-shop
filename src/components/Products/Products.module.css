@@ -218,7 +218,7 @@
 .products_header_item:hover .products_item_name span{
 	color: #005bff;
 }
-.products_body_footer .products_item_name {
+.products_body_footer .products_item_name span{
 	font-size: 14px;
 }
 
@@ -386,7 +386,7 @@
 		padding: 0 5px;
 	}
 	.products_middle_row {
-		margin: 45px -5px 0 -5px;
+		margin: 20px -5px 0 -5px;
 	}
 
 	.products_brand_name {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { NavLink, Route, Switch } from 'react-router-dom'
+import { NavLink, Redirect, Route, Switch } from 'react-router-dom'
 import Authorization from '../components/AdminComponents/Authorization/Authorization'
 import Dashboard from '../components/AdminComponents/Dashboard/Dashboard'
 import NewCategory from '../components/AdminComponents/NewCategory/NewDirection'
@@ -9,7 +9,7 @@ import SubCategory from '../components/AdminComponents/SubCategory/SubCategory'
 import { logout } from '../redux/reducers/auth-reducer'
 
 
-export default function Admin({isAuth}) {
+export default function Admin({ isAuth }) {
 
   const dispatch = useDispatch()
 
@@ -25,9 +25,8 @@ export default function Admin({isAuth}) {
 
     <div className='admin'>
       {
-        !isAuth
-          ? <Authorization />
-          : <div>
+        isAuth
+          ? <div>
             <div className="admin_header">
               <div className="container">
                 <div className="admin_header_row">
@@ -63,6 +62,8 @@ export default function Admin({isAuth}) {
               </div>
             </div>
           </div>
+          : <Authorization />
+
       }
     </div>
   )

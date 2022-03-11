@@ -47,21 +47,30 @@ export default function BestsellerProducts({ bestsellerDevice, cancel, changeRat
 
 
               </div>
-              <div className='goods_info_product_bonus'>
+              {
+                item.click_to_link || Math.abs(new Date().getTime() - new Date(item.create_at).getTime()) / (1000 * 3600 * 24) < 1
+                  ? <div className="goods_info_product_bonus">
 
-                {
-                  item.click_to_link >= 1
-                  && <div className="bestseller_info"><span>Бестселлер</span></div>
+                    {
+                      item.click_to_link >= 1
+                      && <div className="bestseller_info"><span>Бестселлер</span></div>
 
-                }
-                {
-                  Math.abs(new Date().getTime() - new Date(item.create_at).getTime()) / (1000 * 3600 * 24) < 1
-                  && <div className='device_about_time'>
-                    <span>Новинка</span>
+                    }
+
+
+                    {
+                      Math.abs(new Date().getTime() - new Date(item.create_at).getTime()) / (1000 * 3600 * 24) < 1
+                      && <div className='device_about_time'>
+                        <span>Новинка</span>
+                      </div>
+
+
+
+                    }
                   </div>
+                  : ''
+              }
 
-                }
-              </div>
               <div className={s.products_item_name}><span>{item.device_name}</span></div>
               {
                 item.product_availability

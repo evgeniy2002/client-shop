@@ -543,11 +543,12 @@ body {
 	margin: 0px 0 5px 0;
 	
 }
+
 .goods_list_info_bonus{
 	margin: 5px 0 0 0;
 }
 .device_about_time{
-	/* margin: 3px 0 0 0; */
+
 }
 .goods_item_bestseller_info{
 	margin: 0 0 5px 0;
@@ -774,6 +775,7 @@ body {
 		padding: 0 10px 0px 10px;
 	}
 	.brand_item_title span{
+		-webkit-line-clamp: 1;
 		font-size: 14px;
 		margin: 8px 0 0 0;
 	}

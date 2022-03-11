@@ -40,10 +40,10 @@ export const loginTC = (login, password) => {
       })
       
       dispatch(setIsAuth())
-
+      
       localStorage.setItem('token', responce.data.token)
     } catch (error) {
-      console.log(error)
+      alert(error)
     }
   }
 }
