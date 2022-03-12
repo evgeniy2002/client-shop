@@ -35,7 +35,7 @@ export const loginTC = (login, password) => {
   return async dispatch => {
     try {
    
-      const responce = await host.post('api/admin_punel/login', {
+      const responce = await host.post('api/admin_panel/login', {
         login, password
       })
       
