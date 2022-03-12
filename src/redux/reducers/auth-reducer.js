@@ -35,7 +35,7 @@ export const loginTC = (login, password) => {
   return async dispatch => {
     try {
    
-      const responce = await host.post('api/admin/login', {
+      const responce = await host.post('api/admin_punel/login', {
         login, password
       })
       
