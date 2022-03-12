@@ -42,9 +42,9 @@ export default function Admin({ isAuth }) {
                     <div className="admin_panel">
                       <ul className='admin_panel_menu'>
                         {/* <li className='admin_panel_li'><NavLink to="/admin/dashboard" className='admin_panel_link' activeClassName="active">Dashboard</NavLink></li> */}
-                        <li className='admin_panel_li'><NavLink to="/admin/new_category" className='admin_panel_link' activeClassName="active">Новая категория</NavLink></li>
-                        <li className='admin_panel_li'><NavLink to="/admin/sub_category" className='admin_panel_link' activeClassName="active">Новая подкатегория</NavLink></li>
-                        <li className='admin_panel_li'><NavLink to="/admin/new_device" className='admin_panel_link' activeClassName="active">Новый товар</NavLink></li>
+                        <li className='admin_panel_li'><NavLink to="/admin_panel/new_category" className='admin_panel_link' activeClassName="active">Новая категория</NavLink></li>
+                        <li className='admin_panel_li'><NavLink to="/admin_panel/sub_category" className='admin_panel_link' activeClassName="active">Новая подкатегория</NavLink></li>
+                        <li className='admin_panel_li'><NavLink to="/admin_panel/new_device" className='admin_panel_link' activeClassName="active">Новый товар</NavLink></li>
                       </ul>
                     </div>
                   </div>
