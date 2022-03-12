@@ -51,9 +51,9 @@ export default function Admin({ isAuth }) {
                   <div className="admin_right_columns">
                     <Switch>
                       {/* <Route path='/admin/dashboard' component={Dashboard} /> */}
-                      <Route path='/admin/new_category' component={() => <NewCategory onSubmit={onSubmit} />} />
-                      <Route path='/admin/sub_category' component={() => <SubCategory onSubmit={onSubmit} />} />
-                      <Route path='/admin/new_device' component={() => <NewDevice onSubmit={onSubmit} />} />
+                      <Route path='/admin_panel/new_category' component={() => <NewCategory onSubmit={onSubmit} />} />
+                      <Route path='/admin_panel/sub_category' component={() => <SubCategory onSubmit={onSubmit} />} />
+                      <Route path='/admin_panel/new_device' component={() => <NewDevice onSubmit={onSubmit} />} />
 
 
                     </Switch>
