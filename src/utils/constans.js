@@ -1,4 +1,4 @@
-export const ADMIN_ROUTE = '/admin/:direction?'
+export const ADMIN_ROUTE = '/admin_panel/:direction?'
 export const SHOP_ROUTE = '/category/:brand?/:type?'
 export const MAIN_ROUTE = '/'
 export const DEVICE_ROUTE = '/device/:id'
