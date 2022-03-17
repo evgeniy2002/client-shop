@@ -9,7 +9,7 @@ export default function RecommendBrands({ recommendBrands, cancel }) {
   return (
 
     <div className={s.products_body_middle}>
-      <div className={s.products_body_title}><span>Предложения от брендов</span></div>
+      <div className={s.products_body_title}><span>Предложения от нас</span></div>
 
       <div className={s.products_middle_row}>
         {
