@@ -81,12 +81,10 @@ export default function PopularGoods({ popularGoods, cancel, changeRatingItem, c
 
           ))
           : !popularGoods.length
+            && <div className={s.products_cancel_img}>
 
-            ? <div className={s.products_cancel_img}>
-
-              <img src={cancel} alt="" />
-            </div>
-            : <Preloader />
+            <img src={cancel} alt="" />
+          </div>
         }
 
       </div>

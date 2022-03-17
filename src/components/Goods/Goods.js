@@ -181,7 +181,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
         <div className={s.goods_info}>
 
-          <div className={s.current_goods_title}><span>{currentCrumbs}</span></div>
+          <h1 className={s.current_goods_title}><span>{currentCrumbs}</span></h1>
 
           <div className={s.current_goods_subtitle}><span>{deviceItems.length + ' ' + getNoun(deviceItems.length, 'товар', 'товара', 'товаров')}</span></div>
         </div>

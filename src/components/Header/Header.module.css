@@ -37,7 +37,7 @@
   align-items: center;
   position: relative;
   width: 120px;
-  height: 45px;
+  height: 40px;
   background-color: #1353ca;
   border-radius: 5px;
   padding: 0 10px;
@@ -58,9 +58,9 @@
 }
 .catalog_text {
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   color: #fff;
-  font-size: 17.5px;
+  font-size: 16px;
   margin: 0 0 0 15px;
 }
 

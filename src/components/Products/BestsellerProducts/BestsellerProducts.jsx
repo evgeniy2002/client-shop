@@ -83,12 +83,11 @@ export default function BestsellerProducts({ bestsellerDevice, cancel, changeRat
 
           ))
           : !bestsellerDevice.length
-
-            ? <div className={s.products_cancel_img}>
+            && <div className={s.products_cancel_img}>
 
               <img src={cancel} alt="" />
             </div>
-            : <Preloader />
+            
 
         }
 

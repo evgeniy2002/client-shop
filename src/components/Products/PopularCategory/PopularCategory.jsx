@@ -26,12 +26,10 @@ export default function PopularCategory({ popularBrands, cancel }) {
 
           ))
           : !popularBrands.length
+          && <div className={s.products_cancel_img}>
 
-            ? <div className={s.products_cancel_img}>
-
-              <img src={cancel} alt="" />
-            </div>
-            : <Preloader />
+            <img src={cancel} alt="" />
+          </div>
 
         }
 

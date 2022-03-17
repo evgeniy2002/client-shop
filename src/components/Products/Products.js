@@ -8,7 +8,8 @@ import BestsellerProducts from './BestsellerProducts/BestsellerProducts'
 import RecommendBrands from './RecommendBrands/RecommendBrands'
 import PopularCategory from './PopularCategory/PopularCategory'
 import PopularGoods from './PopularGoods/PopularGoods'
-import { setBestsellerDevice, setPopularDevice } from '../../redux/reducers/devices-reducer'
+import { setBestsellerDevice, setLoaded, setPopularDevice } from '../../redux/reducers/devices-reducer'
+import Preloader from '../../assets/loader/Preloader'
 
 
 
@@ -42,6 +43,7 @@ export default function Products() {
     getAllBrand(null, 'rating')
       .then(({ data }) => dispatch(setRecommendBrands(data)))
       .catch(err => console.error(err))
+
   }, [])
 
 
@@ -67,28 +69,36 @@ export default function Products() {
 
           <div className={s.products_columns}>
             <div className={s.products_body}>
-              <PopularCategory
-                popularBrands={popularBrands}
-                cancel={cancel}
-                />
-              <BestsellerProducts
-                bestsellerDevice={bestsellerDevice}
-                cancel={cancel}
-                changeRatingLinkCount={changeRatingLinkCount}
-                changeRatingItem={changeRatingItem}
-                />
+              {
+                popularBrands.length || bestsellerDevice.length || recommendBrands.length || popularGoods.length
+                  ? <div>
 
-              <RecommendBrands
-                recommendBrands={recommendBrands}
-                cancel={cancel}
-                />
-              <PopularGoods
-                popularGoods={popularGoods}
-                cancel={cancel}
-                changeRatingLinkCount={changeRatingLinkCount}
-                changeRatingItem={changeRatingItem}
-                />
-             
+                    <PopularCategory
+                      popularBrands={popularBrands}
+                      cancel={cancel}
+                    />
+                    <BestsellerProducts
+                      bestsellerDevice={bestsellerDevice}
+                      cancel={cancel}
+                      changeRatingLinkCount={changeRatingLinkCount}
+                      changeRatingItem={changeRatingItem}
+                    />
+
+                    <RecommendBrands
+                      recommendBrands={recommendBrands}
+                      cancel={cancel}
+                    />
+                    <PopularGoods
+                      popularGoods={popularGoods}
+                      cancel={cancel}
+                      changeRatingLinkCount={changeRatingLinkCount}
+                      changeRatingItem={changeRatingItem}
+                    />
+                  </div>
+                  : <Preloader />
+              }
+
+
 
             </div>
           </div>

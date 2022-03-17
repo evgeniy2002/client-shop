@@ -27,6 +27,7 @@ const NewDevice = (props) => {
   const [newName, setNewName] = React.useState('')
   const [changeFile, setChangeFile] = React.useState(null)
   const [availabilityDeviceName, setAvailabilityDeviceName] = React.useState('')
+  const [newLinkToVk, setNewLinkToVk] = React.useState('')
 
   React.useEffect(() => {
     getAllBrand()
@@ -53,6 +54,8 @@ const NewDevice = (props) => {
     formData.append('img', changeFile)
     formData.append('newDesc', newDescription)
     formData.append('availabelProduct', availabilityDeviceName)
+    formData.append('newLinkVk', newLinkToVk)
+
 
     changeDeviceInfo(formData)
       .then(data => {
@@ -321,7 +324,7 @@ const NewDevice = (props) => {
 
         <div className="edit_unit">
 
-          <div className="title">Редактор категорий</div>
+          <div className="title">Редактор товаров</div>
 
           <div className='form_group'>
             <label className='form_label' for="old_name">Старое название товара, которое надо заменить (Обязательно перед каждым обновлением информации о товаре!)</label>
@@ -406,6 +409,20 @@ const NewDevice = (props) => {
               autoComplete={'off'}
               value={availabilityDeviceName}
               onChange={e => setAvailabilityDeviceName(e.target.value)}
+            />
+          </div>
+          <div className="form_group">
+            <label for='change_link_to_vk' className='form_label'>Изменить ссылку на вк</label>
+            <Field
+              id="change_link_to_vk"
+              component={'input'}
+              type={"text"}
+              name='change_link_to_vk'
+              className='header_input'
+              autoCapitalize={'off'}
+              autoComplete={'off'}
+              value={newLinkToVk}
+              onChange={e => setNewLinkToVk(e.target.value)}
             />
           </div>
 
