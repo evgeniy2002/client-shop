@@ -46,7 +46,7 @@ export default function PopularGoods({ popularGoods, cancel, changeRatingItem, c
                   ? <div className="goods_info_product_bonus">
 
                     {
-                      item.click_to_link >= 1
+                      item.click_to_link > 4
                       && <div className="bestseller_info"><span>Бестселлер</span></div>
 
                     }

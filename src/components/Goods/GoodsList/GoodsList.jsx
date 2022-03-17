@@ -63,7 +63,7 @@ const GoodsList = React.memo(function GoodsList({ device, displayType, changeRat
           <div className='goods_info_product_bonus goods_list_info_bonus'>
 
             {
-              device.click_to_link >= 1
+              device.click_to_link > 4
               && <div className="bestseller_info"><span>Бестселлер</span></div>
 
             }
