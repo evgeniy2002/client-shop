@@ -396,6 +396,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	min-width: 50px;
+	font-weight: 700;
 	height: 25px;
 	left: 0px;
 	top: 0%;
@@ -559,6 +560,7 @@ body {
 	color: rgb(255, 132, 0);
 	font-size: 14px;
 	line-height: 18px;
+	font-weight: 700;
 }
 .device_about_time span{
 	color: #10ad44;
