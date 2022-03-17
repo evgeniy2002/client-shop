@@ -21,7 +21,7 @@
 .current_goods_subtitle {
   display: inline-block;
   font-family: 'Roboto', arial, sans-serif;
-  padding: 0 0 0 6px;
+  padding: 0 0 0 5px;
   vertical-align: super;
   font-size: 14px;
   color: #96a3ae;
@@ -194,7 +194,7 @@
 .current_goods_count_device {
   color: #96a3ae;
   font-size: 14px;
-  margin-left: 10px;
+  margin-left: 5px;
   font-family: 'Roboto', arial, sans-serif;
 }
 /* ======================================================================================= */
@@ -705,8 +705,7 @@
     align-items: flex-start;
   }
   .current_goods_count_device {
-    margin: 5px 0 0 0;
-    color: #3d5165;
+    margin: 0;
   }
 }
 @media (max-width: 600px) {
