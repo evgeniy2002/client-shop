@@ -294,6 +294,7 @@
 	font-family: "Roboto", arial, sans-serif;
 	color: #fff;
 	font-size: 14px;
+	font-weight: 700;
 }
 
 .products_item_btn {
@@ -475,6 +476,14 @@
 	}
 	.products_item_old_price span {
 		font-size: 16px;
+	}
+	.products_item_btn{
+		width: 85%;
+		height: 30px;
+		line-height: 28px;
+	}
+	.products_item_btn span{
+		font-size: 12px;
 	}
 }
 
