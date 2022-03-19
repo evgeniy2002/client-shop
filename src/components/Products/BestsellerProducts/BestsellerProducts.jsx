@@ -48,7 +48,7 @@ export default function BestsellerProducts({ bestsellerDevice, cancel, changeRat
 
               </div>
               {
-                item.click_to_link || Math.abs(new Date().getTime() - new Date(item.create_at).getTime()) / (1000 * 3600 * 24) < 1
+                item.click_to_link > 4 || Math.abs(new Date().getTime() - new Date(item.create_at).getTime()) / (1000 * 3600 * 24) < 1
                   ? <div className="goods_info_product_bonus">
 
                     {
@@ -68,7 +68,7 @@ export default function BestsellerProducts({ bestsellerDevice, cancel, changeRat
 
                     }
                   </div>
-                  : ''
+                  : null
               }
 
               <div className={s.products_item_name}><span>{item.device_name}</span></div>

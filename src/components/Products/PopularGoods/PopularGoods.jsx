@@ -42,7 +42,7 @@ export default function PopularGoods({ popularGoods, cancel, changeRatingItem, c
 
               </div>
               {
-                item.click_to_link || Math.abs(new Date().getTime() - new Date(item.create_at).getTime()) / (1000 * 3600 * 24) < 1
+                item.click_to_link > 4 || Math.abs(new Date().getTime() - new Date(item.create_at).getTime()) / (1000 * 3600 * 24) < 1
                   ? <div className="goods_info_product_bonus">
 
                     {
@@ -62,7 +62,7 @@ export default function PopularGoods({ popularGoods, cancel, changeRatingItem, c
 
                     }
                   </div>
-                  : ''
+                  : null
               }
 
 

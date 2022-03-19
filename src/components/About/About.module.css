@@ -14,11 +14,12 @@
   text-align: left;
 }
 .about_title{
-  margin: 0 0 15px 0;
+  line-height: 30px;
+  margin: 0 0 20px 0;
 }
 .about_title span{
 	font-weight: 700;
-	font-size: 33px;
+	font-size: 30px;
 }
 .about_info{
   flex:1 1 auto;
@@ -30,7 +31,7 @@
 .about_description p {
   font-weight: 400;
 	font-size: 17px;
-	line-height: 1.67;
+	line-height: 1.37;
 }
 .about_img{
   position: relative;

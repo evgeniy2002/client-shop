@@ -342,6 +342,7 @@ body {
 	color: #5a6c7d;
 	font-size: 14px;
 	line-height: 1.29;
+	font-weight: 700;
 }
 
 .devicePage_product_is_out span{
@@ -445,7 +446,7 @@ body {
 }
 .modal_title {
 	font-family: 'Roboto', arial, sans-serif;
-	font-weight: 400;
+	font-weight: 700;
 	font-size: 15px;
 	color: #005bff;
 	margin: 0 0 10px 0;
@@ -453,7 +454,7 @@ body {
 .modal_info {
 	font-family: 'Roboto', arial, sans-serif;
 	font-size: 12.5px;
-	line-height: 22px;
+	line-height: 20px;
 	color: #001a34;
 }
 

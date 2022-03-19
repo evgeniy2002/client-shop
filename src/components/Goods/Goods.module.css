@@ -394,7 +394,7 @@
   font-weight: 400;
   color: #001a34;
   font-size: 14px;
-  line-height: 22px;
+  line-height: 17px;
   margin: 5px 0 20px 0;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -448,7 +448,7 @@
   position: relative;
   color: #001a34;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
 }
 .goods_content_old_price span::after {
   background: #f91155;
