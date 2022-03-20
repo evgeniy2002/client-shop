@@ -1,8 +1,9 @@
-import { getOneDevice } from "../../http/deviceApi"
+import { getDevices, getOneDevice } from "../../http/deviceApi"
 
 const ADD_DEVICES = 'ADD-DEVICES'
 const SET_COUNT = 'SET-COUNT'
 const SET_PAGE = 'SET-PAGE'
+const SET_TOTAL_COUNT = 'SET-TOTAL-COUNT'
 const SET_SORT_BY = 'SET-SORT-BY'
 const SET_POPULAR_DEVICE = 'SET-POPULAR-DEVICE'
 const SET_BESTSELLER_DEVICE = 'SET-BESTSELLER-DEVICE'
