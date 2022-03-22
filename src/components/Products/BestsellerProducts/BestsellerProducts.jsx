@@ -1,6 +1,4 @@
 import React from 'react'
-import Preloader from '../../../assets/loader/Preloader'
-
 import s from '../Products.module.css'
 
 
