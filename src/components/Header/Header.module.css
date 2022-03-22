@@ -261,7 +261,7 @@
   top: 0;
 }
 .header_burger span:nth-child(2) {
-  top: 50%;
+  top: 49%;
   transform: translate(0, -50%);
 }
 .header_burger span:nth-child(3) {
