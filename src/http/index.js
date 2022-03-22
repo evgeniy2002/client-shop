@@ -3,13 +3,9 @@ import axios from 'axios'
 const host = axios.create({
   // withCredentials: true,
   baseURL: 'https://shrouded-reaches-17656.herokuapp.com/',
-  withCredentials: false,
+  // withCredentials: false,
   // credentials: 'same-origin',
   
-  headers: {
-    // "Access-Control-Allow-Origin": "*",
-    'Access-Control-Allow-Credentials': true
-  }
   // headers: {
   //   'Access-Control-Allow-Origin': '*',
   //   'Content-Type': 'application/json',
