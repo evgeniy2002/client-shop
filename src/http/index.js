@@ -1,8 +1,9 @@
 import axios from 'axios'
 
 const host = axios.create({
-  // withCredentials: true,
-  baseURL: 'https://shrouded-reaches-17656.herokuapp.com/'
+  baseURL: 'https://shrouded-reaches-17656.herokuapp.com',
+  headers: {'Content-Type': 'application/json'},
+  withCredentials: true,
   // baseURL: 'http://localhost:5000/'
 })
 
