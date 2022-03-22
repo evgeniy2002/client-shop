@@ -5,7 +5,7 @@ const host = axios.create({
   baseURL: 'https://shrouded-reaches-17656.herokuapp.com/',
   withCredentials: true,
   headers: {
-    'Access-Control-Allow-Origin' : '*',
+    'Access-Control-Allow-Origin' : 'https://shrouded-reaches-17656.herokuapp.com/',
     'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     'Content-Type': 'application/json',
     'Access-Control-Allow-Credentials': true
