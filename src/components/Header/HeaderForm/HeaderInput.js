@@ -29,9 +29,9 @@ const HeaderInput = (props) => {
 
 
   React.useEffect(() => {
-    getDeviceWithSearch(formValue)
-      .then(({ data }) => dispatch(setSearchDevice(data)))
-      .catch(err => console.error(err))
+    // getDeviceWithSearch(formValue)
+    //   .then(({ data }) => dispatch(setSearchDevice(data)))
+    //   .catch(err => console.error(err))
 
 
     if (formValue.length === 0) {
