@@ -15,7 +15,7 @@ export const getTypes = async (typeId, typeOrder) => {
 }
 
 export const getAllTypes = async () => {
-  const data = await host.get('/api/type')
+  const data = await host.get('/type')
   return data
 }
 

@@ -2,8 +2,8 @@ import axios from 'axios'
 
 const host = axios.create({
   // withCredentials: true,
-  baseURL: 'https://shrouded-reaches-17656.herokuapp.com/',
-  withCredentials: true
+  baseURL: 'https://shrouded-reaches-17656.herokuapp.com/api',
+  // withCredentials: true
   // withCredentials: false,
   // credentials: 'same-origin',
   
