@@ -10,12 +10,12 @@ export const getDevices = async (brandId, typeOrder, orderBy, page, limit, maxPr
 }
 
 export const getTypes = async (typeId, typeOrder) => {
-  const data = await host.get('/type', { params: { typeId, typeOrder } })
+  const data = await host.get('/api/type', { params: { typeId, typeOrder } })
   return data
 }
 
 export const getAllTypes = async () => {
-  const data = await host.get('/type')
+  const data = await host.get('/api/type')
   return data
 }
 
