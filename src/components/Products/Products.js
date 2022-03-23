@@ -28,21 +28,21 @@ export default function Products() {
 
   React.useEffect(() => {
 
-    getDevices(null, null, null, 1, 20, 0, null)
-      .then(({ data }) => dispatch(setPopularDevice(data)))
-      .catch(err => console.error(err))
+    // getDevices(null, null, null, 1, 20, 0, null)
+    //   .then(({ data }) => dispatch(setPopularDevice(data)))
+    //   .catch(err => console.error(err))
 
-    getDevices(null, null, null, 1, 20, 0, true)
-      .then(({ data }) => dispatch(setBestsellerDevice(data)))
-      .catch(err => console.error(err))
+    // getDevices(null, null, null, 1, 20, 0, true)
+    //   .then(({ data }) => dispatch(setBestsellerDevice(data)))
+    //   .catch(err => console.error(err))
 
     getTypes(null, 'rating')
       .then(({ data }) => dispatch(setPopularBrands(data)))
       .catch(err => console.error(err))
 
-    getAllBrand(null, 'rating')
-      .then(({ data }) => dispatch(setRecommendBrands(data)))
-      .catch(err => console.error(err))
+    // getAllBrand(null, 'rating')
+    //   .then(({ data }) => dispatch(setRecommendBrands(data)))
+    //   .catch(err => console.error(err))
 
   }, [])
 
