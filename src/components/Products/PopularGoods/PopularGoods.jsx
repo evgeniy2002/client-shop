@@ -39,7 +39,7 @@ export default function PopularGoods({ popularGoods, cancel, changeRatingItem, c
                     : <div className={s.products_item_old_price}><span>{item.old_price} &#8381;</span></div>
                 }
 
-              </div>
+              </div >
               {
                 Math.abs(new Date().getTime() - new Date(item.create_at).getTime()) / (1000 * 3600 * 24) < 1
                   ? <div className="goods_info_product_bonus">
