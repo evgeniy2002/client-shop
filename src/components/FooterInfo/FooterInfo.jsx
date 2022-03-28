@@ -12,7 +12,7 @@ import vk_hover from '../../assets/images/icons/vk-circle-hover.svg'
 
 function FooterInfo() {
 
- 
+  
   const [homeState, setHomeState] = React.useState(false)
   const [catalogState, setCatalogState] = React.useState(false)
   const [vkState, setVkState] = React.useState(false)
