@@ -10,6 +10,7 @@ import PopularCategory from './PopularCategory/PopularCategory'
 import PopularGoods from './PopularGoods/PopularGoods'
 import { setBestsellerDevice, setLoaded, setPopularDevice } from '../../redux/reducers/devices-reducer'
 import Preloader from '../../assets/loader/Preloader'
+import NewProducts from './NewProducts/NewProducts'
 
 
 
@@ -77,6 +78,7 @@ export default function Products() {
                       popularBrands={popularBrands}
                       cancel={cancel}
                     />
+                    <NewProducts />
                     <BestsellerProducts
                       bestsellerDevice={bestsellerDevice}
                       cancel={cancel}
