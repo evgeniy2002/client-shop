@@ -28,8 +28,11 @@ const NewProducts = () => {
               <div className={s.products_slider_img + ' ' + 'ibg'}>
                 <img src='https://shop-storage.storage.yandexcloud.net/images/8c092b9be5c1b9058d5bda48d14029fc.png' alt="" />
               </div>
+              <div className={s.products_slider_info}>
 
-              <div className={s.products_slider_name}><span>Coca Cola</span></div>
+                <div className={s.products_slider_price}><span>100&#8381;</span></div>
+                <div className={s.products_slider_name}><span>Coca Cola</span></div>
+              </div>
             </a>
           </SwiperSlide>
           <SwiperSlide>
@@ -37,8 +40,12 @@ const NewProducts = () => {
               <div className={s.products_slider_img + ' ' + 'ibg'}>
                 <img src='https://shop-storage.storage.yandexcloud.net/images/75f92f8e396babe8e752c7eb2f044f31.png' alt="" />
               </div>
+              <div className={s.products_slider_info}>
 
-              <div className={s.products_slider_name}><span>Test NameTest NameTest NameTest NameTest NameTest NameTest Name</span></div>
+                <div className={s.products_slider_price}><span>100&#8381;</span></div>
+                <div className={s.products_slider_name}><span>Test NameTest NameTest NameTest NameTest NameTest NameTest Name</span></div>
+
+              </div>
             </a>
           </SwiperSlide>
           <SwiperSlide>

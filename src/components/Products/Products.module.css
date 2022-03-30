@@ -118,6 +118,9 @@
 
 /* =============================================== NEW PRODUCTS ======================================= */
 
+.products_new_row{
+	margin: 45px 0 60px 0;
+}
 
 .products_slider_item{
 	position: absolute;
@@ -130,13 +133,22 @@
 	padding: 110px 0;
 	background-size: contain;
 }
-.products_slider_name{
-	margin: 25px 0 0 0;
-}
+
+.products_slider_price span,
 .products_slider_name span{
 	font-family: "Roboto", arial, sans-serif;
-	font-size: 20px;
 	color: #001a34;
+	
+}
+.products_slider_price span{
+	font-size: 26px;
+	font-weight: 700;
+}
+.products_slider_name{
+	margin: 5px 0 0 0;
+}
+.products_slider_name span{
+	font-size: 18px;
 	font-weight: 400;
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
@@ -145,9 +157,6 @@
 	word-break: break-word; 
 }
 
-.products_new_row{
-	margin: 35px 0;
-}
 
 
 
@@ -538,13 +547,19 @@
 		font-size: 12px;
 	}
 	.products_slider_img{
-		padding: 90px 0;
+		padding: 85px 0;
+	}
+	.products_slider_price span{
+		font-size: 20px;
 	}
 	.products_slider_name{
-		margin: 12px 0 0 0;
+		margin: 3px 0 0 0;
 	}
 	.products_slider_name span{
-		font-size: 18px;
+		font-size: 16px;
+	}
+	.products_slider_info{
+		margin: 7px 0 0 0;
 	}
 }
 
