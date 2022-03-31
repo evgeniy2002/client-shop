@@ -66,6 +66,9 @@ import { getOneDevice } from '../../http/deviceApi'
     }
     breadCrumbsItems.map(item => {
       let arr = Object.values(item)[0].split('/')
+      if(arr[arr.length - 1].length > 70){
+        item.title = ''
+      }
       item.title = arr[arr.length - 1]
 
       switch (item.title) {
