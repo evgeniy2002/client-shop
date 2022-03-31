@@ -3,9 +3,9 @@
   background: -webkit-linear-gradient(90deg, rgb(80, 138, 198) 13%, rgb(204, 91, 175));
   background: -moz-linear-gradient(90deg, rgb(80, 138, 198) 13%, rgb(204, 91, 175));
   background: linear-gradient(90deg, rgb(80, 138, 198) 13%, rgb(204, 91, 175));
-  -webkit-box-shadow: 0px 0px 20px 3px rgba(131, 73, 216, 0.5);
-  -moz-box-shadow: 0px 0px 20px 3px rgba(131, 73, 216, 0.5);
-  box-shadow: 0px 0px 20px 3px rgba(131, 73, 216, 0.5);
+  -webkit-box-shadow: 0px 0px 20px 3px rgba(131, 73, 216, 0.4);
+  -moz-box-shadow: 0px 0px 20px 3px rgba(131, 73, 216, 0.4);
+  box-shadow: 0px 0px 20px 3px rgba(131, 73, 216, 0.4);
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
