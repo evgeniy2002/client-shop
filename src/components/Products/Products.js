@@ -85,6 +85,7 @@ export default function Products() {
                     <NewProducts
                       items={items}
                       cancel={cancel}
+                      changeRatingItem={changeRatingItem}
                     />
                     <BestsellerProducts
                       bestsellerDevice={bestsellerDevice}

@@ -10,7 +10,7 @@ import s from '../Products.module.css'
 
 
 
-const NewProducts = ({ items, cancel }) => {
+const NewProducts = ({ items, cancel, changeRatingItem }) => {
   return (
     <div className={s.products_new_header}>
       <div className={s.products_body_title}><span>Новые товары</span></div>
@@ -45,7 +45,7 @@ const NewProducts = ({ items, cancel }) => {
 
                   <SwiperSlide key={device.device_name}>
 
-                    <a href={`/device/${device.id}`} className={s.products_new_slider}>
+                    <a href={`/device/${device.id}`} className={s.products_new_slider}  onClick={() => changeRatingItem(device.id, device.rating)}>
 
 
                       <div className={s.products_wrapper_new_img}>
