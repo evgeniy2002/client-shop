@@ -8,7 +8,7 @@ import BestsellerProducts from './BestsellerProducts/BestsellerProducts'
 import RecommendBrands from './RecommendBrands/RecommendBrands'
 import PopularCategory from './PopularCategory/PopularCategory'
 import PopularGoods from './PopularGoods/PopularGoods'
-import { setBestsellerDevice, setLoaded, setPopularDevice } from '../../redux/reducers/devices-reducer'
+import { addDevices, setBestsellerDevice, setLoaded, setPopularDevice } from '../../redux/reducers/devices-reducer'
 import Preloader from '../../assets/loader/Preloader'
 import NewProducts from './NewProducts/NewProducts'
 
@@ -18,8 +18,9 @@ export default function Products() {
 
   const dispatch = useDispatch()
 
-  let { bestsellerDevice, popularGoods, popularBrands, recommendBrands } = useSelector(({ devices, brands }) => {
+  let { items, bestsellerDevice, popularGoods, popularBrands, recommendBrands } = useSelector(({ devices, brands }) => {
     return {
+      items: devices.items,
       bestsellerDevice: devices.bestsellerDevice,
       popularGoods: devices.popularDevice,
       popularBrands: brands.popularBrands,
@@ -29,11 +30,11 @@ export default function Products() {
 
   React.useEffect(() => {
 
-    getDevices(null, null, null, 1, 20, 0, null)
+    getDevices(null, null, null, 1, 24, 0, null)
       .then(({ data }) => dispatch(setPopularDevice(data)))
       .catch(err => console.error(err))
 
-    getDevices(null, null, null, 1, 20, 0, true)
+    getDevices(null, null, null, 1, 24, 0, true)
       .then(({ data }) => dispatch(setBestsellerDevice(data)))
       .catch(err => console.error(err))
 
@@ -45,6 +46,9 @@ export default function Products() {
       .then(({ data }) => dispatch(setRecommendBrands(data)))
       .catch(err => console.error(err))
 
+    getDevices(null, null, null, 1, 24, 0, true, true)
+      .then(({ data }) => dispatch(addDevices(data)))
+      .catch(err => console.error(err))
   }, [])
 
 
@@ -78,7 +82,10 @@ export default function Products() {
                       popularBrands={popularBrands}
                       cancel={cancel}
                     />
-                    <NewProducts />
+                    <NewProducts
+                      items={items}
+                      cancel={cancel}
+                    />
                     <BestsellerProducts
                       bestsellerDevice={bestsellerDevice}
                       cancel={cancel}

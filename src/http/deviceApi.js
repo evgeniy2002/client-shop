@@ -1,9 +1,9 @@
 import { host } from './index'
 
-export const getDevices = async (brandId, typeOrder, orderBy, page, limit, maxPrice, getBestseller) => {
+export const getDevices = async (brandId, typeOrder, orderBy, page, limit, maxPrice, getBestseller, getNewDevice) => {
   const data = await host.get('/api/device', {
     params: {
-      brandId, typeOrder, orderBy, limit, page, maxPrice, getBestseller
+      brandId, typeOrder, orderBy, limit, page, maxPrice, getBestseller, getNewDevice
     }
   })
   return data
