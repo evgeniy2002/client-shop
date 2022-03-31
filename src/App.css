@@ -164,7 +164,7 @@ body {
 }
 .devicePage_columns:first-child {
 	position: relative;
-	margin: 0 120px 0 0;
+	margin: 10px 120px 0 0;
 }
 .devicePage_columns:last-of-type {
 	margin: 30px 80px 0 0;
