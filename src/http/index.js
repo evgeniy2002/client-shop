@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const host = axios.create({
   // withCredentials: true,
-  baseURL: 'https://62.113.107.8/'
+  baseURL: 'https://student-store.ru/'
   // withCredentials: true,
   // withCredentials: false,
   // credentials: 'same-origin',
