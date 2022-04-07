@@ -33,22 +33,21 @@ export default function RecommendList({ recommended }) {
                 watchOverflow={true}
                 breakpoints={{
                   320: {
-                    slidesPerView: 2.3,
-                    spaceBetween: 7,
+                    slidesPerView: 2.2,
                   },
-                  370: {
-                    slidesPerView: 2.6,
-                  },
-                  425: {
-                    slidesPerView: 3.2,
-                    // spaceBetween: 0,
+                  // 425: {
+                  //   slidesPerView: 3.,
+                  // },
+                  540: {
+                    slidesPerView: 3.3,
+                    // spaceBetween: -5,
                   },
                   732: {
-                    slidesPerView: 4.5,
+                    slidesPerView: 3.8,
                     // spaceBetween: 40,
                   },
                   1023: {
-                    slidesPerView: 5.5,
+                    slidesPerView: 4.5,
                     // spaceBetween: 0,
                   },
                 }}
@@ -56,7 +55,7 @@ export default function RecommendList({ recommended }) {
 
                 {
                   recommended.map(item => (
-                    <SwiperSlide>
+                    <SwiperSlide key={item.device_name}>
 
                       <div className="recommended_goods_columns" key={item.device_name}>
                         <a href={item.id} className="recommended_goods_item" onClick={() => changeRatingItem(item.id, item.rating)}>
