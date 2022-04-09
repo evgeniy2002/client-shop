@@ -199,10 +199,7 @@ body {
 .devicePage_item {
 	display: flex;
 }
-.devicePage_description{
-	position: relative;
-	z-index: 100;
-}
+
 .devicePage_description_title{
 	font-family: "Roboto", arial, sans-serif;
 	color: #001a34;
