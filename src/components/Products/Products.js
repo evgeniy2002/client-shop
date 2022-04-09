@@ -46,7 +46,7 @@ export default function Products() {
       .then(({ data }) => dispatch(setRecommendBrands(data)))
       .catch(err => console.error(err))
 
-    getDevices(null, null, null, 1, 24, 0, true, true)
+    getDevices(null, null, null, 1, 40, 0, true, true)
       .then(({ data }) => dispatch(addDevices(data)))
       .catch(err => console.error(err))
   }, [])
