@@ -154,6 +154,7 @@ body {
 	display: flex;
 	justify-content: center;
 	margin: 40px 0 80px 0;
+	z-index: 100;
 }
 .devicePage_row::before {
 	content: "";
