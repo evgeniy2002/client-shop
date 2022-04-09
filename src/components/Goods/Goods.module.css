@@ -52,7 +52,7 @@
   padding: 15px 0 0 0;
 }
 .filter_body {
-  min-height: 530px;
+  min-height: 100%;
   text-decoration: none;
 }
 .filter_title {
