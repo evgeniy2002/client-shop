@@ -129,10 +129,9 @@
   display: none;
   min-height: 43px;
   line-height: 19px;
-  width: 100%;
-  margin: 25px 0 0 0;
+  width: 95%;
   font-family: 'Roboto', arial, sans-serif;
-  background-color: #0059ffd2;
+  background-color: #0059ff;
   color: #fff;
   font-size: 14px;
   font-weight: 700;
@@ -584,7 +583,13 @@
   }
   .filter_btn {
     display: inline-block;
-    margin: 0 0 15px 0;
+    position: fixed;
+    bottom: 9px;
+    left: 50%;
+    transform: translate(-50%,0);
+    display: inline-block;
+    z-index:10;
+    /* margin: 0 0 15px 0; */
   }
   .goods_many_content {
     padding: 10px 0 0 0;
