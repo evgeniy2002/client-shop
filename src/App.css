@@ -357,7 +357,7 @@ body {
 }
 .device_body {
 	position: relative;
-	z-index: 220;
+	z-index: 99;
 }
 
 .devicePage_item_info_main {
