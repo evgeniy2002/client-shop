@@ -575,12 +575,6 @@
   .goods_content_row_devices {
     margin: 45px 0 0 0;
   }
-  .filter_body {
-    /* padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100%; */
-  }
   .filter_btn {
     display: inline-block;
     position: fixed;

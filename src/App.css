@@ -832,8 +832,8 @@ body {
 		width: 100%;
 		height: 80px;
 		background-color: #fff;
-		padding: 15px 10px 10px 10px;
-		z-index: 2;
+		padding: 10px;
+		z-index: 12;
 	}
 	.devicePage {
 		padding: 25px 0; 

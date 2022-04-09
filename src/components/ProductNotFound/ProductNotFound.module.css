@@ -39,18 +39,11 @@
 }
 @media(max-width: 376px){
   .content_img{
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     margin: 60px auto 10px auto;
   }
   .content_title{
     font-size: 14px;
   }
-}
-@media(max-width: 320px){
-  .content_img{
-    width: 70px;
-    height: 70px;
-  }
-
 }
