@@ -146,6 +146,7 @@ body {
 	color: #001a34;
 	font-weight: 700;
 	margin: 20px 0;
+	z-index: 100;
 }
 
 .devicePage_row {
@@ -228,6 +229,7 @@ body {
 	-moz-border-radius: 10px;
 	-ms-border-radius: 10px;
 	-o-border-radius: 10px;
+	z-index: 100;
 }
 .body_item_other {
 	height: 200px;
@@ -357,7 +359,6 @@ body {
 }
 .device_body {
 	position: relative;
-	z-index: 99;
 }
 
 .devicePage_item_info_main {
