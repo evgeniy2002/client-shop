@@ -154,7 +154,7 @@ body {
 	display: flex;
 	justify-content: center;
 	margin: 40px 0 80px 0;
-	z-index: 100;
+	
 }
 .devicePage_row::before {
 	content: "";
@@ -366,9 +366,11 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	z-index: 100;
 }
+.devicePage_item_info_main div{
+	z-index: 100;
 
+}
 .all_watch {
 	display: flex;
 	align-items: center;
