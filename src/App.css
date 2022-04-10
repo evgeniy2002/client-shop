@@ -146,7 +146,7 @@ body {
 	color: #001a34;
 	font-weight: 700;
 	margin: 20px 0;
-	z-index: 100;
+	z-index: 101;
 }
 
 .devicePage_row {
@@ -366,10 +366,11 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
+	z-index: 101;
 }
 .devicePage_item_info_main div{
-	z-index: 100;
-
+	z-index: 101;
+	
 }
 .all_watch {
 	display: flex;
