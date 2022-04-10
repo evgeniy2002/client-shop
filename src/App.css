@@ -469,7 +469,7 @@ body {
 .recommended_goods {
 	position: relative;
 	padding: 70px 0 0px 0;
-	z-index: 105;
+	z-index: 104;
 }
 .recommended_goods_title {
 	font-family: 'Roboto', arial, sans-serif;
@@ -480,7 +480,6 @@ body {
 .recommended_goods_row {
 	position: relative;
 	margin: 35px -10px 0 -10px;
-	z-index: 105;
 }
 .recommended_goods_columns {
 	cursor: pointer;
