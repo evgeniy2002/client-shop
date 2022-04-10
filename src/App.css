@@ -441,18 +441,17 @@ body {
 	background-color: #ffffff;
 	border-color: #ff8400;
 }
+.modal, .modal_content, .modal_content *{
+	z-index: 105;
+}
 .modal {
 	margin: 5px 0 125px 0;
 	background-color: #eff3f6;
-	z-index: 105;
 }
 .modal_content {
 	padding: 10px 0;
 }
-.modal_content *{
-	z-index: 105;
 
-}
 .modal_title {
 	font-family: 'Roboto', arial, sans-serif;
 	font-weight: 700;
