@@ -193,7 +193,7 @@ export default function DevicePage() {
 
               <div className="devicePage_description">
                 {
-                  device.product_availability
+                  device.product_availability && modalActive
                     ? <div className="info_check_mark_label">
                       <span>Есть в наличии</span>
                     </div>
