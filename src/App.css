@@ -359,7 +359,7 @@ body {
 }
 .device_body {
 	position: relative;
-	z-index: 103;
+	z-index: 104;
 }
 
 .devicePage_item_info_main {
@@ -468,7 +468,6 @@ body {
 .recommended_goods {
 	position: relative;
 	padding: 70px 0 0px 0;
-	z-index: 103;
 }
 .recommended_goods_title {
 	font-family: 'Roboto', arial, sans-serif;
