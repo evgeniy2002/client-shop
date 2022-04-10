@@ -30,11 +30,11 @@ export default function Products() {
 
   React.useEffect(() => {
 
-    getDevices(null, null, null, 1, 24, 0, null)
+    getDevices(null, null, null, 1, 24, 0, null, false)
       .then(({ data }) => dispatch(setPopularDevice(data)))
       .catch(err => console.error(err))
 
-    getDevices(null, null, null, 1, 24, 0, true)
+    getDevices(null, null, null, 1, 24, 0, true, false)
       .then(({ data }) => dispatch(setBestsellerDevice(data)))
       .catch(err => console.error(err))
 

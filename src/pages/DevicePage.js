@@ -35,7 +35,7 @@ export default function DevicePage() {
         .then(({ data }) => {
           let device = data.filter(item => item.brands_name === params.type)
 
-          getDevices(device[0].id, 'rating', 'desc', 1, 20, 0, null)
+          getDevices(device[0].id, 'rating', 'desc', 1, 20, 0, null, false)
             .then(({ data }) => {
 
               let filter_device = data.filter(item => item.id !== params.id)
@@ -159,6 +159,10 @@ export default function DevicePage() {
                                   чтобы он отложил товар,
                                   если нет возможности купить и забрать его сейчас.
                                 </div>
+
+                                <div className="info_check_mark_label">
+                                  <span>Есть в наличии</span>
+                                </div>
                               </div>
                               : ''
                           }
@@ -188,8 +192,18 @@ export default function DevicePage() {
               </div>
 
               <div className="devicePage_description">
+                {
+                  device.product_availability
+                    ? <div className="info_check_mark_label">
+                      <span>Есть в наличии</span>
+                    </div>
+                    : null
+                }
+
                 <div className="devicePage_description_title"><h2>Описание</h2></div>
+
                 <div className="devicePage_description_body">
+
                   <div className="devicePage_sub_description">
                     {
                       device.description
@@ -197,7 +211,7 @@ export default function DevicePage() {
                         : <span>По данному товару нет информации &#128542;</span>
                     }
                   </div>
-                  
+
                 </div>
               </div>
 
@@ -215,6 +229,7 @@ export default function DevicePage() {
                 чтобы он отложил товар,
                 если нет возможности купить и забрать его сейчас.
               </p>
+
             </div>
           </div>
         }
