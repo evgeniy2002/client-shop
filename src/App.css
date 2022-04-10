@@ -446,6 +446,7 @@ body {
 .modal {
 	margin: 5px 0 125px 0;
 	background-color: #eff3f6;
+	z-index: 103;
 }
 .modal_content {
 	padding: 10px 0;
@@ -467,6 +468,7 @@ body {
 .recommended_goods {
 	position: relative;
 	padding: 70px 0 0px 0;
+	z-index: 103;
 }
 .recommended_goods_title {
 	font-family: 'Roboto', arial, sans-serif;
