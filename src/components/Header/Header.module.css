@@ -2,7 +2,7 @@
   position: sticky;
   width: 100%;
   top: 0px;
-  z-index: 105;
+  z-index: 106;
   left: 0;
 }
 
@@ -30,7 +30,7 @@
   display: flex;
   align-items: center;
   height: 70px;
-  z-index: 105;
+  z-index: 106;
 }
 .header_catalog {
   display: flex;

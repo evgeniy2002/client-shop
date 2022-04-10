@@ -368,10 +368,7 @@ body {
 	flex-wrap: wrap;
 	align-items: center;
 }
-.devicePage_item_info_main div{
-	/* z-index: 104; */
-	
-}
+
 .all_watch {
 	display: flex;
 	align-items: center;
