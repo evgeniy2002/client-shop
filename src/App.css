@@ -444,7 +444,7 @@ body {
 .modal {
 	margin: 5px 0 125px 0;
 	background-color: #eff3f6;
-	z-index: 103;
+	z-index: 105;
 }
 .modal_content {
 	padding: 10px 0;
