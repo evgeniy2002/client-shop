@@ -448,7 +448,10 @@ body {
 }
 .modal_content {
 	padding: 10px 0;
+}
+.modal_content *{
 	z-index: 105;
+
 }
 .modal_title {
 	font-family: 'Roboto', arial, sans-serif;
