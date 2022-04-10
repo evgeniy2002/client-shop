@@ -146,7 +146,7 @@ body {
 	color: #001a34;
 	font-weight: 700;
 	margin: 20px 0;
-	z-index: 104;
+	/* z-index: 104; */
 }
 
 .devicePage_row {
@@ -360,6 +360,7 @@ body {
 }
 .device_body {
 	position: relative;
+	z-index: 105;
 }
 
 .devicePage_item_info_main {
@@ -368,7 +369,7 @@ body {
 	align-items: center;
 }
 .devicePage_item_info_main div{
-	z-index: 104;
+	/* z-index: 104; */
 	
 }
 .all_watch {
