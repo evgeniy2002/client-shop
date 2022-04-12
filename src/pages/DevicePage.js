@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addDevices, getDevicePageTC } from '../redux/reducers/devices-reducer'
 import BreadCrumbs from '../components/BreadCrumbs/BreadCrumbs'
 import eye from '../assets/images/icons/eye.svg'
-import { getAllBrand, getDevices, getInfoDevice, updateRatignLink } from '../http/deviceApi'
+import { getAllBrand, getDevices, getInfoDevice, getOneDevice, updateRatignLink } from '../http/deviceApi'
 import RecommendList from '../components/RecommendList/RecommendList'
 
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
