@@ -60,10 +60,10 @@ export default function DevicePage() {
     }
     dispatch(getDevicePageTC(id))
   
-    getInfoDevice(id)
+    getOneDevice(id)
       .then(({ data }) => {
-        console.log(data)
-        setInfoDevice(data)
+        // console.log(data[1])
+        setInfoDevice(data[1])
       })
 
   }, [])

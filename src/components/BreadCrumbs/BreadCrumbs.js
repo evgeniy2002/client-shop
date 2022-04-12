@@ -57,8 +57,8 @@ import { getOneDevice } from '../../http/deviceApi'
       getOneDevice(deviceNum)
         .then(({ data }) => {
           breadCrumbsItems.push({
-            title: data.device_name,
-            path: 'device/' + data.id
+            title: data[0].device_name,
+            path: 'device/' + data[0].id
           })
         })
 

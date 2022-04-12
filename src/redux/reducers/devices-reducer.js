@@ -106,7 +106,7 @@ export const getDevicePageTC = (id) => {
   return async (dispatch) => {
     let {data} = await getOneDevice(id)
   
-    dispatch(setCurrentDevicePage([data]))
+    dispatch(setCurrentDevicePage([data[0]]))
 
   }
 }
