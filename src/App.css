@@ -414,7 +414,7 @@ body {
 
 .devicePage_product_is_out span{
 	position: absolute;
-	bottom: 30px;
+	bottom: 25px;
 	left: 50%;
 	transform: translate(-50%, 0);
 	-webkit-transform: translate(-50%, 0);
@@ -865,7 +865,7 @@ body {
 	.devicePage_info{
 		margin: 35px 0 0 0;
 	}
-	.devicePage_columns:nth-child(2){
+	.devicePage_columns_info{
 		display: none;
 	}
 	.recommended_goods {

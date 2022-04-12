@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addDevices, getDevicePageTC } from '../redux/reducers/devices-reducer'
 import BreadCrumbs from '../components/BreadCrumbs/BreadCrumbs'
 import eye from '../assets/images/icons/eye.svg'
-import { getAllBrand, getDevices, updateRatignLink } from '../http/deviceApi'
+import { getAllBrand, getDevices, getInfoDevice, updateRatignLink } from '../http/deviceApi'
 import RecommendList from '../components/RecommendList/RecommendList'
 
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
@@ -18,15 +18,14 @@ export default function DevicePage() {
 
   const [adaptiveBtn, setAdaptiveBtn] = React.useState(false)
   const [modalActive, setModalActive] = React.useState(false)
-
+  const [infoDevice, setInfoDevice] = React.useState([])
 
   const { id } = useParams()
 
-  const { recommended, currentDevice, infoDevicePage } = useSelector(({ devices }) => {
+  const { recommended, currentDevice } = useSelector(({ devices }) => {
     return {
       recommended: devices.items,
-      currentDevice: devices.currentDevice,
-      infoDevicePage: devices.infoDevicePage
+      currentDevice: devices.currentDevice
     }
   })
 
@@ -60,6 +59,12 @@ export default function DevicePage() {
       setModalActive(true)
     }
     dispatch(getDevicePageTC(id))
+  
+    getInfoDevice(id)
+      .then(({ data }) => {
+        setInfoDevice(data)
+      })
+
   }, [])
 
 
@@ -141,15 +146,15 @@ export default function DevicePage() {
                 </div>
    
                 {
-                  infoDevicePage.length > 0
-                    ? <div className="devicePage_columns">
+                  infoDevice.length > 0
+                    ? <div className="devicePage_columns devicePage_columns_info">
 
                       <div className="title_info">Характеристики</div>
                       <table className='devicePage_table'>
 
                         <tbody>
                           {
-                            infoDevicePage.map(item => (
+                            infoDevice.map(item => (
                               <tr key={item.id}>
                                 <td className='devicePage_td devicePage_td_label'><span>{item.title}</span></td>
                                 <td className='devicePage_td devicePage_td_info'><span>{item.description}</span></td>
@@ -249,14 +254,14 @@ export default function DevicePage() {
           modalActive &&
           <div>
             {
-              infoDevicePage.length > 0
+              infoDevice.length > 0
                 ? <div className="devicePage_info">
                   <div className="title_info">Характеристики</div>
                   <table className='devicePage_table'>
 
                     <tbody>
                       {
-                        infoDevicePage.map(item => (
+                        infoDevice.map(item => (
                           <tr key={item.id}>
                             <td className='devicePage_td devicePage_td_label'><span>{item.title}</span></td>
                             <td className='devicePage_td devicePage_td_info'><span>{item.description}</span></td>
