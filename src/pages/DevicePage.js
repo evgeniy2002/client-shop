@@ -62,6 +62,7 @@ export default function DevicePage() {
   
     getInfoDevice(id)
       .then(({ data }) => {
+        console.log(data)
         setInfoDevice(data)
       })
 
