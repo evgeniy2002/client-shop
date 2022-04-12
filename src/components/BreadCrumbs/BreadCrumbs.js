@@ -55,12 +55,13 @@ import { getOneDevice } from '../../http/deviceApi'
 
       breadCrumbsItems = breadCrumbsItems.filter(item => !item.title.includes('device'))
       getOneDevice(deviceNum)
-        .then(({ data }) => (
+        .then(({ data }) => {
+          console.log(data)
           breadCrumbsItems.push({
-            title: data.device_name,
-            path: 'device/' + data.id
+            title: data[0].device_name,
+            path: 'device/' + data[0].id
           })
-        ))
+        })
 
 
     }

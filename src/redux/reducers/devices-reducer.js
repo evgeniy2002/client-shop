@@ -4,6 +4,7 @@ const ADD_DEVICES = 'ADD-DEVICES'
 const SET_COUNT = 'SET-COUNT'
 const SET_PAGE = 'SET-PAGE'
 const SET_TOTAL_COUNT = 'SET-TOTAL-COUNT'
+const SET_INFO_DEVICE = 'SET-INFO-DEVICE'
 const SET_SORT_BY = 'SET-SORT-BY'
 const SET_POPULAR_DEVICE = 'SET-POPULAR-DEVICE'
 const SET_BESTSELLER_DEVICE = 'SET-BESTSELLER-DEVICE'
@@ -17,6 +18,7 @@ const initialState = {
   searchDevice: [],
   bestsellerDevice: [],
   currentDevice: [],
+  infoDevicePage: [],
   maxPrice: 0,
   count: 0,
   page:1,
@@ -87,6 +89,12 @@ const DevicesReducer = (state = initialState, action) => {
         currentDevice: action.payload
       }
     }
+    case SET_INFO_DEVICE: {
+      return {
+        ...state,
+        infoDevicePage: action.payload
+      }
+    }
     default:
       return state
   }
@@ -101,13 +109,15 @@ export const setBestsellerDevice = (device) => ({type: SET_BESTSELLER_DEVICE, pa
 export const setSearchDevice = (devices) => ({type: SET_SEARCH_DEVICE, payload: devices})
 export const setLoaded = (state) => ({type: SET_LOADED, payload: state})
 export const setCurrentDevicePage = (device) => ({type: SET_CURRENT_DEVICE, payload: device})
+export const setInfoDevicePage = (info) => ({type: SET_INFO_DEVICE, payload: info})
 
 export const getDevicePageTC = (id) => {
   return async (dispatch) => {
     let {data} = await getOneDevice(id)
 
-   
-    dispatch(setCurrentDevicePage([data]))
+    dispatch(setCurrentDevicePage([data[0]]))
+    dispatch(setInfoDevicePage(data[1]))
+
   }
 }
 

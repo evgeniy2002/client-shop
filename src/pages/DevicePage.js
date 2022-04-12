@@ -19,14 +19,19 @@ export default function DevicePage() {
   const [adaptiveBtn, setAdaptiveBtn] = React.useState(false)
   const [modalActive, setModalActive] = React.useState(false)
 
+
   const { id } = useParams()
 
-  const { recommended, currentDevice } = useSelector(({ devices }) => {
+  const { recommended, currentDevice, infoDevicePage } = useSelector(({ devices }) => {
     return {
       recommended: devices.items,
-      currentDevice: devices.currentDevice
+      currentDevice: devices.currentDevice,
+      infoDevicePage: devices.infoDevicePage
     }
   })
+
+
+
 
   React.useEffect(() => {
     if (params.type) {
@@ -134,6 +139,29 @@ export default function DevicePage() {
                       </TransformWrapper>
                   }
                 </div>
+   
+                {
+                  infoDevicePage.length > 0
+                    ? <div className="devicePage_columns">
+
+                      <div className="title_info">Характеристики</div>
+                      <table className='devicePage_table'>
+
+                        <tbody>
+                          {
+                            infoDevicePage.map(item => (
+                              <tr key={item.id}>
+                                <td className='devicePage_td devicePage_td_label'><span>{item.title}</span></td>
+                                <td className='devicePage_td devicePage_td_info'><span>{item.description}</span></td>
+                              </tr>
+                            ))
+                          }
+                        </tbody>
+
+                      </table>
+                    </div>
+                    : null
+                }
                 <div className="devicePage_columns">
                   <div className="devicePage_item">
 
@@ -171,7 +199,7 @@ export default function DevicePage() {
                         </div>
                         {
                           device.product_availability
-                            // ? <a href={"https://vk.com/id520073022"} target="_blank" onClick={() => changeRatingLinkCount(device.id, device.click_to_link)} className="body_btn">Написать продавцу {
+
                             ? <a href={device.link_to_vk} target="_blank" onClick={() => changeRatingLinkCount(device.id, device.click_to_link)} className="body_btn">Написать продавцу {
                               adaptiveBtn
                                 ? <span>{device.price} &#8381;</span>
@@ -201,9 +229,7 @@ export default function DevicePage() {
                 }
 
                 <div className="devicePage_description_title"><h2>Описание</h2></div>
-
                 <div className="devicePage_description_body">
-
                   <div className="devicePage_sub_description">
                     {
                       device.description
@@ -221,17 +247,43 @@ export default function DevicePage() {
         }
         {
           modalActive &&
-          <div className='modal'>
-            <div className='modal_content'>
-              <div className="modal_title">Вы также можете!</div>
-              <p className='modal_info'>
-                Написать продавцу
-                чтобы он отложил товар,
-                если нет возможности купить и забрать его сейчас.
-              </p>
+          <div>
+            {
+              infoDevicePage.length > 0
+                ? <div className="devicePage_info">
+                  <div className="title_info">Характеристики</div>
+                  <table className='devicePage_table'>
 
+                    <tbody>
+                      {
+                        infoDevicePage.map(item => (
+                          <tr key={item.id}>
+                            <td className='devicePage_td devicePage_td_label'><span>{item.title}</span></td>
+                            <td className='devicePage_td devicePage_td_info'><span>{item.description}</span></td>
+                          </tr>
+                        ))
+                      }
+                    </tbody>
+
+                  </table>
+                </div>
+                : null
+            }
+
+            <div className='modal'>
+              <div className='modal_content'>
+                <div className="modal_title">Вы также можете!</div>
+                <p className='modal_info'>
+                  Написать продавцу
+                  чтобы он отложил товар,
+                  если нет возможности купить и забрать его сейчас.
+                </p>
+
+              </div>
             </div>
+
           </div>
+
         }
 
 

@@ -139,20 +139,22 @@ body {
 .devicePage {
 	padding: 15px 0 70px 0;
 }
-.devicePage_item-title {
-	position: relative;
+.title_info, .devicePage_item-title{
 	font-family: 'Roboto', arial, sans-serif;
-	font-size: 24px;
 	color: #001a34;
 	font-weight: 700;
+	
+}
+.devicePage_item-title {
+	position: relative;
+	font-size: 24px;
 	margin: 20px 0;
-	/* z-index: 104; */
 }
 
 .devicePage_row {
 	position: relative;
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
 	margin: 40px 0 80px 0;
 	
 }
@@ -166,13 +168,56 @@ body {
 }
 .devicePage_columns:first-child {
 	position: relative;
-	margin: 10px 120px 0 0;
+	margin: 10px 0px 0 0;
+}
+.devicePage_columns:nth-child(2){
+	align-self: flex-start;
+	margin: 40px 0 0 0;
 }
 .devicePage_columns:last-of-type {
-	margin: 30px 80px 0 0;
+	margin: 30px 0px 0 0;
 
 }
+/* ========================================== TABLE DEVICE PAGE ============================================ */
 
+.title_info{
+	font-family: 'Roboto', arial, sans-serif;
+	font-size: 20px;
+	color: #001a34;
+	font-weight: 700;
+	margin: 0 0 10px 28px;
+}
+
+.devicePage_td{
+	padding: 9px 10px;
+	text-transform: none;
+}
+.devicePage_table{
+	min-width: 0;
+}
+.devicePage_td{
+	position: relative;
+}
+.devicePage_td_label::after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	left:0;
+	top:80%;
+	height: 1px;
+	background-color: rgba(153, 153, 153, 0.179);
+}
+.devicePage_td_label{
+	color:#707f8d;
+	font-size: 14px;
+}
+.devicePage_td_info{
+	font-size: 14px;
+	color:#333;
+}
+	
+
+/* ======================================================================================================== */
 .devicePage_img {
 	width: 375px;
 	padding: 195px 0;
@@ -207,7 +252,7 @@ body {
 }
 
 .devicePage_description_body{
-	max-width: 90%;
+	max-width: 75%;
 }
 
 .devicePage_sub_description span{
@@ -337,6 +382,7 @@ body {
 	font-family: "Roboto", arial, sans-serif;
 	font-weight: 700;
 	border-radius: 5px;
+	cursor: pointer;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	-ms-border-radius: 5px;
@@ -809,6 +855,19 @@ body {
 	.devicePage_description{
 		padding: 0 10px;
 	}
+	.devicePage_table{
+		padding:10px;
+	}
+	.title_info{
+		margin: 0 0 10px 10px;
+		font-size: 18px;
+	}
+	.devicePage_info{
+		margin: 35px 0 0 0;
+	}
+	.devicePage_columns:nth-child(2){
+		display: none;
+	}
 	.recommended_goods {
 		margin: -85px 0 130px 0;
 		padding: 0 10px 0px 10px;
@@ -841,13 +900,13 @@ body {
 	}
 	.modal {
 		padding: 0 10px;
-		margin: 30px 0 125px 0;
+		margin: 30px 0 130px 0;
 	}
 	.devicePage_row {
 		padding: 0 10px;
 		flex-direction: column;
 		align-items: center;
-		margin: 40px 0 50px 0;
+		margin: 40px 0;
 	}
 	.body_item {
 		display: flex;

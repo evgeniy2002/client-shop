@@ -7,9 +7,10 @@ const NewDevice = (props) => {
 
   const [checkedOne, setCheckedOne] = React.useState(false);
   const [checkedTwo, setCheckedTwo] = React.useState(false);
+  const [popupState, setPopupState] = React.useState(false);
+
 
   const [allSubCategory, setAllSubCategory] = React.useState([])
-
 
   const [inputName, setName] = React.useState('')
   const [price, setPrice] = React.useState('')
@@ -17,10 +18,12 @@ const NewDevice = (props) => {
   const [currentSubCategory, setSubCategory] = React.useState('')
   const [description, setDescription] = React.useState('')
   const [linkToVk, setLinkToVk] = React.useState('')
-
+  const [info, setInfo] = React.useState([])
+  
+  
   const [deleteDeviceName, setDeleteDeviceName] = React.useState('')
-
-
+  
+  
   const [oldName, setOldName] = React.useState('')
   const [newPrice, setNewPrice] = React.useState('')
   const [newDescription, setNewDescription] = React.useState('')
@@ -36,7 +39,21 @@ const NewDevice = (props) => {
   }, [])
 
 
+  const addInfo = () => {
+    setInfo([...info, { id: ++info.length, title: '', description: '' }])
+  }
 
+  const deleteInfoItem = (id) => {
+    setInfo(info.filter(i => i.id !== id))
+  }
+
+  const changeInfoItem = (id, value, key) => {
+    setInfo(info.map(i => i.id === id ? { ...i, [key]: value } : i))
+  }
+
+  const changePopupState = () => {
+    setPopupState(!popupState)
+  }
 
   const selectChangeFile = e => {
     setChangeFile(e.target.files[0])
@@ -45,7 +62,6 @@ const NewDevice = (props) => {
   const selectFile = e => {
     setFile(e.target.files[0])
   }
-
   const changeInfoDevice = () => {
     const formData = new FormData()
     formData.append('oldName', oldName)
@@ -55,6 +71,7 @@ const NewDevice = (props) => {
     formData.append('newDesc', newDescription)
     formData.append('availabelProduct', availabilityDeviceName)
     formData.append('newLinkVk', newLinkToVk)
+    formData.append('updateInfo', JSON.stringify(info))
 
 
     changeDeviceInfo(formData)
@@ -80,7 +97,7 @@ const NewDevice = (props) => {
     formData.append('brandId', brandId)
     formData.append('desc', description)
     formData.append('link_to_vk', linkToVk)
-
+    formData.append('info_device', JSON.stringify(info))
 
     createDevice(formData)
       .then(data => {
@@ -107,7 +124,7 @@ const NewDevice = (props) => {
     setCheckedOne(false);
 
   };
-
+  console.log(info)
   const handleDevice = () => {
     let brandId = allSubCategory.find(item => item.brands_name === currentSubCategory).id
 
@@ -219,7 +236,44 @@ const NewDevice = (props) => {
             />
 
           </div>
+          <div className='form_group'>
+            <label className='form_label' for="info">Новое свойство</label>
+            <button onClick={changePopupState}>Добавить новое свойство</button>
+            {/* <label className='form_label' for="info">Добавить новое свойство</label> */}
 
+            {
+              popupState
+              && <ul className="list_property">
+
+                <button className='close_list' onClick={changePopupState}>X</button>
+                {
+                  info.map(item => (
+                    <div className="list_property_item" key={item.id}>
+                      <input type='text'
+                        value={item.title}
+                        onChange={(e) => changeInfoItem(item.id, e.target.value, 'title')}
+                        placeholder='Название свойства'
+                        className='list_input'
+                      />
+                      <input type='text'
+                        value={item.description}
+                        onChange={(e) => changeInfoItem(item.id, e.target.value, 'description')}
+                        placeholder='Описание свойства'
+                        className='list_input'
+                      />
+
+                      <button className="delete_property_item" onClick={() => deleteInfoItem(item.id)}>Удалить</button>
+                    </div>
+
+                  ))
+                }
+                <button className='add_new_item' onClick={addInfo}>Добавить</button>
+              </ul>
+            }
+
+
+
+          </div>
           <div className="form_group">
             <label for='link_to_vk' className='form_label'>Ссылка на вк</label>
             <Field
@@ -396,7 +450,44 @@ const NewDevice = (props) => {
             />
 
           </div>
+          <div className='form_group'>
+            <label className='form_label'>обновить свойство</label>
+            <button onClick={changePopupState}>обновить свойство продукта</button>
+         
 
+            {
+              popupState
+              && <ul className="list_property">
+
+                <button className='close_list' onClick={changePopupState}>X</button>
+                {
+                  info.map(item => (
+                    <div className="list_property_item" key={item.id}>
+                      <input type='text'
+                        value={item.title}
+                        onChange={(e) => changeInfoItem(item.id, e.target.value, 'title')}
+                        placeholder='Название свойства'
+                        className='list_input'
+                      />
+                      <input type='text'
+                        value={item.description}
+                        onChange={(e) => changeInfoItem(item.id, e.target.value, 'description')}
+                        placeholder='Описание свойства'
+                        className='list_input'
+                      />
+
+                      <button className="delete_property_item" onClick={() => deleteInfoItem(item.id)}>Удалить</button>
+                    </div>
+
+                  ))
+                }
+                <button className='add_new_item' onClick={addInfo}>Добавить</button>
+              </ul>
+            }
+
+
+
+          </div>
           <div className="form_group">
             <label for='product_availability' className='form_label'>Наличие товара (есть | нет)</label>
             <Field
