@@ -124,7 +124,7 @@ const NewDevice = (props) => {
     setCheckedOne(false);
 
   };
-  console.log(info)
+  
   const handleDevice = () => {
     let brandId = allSubCategory.find(item => item.brands_name === currentSubCategory).id
 
