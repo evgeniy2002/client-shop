@@ -105,12 +105,11 @@ export const setCurrentDevicePage = (device) => ({type: SET_CURRENT_DEVICE, payl
 export const getDevicePageTC = (id) => {
   return async (dispatch) => {
     let {data} = await getOneDevice(id)
-  
+
     dispatch(setCurrentDevicePage([data[0]]))
 
   }
 }
-
 
 
 
