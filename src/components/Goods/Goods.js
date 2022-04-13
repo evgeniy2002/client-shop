@@ -113,17 +113,17 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
 
   const filterByPrice = (from, to) => {
-    // dispatch(setLoaded(true))
-    // getDevices(currentBrand, null, null, 1, 40, 0, null, false)
-    //   .then(({ data }) => {
-    //     let filter = data.filter(item => {
-    //       if (item.price >= from && item.price <= to) {
-    //         return item;
-    //       }
-    //     })
-    //     dispatch(addDevices(filter))
-    //     dispatch(setLoaded(false))
-    //   })
+    dispatch(setLoaded(true))
+    getDevices(currentBrand, null, null, 1, 40, 0, null, false)
+      .then(({ data }) => {
+        let filter = data.filter(item => {
+          if (item.price >= from && item.price <= to) {
+            return item;
+          }
+        })
+        dispatch(addDevices(filter))
+        dispatch(setLoaded(false))
+      })
 
   }
 
