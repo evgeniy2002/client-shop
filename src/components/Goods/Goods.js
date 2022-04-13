@@ -42,7 +42,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
   const body = document.querySelector('body')
 
-  const rangeValue = React.useCallback((value) => {
+  const rangeValue = (value) => {
 
     for (let i = 0; i < value.length; i++) {
       i === 0
@@ -51,7 +51,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
     }
 
-  }, [])
+  }
 
 
 
@@ -104,7 +104,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
     getDevices(currentBrand, sortBy.type, sortBy.order, 1, 40, 0, null, false)
       .then(({ data }) => {
         let filter = data.filter(item => {
-          if (item.price >= from && item.price <= to) {
+          if (item.price >= lowerValue && item.price <= upperValue) {
             return item;
           }
         })
