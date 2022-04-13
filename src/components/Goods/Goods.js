@@ -106,7 +106,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
         
         // let filter = data.filter(item => item.price >= lowerValue && item.price <= upperValue)
         // console.log(filter)
-        dispatch(addDevices(data.filter(item => item.price >= lowerValue && item.price <= upperValue)))
+        dispatch(addDevices(data))
         dispatch(setLoaded(false))
       })
 
