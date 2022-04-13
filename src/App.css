@@ -169,6 +169,7 @@ body {
 .devicePage_columns:first-child {
 	position: relative;
 	margin: 10px 0px 0 0;
+	padding: 0 40px;
 }
 .devicePage_columns:nth-child(2){
 	align-self: flex-start;
@@ -887,6 +888,7 @@ body {
 
 	.devicePage_columns:first-child {
 		flex: 1 1 100%;
+		padding: 0;
 		margin: 0;
 	}
 	.info_check_mark_label{
