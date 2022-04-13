@@ -103,18 +103,15 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
     dispatch(setLoaded(true))
     getDevices(currentBrand, sortBy.type, sortBy.order, 1, 40, 0, null, false)
       .then(({ data }) => {
-        // let filter = data.filter(item => {
-        //   if (item.price >= lowerValue && item.price <= upperValue) {
-        //     return item;
-        //   }
-        // })
-        // dispatch(addDevices(filter))
+        
+        // let filter = data.filter(item => item.price >= lowerValue && item.price <= upperValue)
+        // console.log(filter)
         dispatch(addDevices(data.filter(item => item.price >= lowerValue && item.price <= upperValue)))
         dispatch(setLoaded(false))
       })
 
 
-  }, [sortBy.type])
+  }, [sortBy.type, currentBrand])
 
 
 
