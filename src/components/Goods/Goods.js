@@ -88,7 +88,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
     if (window.matchMedia("(max-width: 768px)").matches) { 
       filterByPrice(lowerValue, upperValue)
     }
-  }, [sortBy.type])
+  }, [sortBy.type, currentBrand])
 
   React.useEffect(() => {
     if (window.matchMedia("(max-width: 768px)").matches && showDateFromFilter) {
