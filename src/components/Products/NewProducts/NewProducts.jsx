@@ -10,14 +10,14 @@ import s from '../Products.module.css'
 
 
 
-const NewProducts = ({ items, cancel, changeRatingItem }) => {
+const NewProducts = ({ newItems, cancel, changeRatingItem }) => {
   return (
     <div className={s.products_new_header}>
       <div className={s.products_body_title}><span>Новые товары</span></div>
 
       <div className={s.products_new_row}>
         {
-          items.length
+          newItems.length
             ? <Swiper
               spaceBetween={20}
               watchOverflow={true}
@@ -41,7 +41,7 @@ const NewProducts = ({ items, cancel, changeRatingItem }) => {
               className="NewProductsSlider"
             >
               {
-                items.map(device => (
+                newItems.map(device => (
 
                   <SwiperSlide key={device.device_name}>
 

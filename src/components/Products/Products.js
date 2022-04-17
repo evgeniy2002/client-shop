@@ -8,7 +8,7 @@ import BestsellerProducts from './BestsellerProducts/BestsellerProducts'
 import RecommendBrands from './RecommendBrands/RecommendBrands'
 import PopularCategory from './PopularCategory/PopularCategory'
 import PopularGoods from './PopularGoods/PopularGoods'
-import { addDevices, setBestsellerDevice, setLoaded, setPopularDevice } from '../../redux/reducers/devices-reducer'
+import { addNewDevices, setBestsellerDevice, setLoaded, setPopularDevice } from '../../redux/reducers/devices-reducer'
 import Preloader from '../../assets/loader/Preloader'
 import NewProducts from './NewProducts/NewProducts'
 
@@ -18,9 +18,9 @@ export default function Products() {
 
   const dispatch = useDispatch()
 
-  let { items, bestsellerDevice, popularGoods, popularBrands, recommendBrands } = useSelector(({ devices, brands }) => {
+  let { newItems, bestsellerDevice, popularGoods, popularBrands, recommendBrands } = useSelector(({ devices, brands }) => {
     return {
-      items: devices.items,
+      newItems: devices.newItems,
       bestsellerDevice: devices.bestsellerDevice,
       popularGoods: devices.popularDevice,
       popularBrands: brands.popularBrands,
@@ -47,7 +47,7 @@ export default function Products() {
       .catch(err => console.error(err))
 
     getDevices(null, null, null, 1, 50, 0, true, true)
-      .then(({ data }) => dispatch(addDevices(data)))
+      .then(({ data }) => dispatch(addNewDevices(data)))
       .catch(err => console.error(err))
   }, [])
 
@@ -83,7 +83,7 @@ export default function Products() {
                       cancel={cancel}
                     />
                     <NewProducts
-                      items={items}
+                      newItems={newItems}
                       cancel={cancel}
                       changeRatingItem={changeRatingItem}
                     />

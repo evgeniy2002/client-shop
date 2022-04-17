@@ -1,6 +1,7 @@
-import { getDevices, getOneDevice } from "../../http/deviceApi"
+import { getOneDevice } from "../../http/deviceApi"
 
 const ADD_DEVICES = 'ADD-DEVICES'
+const ADD_NEW_DEVICES = 'ADD-NEW-DEVICES'
 const SET_COUNT = 'SET-COUNT'
 const SET_PAGE = 'SET-PAGE'
 const SET_TOTAL_COUNT = 'SET-TOTAL-COUNT'
@@ -13,6 +14,7 @@ const SET_LOADED = 'SET-LOADED'
 
 const initialState = {
   items: [],
+  newItems: [],
   popularDevice: [],
   searchDevice: [],
   bestsellerDevice: [],
@@ -34,6 +36,11 @@ const DevicesReducer = (state = initialState, action) => {
       return {
         ...state,
         items: action.payload
+      }
+    case ADD_NEW_DEVICES:
+      return {
+        ...state,
+        newItems: action.payload
       }
     
     case SET_COUNT:{
@@ -93,6 +100,7 @@ const DevicesReducer = (state = initialState, action) => {
 }
 
 export const addDevices = (devices) => ({type: ADD_DEVICES, payload: devices})
+export const addNewDevices = (devices) => ({type: ADD_NEW_DEVICES, payload: devices})
 export const setCount = (num) => ({type: SET_COUNT, payload: num})
 export const setPage = (num) => ({type: SET_PAGE, payload: num})
 export const setSortBy = (type) => ({type: SET_SORT_BY, payload: type})
