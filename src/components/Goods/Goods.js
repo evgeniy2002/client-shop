@@ -79,14 +79,16 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
 
   React.useEffect(() => {
-    if (window.matchMedia("(min-width: 769px)").matches) {
-      
+    if (window.matchMedia("(min-width: 769px)").matches) { 
       filterByPrice(lowerValue, upperValue)
     }
+  }, [onSetUiSlider, sortBy.type])
 
-  }, [onSetUiSlider])
-
-
+  React.useEffect(() => {
+    if (window.matchMedia("(max-width: 768px)").matches) { 
+      filterByPrice(lowerValue, upperValue)
+    }
+  }, [sortBy.type])
 
   React.useEffect(() => {
     if (window.matchMedia("(max-width: 768px)").matches && showDateFromFilter) {
@@ -99,23 +101,9 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
   }, [showDateFromFilter])
 
 
-  React.useEffect(() => {
-    dispatch(setLoaded(true))
-    getDevices(currentBrand, sortBy.type, sortBy.order, 1, 40, 0, null, false)
-      .then(({ data }) => {
-
-        dispatch(addDevices(data.filter(item => item.price >= lowerValue && item.price <= upperValue)))
-        dispatch(setLoaded(false))
-      })
-
-
-  }, [sortBy.type, currentBrand])
-
-
-
   const filterByPrice = (from, to) => {
     dispatch(setLoaded(true))
-    getDevices(currentBrand, null, null, 1, 40, 0, null, false)
+    getDevices(currentBrand, sortBy.type, sortBy.order, 1, 40, 0, null, false)
       .then(({ data }) => {
         let filter = data.filter(item => {
           if (item.price >= from && item.price <= to) {

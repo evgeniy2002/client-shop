@@ -79,10 +79,6 @@ export const getOneDevice = async (id) => {
   const data = await host.get('api/device/' + id)
   return data
 }
-export const getInfoDevice = async (id) => {
-  const data = await host.get('api/info/' + id)
-  return data
-}
 
 export const getAllDevice = async () => {
   const data = await host.get('/api/device')

@@ -28,6 +28,32 @@ export default function RecommendList({ recommended }) {
             <div className="recommended_goods_row">
               <Swiper
 
+                // slidesPerView={5}
+                // spaceBetween={30}
+                watchOverflow={true}
+                breakpoints={{
+                  320: {
+                    slidesPerView: 2.2,
+                  },
+                  // 425: {
+                  //   slidesPerView: 3.,
+                  // },
+                  540: {
+                    slidesPerView: 3.3,
+                    // spaceBetween: -5,
+                  },
+                  732: {
+                    slidesPerView: 3.8,
+                    // spaceBetween: 40,
+                  },
+                  1023: {
+                    slidesPerView: 4.5,
+                    // spaceBetween: 0,
+                  },
+                }}
+              >
+              {/* <Swiper
+
                 slidesPerView={5}
                 spaceBetween={30}
                 watchOverflow={true}
@@ -51,7 +77,7 @@ export default function RecommendList({ recommended }) {
                     // spaceBetween: 0,
                   },
                 }}
-              >
+              > */}
 
                 {
                   recommended.map(item => (
@@ -59,15 +85,17 @@ export default function RecommendList({ recommended }) {
 
                       <div className="recommended_goods_columns" key={item.device_name}>
                         <a href={item.id} className="recommended_goods_item" onClick={() => changeRatingItem(item.id, item.rating)}>
-                          {
-                            item.img === null
-                              ? <div className="goods_item_img devicePage_img_cancel ibg"></div>
-                              : <div className="goods_item_img ibg">
+                          <div className='recommended_content_img_bg'>
+                            {
+                              item.img === null
+                                ? <div className="goods_item_img devicePage_img_cancel ibg"></div>
+                                : <div className="goods_item_img ibg">
 
-                                <img src={item.img} alt="" />
+                                  <img src={item.img} alt="" />
 
-                              </div>
-                          }
+                                </div>
+                            }
+                          </div>
                           <div className="goods_item_many_content">
                             <div className="info_price_recommend">
 
@@ -97,7 +125,7 @@ export default function RecommendList({ recommended }) {
                             <div className="goods_item_title"><span>{item.device_name}</span></div>
                           </div>
 
-                        
+
                         </a>
                       </div>
                     </SwiperSlide>
