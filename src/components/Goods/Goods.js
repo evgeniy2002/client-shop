@@ -104,18 +104,30 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
     dispatch(setLoaded(true))
     getDevices(currentBrand, sortBy.type, sortBy.order, 1, 40, 0, null, false)
       .then(({ data }) => {
+        let changeDevice = filterByPrice(from, to, data)
 
-        let filter = data.filter(item => {
-          if (item.price >= from && item.price <= to) {
-            return item;
-          }
-        })
-        // dispatch(addDevices(filter))
+        dispatch(addDevices(changeDevice))
         dispatch(setLoaded(false))
       })
 
-  }
+      //   let filter = data.filter(item => {
+      //     if (item.price >= from && item.price <= to) {
+      //       return item;
+      //     }
+      //   })
+      //   dispatch(addDevices(filter))
+      //   dispatch(setLoaded(false))
+      // })
 
+  }
+  let filterByPrice = (from, to, items) => {
+    let filter = items.filter(item => {
+      if (item.price > from && item.price < to) {
+        return item;
+      }
+    })
+    return filter;
+  }
 
 
   const handleFilterState = React.useCallback(() => {
