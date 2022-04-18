@@ -104,7 +104,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
             return item
           }
         })
-        if (data.length === 0) {
+        if (data.length === 0 && from === 0 && to === 0) {
           getAllBrand()
             .then(({ data }) => {
               let device = data.find(item => item.brands_name === params.type)
