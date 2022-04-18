@@ -106,25 +106,21 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
   const getDevicesFromFilter = (from, to) => {
     dispatch(setLoaded(true))
-    from && to > 0
-      ? getDevices(currentBrand, sortBy.type, sortBy.order, 1, 40, 0, null, false)
-        .then(({ data }) => {
+    getDevices(currentBrand, sortBy.type, sortBy.order, 1, 40, 0, null, false)
+      .then(({ data }) => {
 
 
-          data = data.filter(item => {
-            if (item.price >= +from && item.price <= +to) {
-              return item
-            }
-          })
-
-
-          dispatch(addDevices(data))
-          dispatch(setLoaded(false))
+        data = data.filter(item => {
+          if (item.price >= +from && item.price <= +to) {
+            return item
+          }
         })
-      : getDevices(currentBrand, null, null, 1, 40, 0, null, false)
-        .then(({ data }) => {
-          dispatch(addDevices(data))
-        })
+
+
+        dispatch(addDevices(data))
+        dispatch(setLoaded(false))
+      })
+
 
 
   }
