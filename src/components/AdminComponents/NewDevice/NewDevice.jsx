@@ -96,7 +96,7 @@ const NewDevice = (props) => {
     formData.append('brandId', brandId)
     formData.append('desc', description)
     formData.append('link_to_vk', linkToVk)
-    formData.append('info_device', JSON.stringify(info))
+    // formData.append('info_device', JSON.stringify(info))
 
     createDevice(formData)
       .then(data => {
