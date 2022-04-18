@@ -19,11 +19,10 @@ const NewDevice = (props) => {
   const [description, setDescription] = React.useState('')
   const [linkToVk, setLinkToVk] = React.useState('')
   const [info, setInfo] = React.useState([])
-  
-  
+
+
   const [deleteDeviceName, setDeleteDeviceName] = React.useState('')
-  
-  
+
   const [oldName, setOldName] = React.useState('')
   const [newPrice, setNewPrice] = React.useState('')
   const [newDescription, setNewDescription] = React.useState('')
@@ -116,7 +115,6 @@ const NewDevice = (props) => {
     setCheckedOne(!checkedOne);
     setCheckedTwo(false);
     setDeleteDeviceName('')
-    console.log(deleteDeviceName)
   };
 
   const handleChangeTwo = () => {
@@ -124,26 +122,26 @@ const NewDevice = (props) => {
     setCheckedOne(false);
 
   };
-  
+
   const handleDevice = () => {
     let brandId = allSubCategory.find(item => item.brands_name === currentSubCategory).id
 
+    if (brandId) {
+      deleteDevice(brandId, deleteDeviceName, checkedOne)
+        .then(data => {
+          if (checkedOne) {
+            alert(`Все товары из ${currentSubCategory} удалены`)
+          } else {
 
-    deleteDevice(brandId, deleteDeviceName, checkedOne)
-      .then(data => {
-        if (checkedOne) {
-          alert(`Все товары из ${currentSubCategory} удалены`)
-        } else {
+            alert(`Товар ${deleteDeviceName} удален из списка`)
+          }
 
-          alert(`Товар ${deleteDeviceName} удален из списка`)
-        }
+        })
+        .catch(err => {
+          alert('Упс, произошла ошибка')
 
-      })
-      .catch(err => {
-        alert('Упс, произошла ошибка')
-
-      })
-
+        })
+    }
   }
 
   return (
@@ -372,7 +370,6 @@ const NewDevice = (props) => {
               : null
           }
 
-
           <button className='form_btn delete_btn' onClick={handleDevice}>Удалить</button>
         </div>
 
@@ -453,7 +450,7 @@ const NewDevice = (props) => {
           <div className='form_group'>
             <label className='form_label'>обновить свойство</label>
             <button onClick={changePopupState}>обновить свойство продукта</button>
-         
+
 
             {
               popupState

@@ -29,8 +29,8 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
   const dispatch = useDispatch()
 
-  const [lowerValue, setLowerValue] = React.useState(0)
-  const [upperValue, setUpperValue] = React.useState(0)
+  let [lowerValue, setLowerValue] = React.useState(0)
+  let [upperValue, setUpperValue] = React.useState(0)
   const [currentBrand, setCurrentBrand] = React.useState(null)
   const [maxPrice, setMaxPrice] = React.useState(0)
   const [onSetUiSlider, setUiSlider] = React.useState(null)
@@ -63,46 +63,38 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
         setCurrentBrand(device.id)
 
-        getDevices(device.id, null, null, 1, 40, 0, null, false)
-          .then(({ data }) => {
-            dispatch(addDevices(data))
-          })
-
         getDevices(device.id, null, null, null, null, 1, null, false)
           .then(({ data }) => setMaxPrice(data[0].max))
           .catch(err => console.error(err))
 
         dispatch(setLoaded(false))
       })
-   
-    }, [])
-    
-    
-    React.useEffect(() => {
-      if (window.matchMedia("(min-width: 769px)").matches) {
-        
-        getDevicesFromFilter(lowerValue, upperValue)
-    
-      }
-      
-    }, [onSetUiSlider, sortBy.type])
-    
+  }, [])
+
+
+  React.useEffect(() => {
+    if (window.matchMedia("(min-width: 769px)").matches) {
+
+      getDevicesFromFilter(lowerValue, upperValue)
+
+    }
+
+  }, [onSetUiSlider, sortBy.type])
+
 
   React.useEffect(() => {
     if (window.matchMedia("(max-width: 768px)").matches) {
-      
       getDevicesFromFilter(lowerValue, upperValue)
       setDateFromFilter(false)
-  
-      
     }
-    
+
   }, [showDateFromFilter, sortBy.type])
-  
-  
-  
+
+
+
   const getDevicesFromFilter = (from, to = maxPrice) => {
     dispatch(setLoaded(true))
+
     getDevices(currentBrand, sortBy.type, sortBy.order, 1, 40, 0, null, false)
       .then(({ data }) => {
 
@@ -112,8 +104,17 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
             return item
           }
         })
+        if (data.length === 0) {
+          getAllBrand()
+            .then(({ data }) => {
+              let device = data.find(item => item.brands_name === params.type)
 
-
+              getDevices(device.id, null, null, 1, 40, 0, null, false)
+                .then(({ data }) => {
+                  dispatch(addDevices(data))
+                })
+            })
+        }
         dispatch(addDevices(data))
         dispatch(setLoaded(false))
       })
