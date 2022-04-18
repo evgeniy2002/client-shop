@@ -63,10 +63,10 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
         setCurrentBrand(device.id)
 
-        // getDevices(device.id, null, null, 1, 40, 0, null, false)
-        //   .then(({ data }) => {
-        //     dispatch(addDevices(data))
-        //   })
+        getDevices(device.id, null, null, 1, 40, 0, null, false)
+          .then(({ data }) => {
+            dispatch(addDevices(data))
+          })
 
         getDevices(device.id, null, null, null, null, 1, null, false)
           .then(({ data }) => setMaxPrice(data[0].max))
@@ -74,47 +74,44 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
         dispatch(setLoaded(false))
       })
-
-  }, [])
-
-  React.useEffect(() => {
    
-
-
-  }, [])
-
-  React.useEffect(() => {
-    if (window.matchMedia("(min-width: 769px)").matches) {
-
-      getDevicesFromFilter(lowerValue, upperValue)
-    }
-
-  }, [onSetUiSlider, sortBy.type])
-
+    }, [])
+    
+    
+    React.useEffect(() => {
+      if (window.matchMedia("(min-width: 769px)").matches) {
+        
+        getDevicesFromFilter(lowerValue, upperValue)
+    
+      }
+      
+    }, [onSetUiSlider, sortBy.type])
+    
 
   React.useEffect(() => {
     if (window.matchMedia("(max-width: 768px)").matches) {
-
+      
       getDevicesFromFilter(lowerValue, upperValue)
       setDateFromFilter(false)
-
+  
+      
     }
-
+    
   }, [showDateFromFilter, sortBy.type])
-
-
-
-  const getDevicesFromFilter = (from, to) => {
+  
+  
+  
+  const getDevicesFromFilter = (from, to = maxPrice) => {
     dispatch(setLoaded(true))
     getDevices(currentBrand, sortBy.type, sortBy.order, 1, 40, 0, null, false)
       .then(({ data }) => {
 
 
-        // let filter = data.filter(item => {
-        //   if (item.price >= +from && item.price <= +to) {
-        //     return item
-        //   }
-        // })
+        data = data.filter(item => {
+          if (item.price >= from && item.price <= to) {
+            return item
+          }
+        })
 
 
         dispatch(addDevices(data))
