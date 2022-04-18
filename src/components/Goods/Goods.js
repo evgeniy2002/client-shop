@@ -78,8 +78,10 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
   }, [])
 
   React.useEffect(() => {
+   
 
-    getDevicesFromFilter(lowerValue, upperValue)
+      getDevicesFromFilter(lowerValue, upperValue)
+    
 
   }, [])
 
@@ -110,14 +112,14 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
       .then(({ data }) => {
 
 
-        data = data.filter(item => {
+        let filter = data.filter(item => {
           if (item.price >= +from && item.price <= +to) {
             return item
           }
         })
 
 
-        dispatch(addDevices(data))
+        dispatch(addDevices(filter))
         dispatch(setLoaded(false))
       })
 
