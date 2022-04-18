@@ -84,7 +84,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
       getDevicesFromFilter(lowerValue, upperValue)
     }
-    
+
   }, [onSetUiSlider, sortBy.type])
 
 
@@ -110,7 +110,7 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
             return item;
           }
         })
-        dispatch(addDevices(filter))
+        // dispatch(addDevices(filter))
         dispatch(setLoaded(false))
       })
 
