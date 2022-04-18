@@ -63,10 +63,10 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
         setCurrentBrand(device.id)
 
-        getDevices(device.id, null, null, 1, 40, 0, null, false)
-          .then(({ data }) => {
-            dispatch(addDevices(data))
-          })
+        // getDevices(device.id, null, null, 1, 40, 0, null, false)
+        //   .then(({ data }) => {
+        //     dispatch(addDevices(data))
+        //   })
 
         getDevices(device.id, null, null, null, null, 1, null, false)
           .then(({ data }) => setMaxPrice(data[0].max))
