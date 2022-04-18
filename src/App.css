@@ -195,6 +195,7 @@ body {
 }
 .devicePage_table{
 	min-width: 0;
+	padding: 20px 26px 20px 20px;
 }
 .devicePage_td{
 	position: relative;
