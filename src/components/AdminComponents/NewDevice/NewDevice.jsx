@@ -138,7 +138,7 @@ const NewDevice = (props) => {
 
         })
         .catch(err => {
-          alert('Упс, произошла ошибка')
+          alert(err)
 
         })
     }
