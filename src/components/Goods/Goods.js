@@ -63,10 +63,10 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
         setCurrentBrand(device.id)
 
-        getDevices(device.id, null, null, 1, 40, 0, null, false)
-          .then(({ data }) => {
-            dispatch(addDevices(data))
-          })
+        // getDevices(device.id, null, null, 1, 40, 0, null, false)
+        //   .then(({ data }) => {
+        //     dispatch(addDevices(data))
+        //   })
 
         getDevices(device.id, null, null, null, null, 1, null, false)
           .then(({ data }) => setMaxPrice(data[0].max))
@@ -77,7 +77,11 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
   }, [])
 
+  React.useEffect(() => {
 
+    getDevicesFromFilter(lowerValue, upperValue)
+
+  }, [])
 
   React.useEffect(() => {
     if (window.matchMedia("(min-width: 769px)").matches) {
@@ -102,31 +106,27 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
 
   const getDevicesFromFilter = (from, to) => {
     dispatch(setLoaded(true))
-    getDevices(currentBrand, sortBy.type, sortBy.order, 1, 40, 0, null, false)
-      .then(({ data }) => {
-        let changeDevice = filterByPrice(from, to, data)
+    from && to > 0
+      ? getDevices(currentBrand, sortBy.type, sortBy.order, 1, 40, 0, null, false)
+        .then(({ data }) => {
 
-        dispatch(addDevices(changeDevice))
-        dispatch(setLoaded(false))
-      })
 
-      //   let filter = data.filter(item => {
-      //     if (item.price >= from && item.price <= to) {
-      //       return item;
-      //     }
-      //   })
-      //   dispatch(addDevices(filter))
-      //   dispatch(setLoaded(false))
-      // })
+          data = data.filter(item => {
+            if (item.price >= +from && item.price <= +to) {
+              return item
+            }
+          })
 
-  }
-  let filterByPrice = (from, to, items) => {
-    let filter = items.filter(item => {
-      if (item.price > from && item.price < to) {
-        return item;
-      }
-    })
-    return filter;
+
+          dispatch(addDevices(data))
+          dispatch(setLoaded(false))
+        })
+      : getDevices(currentBrand, null, null, 1, 40, 0, null, false)
+        .then(({ data }) => {
+          dispatch(addDevices(data))
+        })
+
+
   }
 
 
@@ -166,11 +166,6 @@ export default function Goods({ deviceItems, currentCrumbs, params, isLoaded, ge
       .catch(err => console.error(err))
 
   }
-
-
-
-
-
 
 
   const memorizedBreadCrumbs = React.useMemo(() => <BreadCrumbs />)
