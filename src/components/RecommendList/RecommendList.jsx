@@ -29,7 +29,7 @@ export default function RecommendList({ recommended }) {
               <Swiper
 
                 // slidesPerView={5}
-                // spaceBetween={30}
+                spaceBetween={10}
                 watchOverflow={true}
                 breakpoints={{
                   320: {
@@ -52,33 +52,6 @@ export default function RecommendList({ recommended }) {
                   },
                 }}
               >
-              {/* <Swiper
-
-                slidesPerView={5}
-                spaceBetween={30}
-                watchOverflow={true}
-                breakpoints={{
-                  320: {
-                    slidesPerView: 2.2,
-                  },
-                  // 425: {
-                  //   slidesPerView: 3.,
-                  // },
-                  540: {
-                    slidesPerView: 3.3,
-                    // spaceBetween: -5,
-                  },
-                  732: {
-                    slidesPerView: 3.8,
-                    // spaceBetween: 40,
-                  },
-                  1023: {
-                    slidesPerView: 4.5,
-                    // spaceBetween: 0,
-                  },
-                }}
-              > */}
-
                 {
                   recommended.map(item => (
                     <SwiperSlide key={item.device_name}>
