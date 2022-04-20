@@ -83,7 +83,7 @@ const NewDevice = (props) => {
     formData.append('newDesc', newDescription)
     formData.append('availabelProduct', availabilityDeviceName)
     formData.append('newLinkVk', newLinkToVk)
-    // formData.append('updateInfo', JSON.stringify(updateInfo))
+    formData.append('updateInfo', JSON.stringify(updateInfo))
 
 
     changeDeviceInfo(formData)
