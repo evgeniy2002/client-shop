@@ -19,10 +19,10 @@ const NewDevice = (props) => {
   const [description, setDescription] = React.useState('')
   const [linkToVk, setLinkToVk] = React.useState('')
   const [info, setInfo] = React.useState([])
-
-
+  
+  
   const [deleteDeviceName, setDeleteDeviceName] = React.useState('')
-
+  
   const [oldName, setOldName] = React.useState('')
   const [newPrice, setNewPrice] = React.useState('')
   const [newDescription, setNewDescription] = React.useState('')
@@ -30,6 +30,7 @@ const NewDevice = (props) => {
   const [changeFile, setChangeFile] = React.useState(null)
   const [availabilityDeviceName, setAvailabilityDeviceName] = React.useState('')
   const [newLinkToVk, setNewLinkToVk] = React.useState('')
+  const [updateInfo, setUpdateInfo] = React.useState([])
 
   React.useEffect(() => {
     getAllBrand()
@@ -41,13 +42,25 @@ const NewDevice = (props) => {
   const addInfo = () => {
     setInfo([...info, { id: ++info.length, title: '', description: '' }])
   }
+  
+  const addChangeInfo = () => {
+    setUpdateInfo([...updateInfo, { id: ++updateInfo.length, title: '', description: '' }])
+  }
 
   const deleteInfoItem = (id) => {
     setInfo(info.filter(i => i.id !== id))
   }
+  const deleteInfoChangeItem = (id) => {
+    setUpdateInfo(updateInfo.filter(i => i.id !== id))
+
+  }
 
   const changeInfoItem = (id, value, key) => {
     setInfo(info.map(i => i.id === id ? { ...i, [key]: value } : i))
+  }
+
+  const changeUpdateInfoItem = (id, value, key) => {
+    setUpdateInfo(updateInfo.map(i => i.id === id ? { ...i, [key]: value } : i))
   }
 
   const changePopupState = () => {
@@ -70,7 +83,7 @@ const NewDevice = (props) => {
     formData.append('newDesc', newDescription)
     formData.append('availabelProduct', availabilityDeviceName)
     formData.append('newLinkVk', newLinkToVk)
-    formData.append('updateInfo', JSON.stringify(info))
+    formData.append('updateInfo', JSON.stringify(updateInfo))
 
 
     changeDeviceInfo(formData)
@@ -79,8 +92,7 @@ const NewDevice = (props) => {
 
       })
       .catch(err => {
-        alert('Упс, произошла ошибка')
-        console.log(err)
+        alert('Упс, произошла ошибка', err)
       })
   }
 
@@ -103,8 +115,8 @@ const NewDevice = (props) => {
         alert('Успешно добавлено')
       })
       .catch(err => {
-        alert('Упс, произошла ошибка')
-        console.log(err)
+        alert('Упс, произошла ошибка', err)
+      
       })
 
   }
@@ -458,27 +470,27 @@ const NewDevice = (props) => {
 
                 <button className='close_list' onClick={changePopupState}>X</button>
                 {
-                  info.map(item => (
+                  updateInfo.map(item => (
                     <div className="list_property_item" key={item.id}>
                       <input type='text'
                         value={item.title}
-                        onChange={(e) => changeInfoItem(item.id, e.target.value, 'title')}
+                        onChange={(e) => changeUpdateInfoItem(item.id, e.target.value, 'title')}
                         placeholder='Название свойства'
                         className='list_input'
                       />
                       <input type='text'
                         value={item.description}
-                        onChange={(e) => changeInfoItem(item.id, e.target.value, 'description')}
+                        onChange={(e) => changeUpdateInfoItem(item.id, e.target.value, 'description')}
                         placeholder='Описание свойства'
                         className='list_input'
                       />
 
-                      <button className="delete_property_item" onClick={() => deleteInfoItem(item.id)}>Удалить</button>
+                      <button className="delete_property_item" onClick={() => deleteInfoChangeItem(item.id)}>Удалить</button>
                     </div>
 
                   ))
                 }
-                <button className='add_new_item' onClick={addInfo}>Добавить</button>
+                <button className='add_new_item' onClick={addChangeInfo}>Добавить</button>
               </ul>
             }
 
