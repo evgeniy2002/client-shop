@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const host = axios.create({
   // withCredentials: true,
-  // baseURL: 'https://student-store.ru/'
+  baseURL: 'https://student-store.ru/'
   // withCredentials: true,
   // withCredentials: false,
   // credentials: 'same-origin',
@@ -22,7 +22,7 @@ const host = axios.create({
   //   "Access-Control-Allow-Origin": "*",
   //   'Access-Control-Allow-Credentials': true
   // }
-  baseURL: 'http://localhost:5000/'
+  // baseURL: 'http://localhost:5000/'
 })
 
 export { 
