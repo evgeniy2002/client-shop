@@ -7,7 +7,8 @@ const NewDevice = (props) => {
 
   const [checkedOne, setCheckedOne] = React.useState(false);
   const [checkedTwo, setCheckedTwo] = React.useState(false);
-  const [popupState, setPopupState] = React.useState(false);
+  const [popupStateOne, setPopupStateOne] = React.useState(false);
+  const [popupStateTwo, setPopupStateTwo] = React.useState(false);
 
 
   const [allSubCategory, setAllSubCategory] = React.useState([])
@@ -19,10 +20,10 @@ const NewDevice = (props) => {
   const [description, setDescription] = React.useState('')
   const [linkToVk, setLinkToVk] = React.useState('')
   const [info, setInfo] = React.useState([])
-  
-  
+
+
   const [deleteDeviceName, setDeleteDeviceName] = React.useState('')
-  
+
   const [oldName, setOldName] = React.useState('')
   const [newPrice, setNewPrice] = React.useState('')
   const [newDescription, setNewDescription] = React.useState('')
@@ -42,7 +43,7 @@ const NewDevice = (props) => {
   const addInfo = () => {
     setInfo([...info, { id: ++info.length, title: '', description: '' }])
   }
-  
+
   const addChangeInfo = () => {
     setUpdateInfo([...updateInfo, { id: ++updateInfo.length, title: '', description: '' }])
   }
@@ -63,8 +64,13 @@ const NewDevice = (props) => {
     setUpdateInfo(updateInfo.map(i => i.id === id ? { ...i, [key]: value } : i))
   }
 
-  const changePopupState = () => {
-    setPopupState(!popupState)
+  const changePopupStateOne = () => {
+    setPopupStateOne(!popupStateOne)
+    setPopupStateTwo(false)
+  }
+  const changePopupStateTwo = () => {
+    setPopupStateTwo(!popupStateTwo)
+    setPopupStateOne(false)
   }
 
   const selectChangeFile = e => {
@@ -116,7 +122,7 @@ const NewDevice = (props) => {
       })
       .catch(err => {
         alert('Упс, произошла ошибка', err)
-      
+
       })
 
   }
@@ -248,28 +254,34 @@ const NewDevice = (props) => {
           </div>
           <div className='form_group'>
             <label className='form_label' for="info">Новое свойство</label>
-            <button onClick={changePopupState}>Добавить новое свойство</button>
+            <button onClick={changePopupStateOne}>Добавить новое свойство</button>
             {/* <label className='form_label' for="info">Добавить новое свойство</label> */}
 
             {
-              popupState
+              popupStateOne
               && <ul className="list_property">
 
-                <button className='close_list' onClick={changePopupState}>X</button>
+                <button className='close_list' onClick={changePopupStateOne}>X</button>
                 {
                   info.map(item => (
                     <div className="list_property_item" key={item.id}>
-                      <input type='text'
+                      <Field
+                        component={'input'}
+                        type={"text"}
                         value={item.title}
                         onChange={(e) => changeInfoItem(item.id, e.target.value, 'title')}
                         placeholder='Название свойства'
                         className='list_input'
+                        name='add_deviceCharacter'
                       />
-                      <input type='text'
+                      <Field
+                        component={'input'}
+                        type={"text"}
                         value={item.description}
                         onChange={(e) => changeInfoItem(item.id, e.target.value, 'description')}
                         placeholder='Описание свойства'
                         className='list_input'
+                        name='add_deviceCharacter'
                       />
 
                       <button className="delete_property_item" onClick={() => deleteInfoItem(item.id)}>Удалить</button>
@@ -461,24 +473,30 @@ const NewDevice = (props) => {
           </div>
           <div className='form_group'>
             <label className='form_label'>обновить свойство</label>
-            <button onClick={changePopupState}>обновить свойство продукта</button>
+            <button onClick={changePopupStateTwo}>обновить свойство продукта</button>
 
 
             {
-              popupState
+              popupStateTwo
               && <ul className="list_property">
 
-                <button className='close_list' onClick={changePopupState}>X</button>
+                <button className='close_list' onClick={changePopupStateTwo}>X</button>
                 {
                   updateInfo.map(item => (
                     <div className="list_property_item" key={item.id}>
-                      <input type='text'
+                      <Field
+                        component={'input'}
+                        type={"text"}
                         value={item.title}
                         onChange={(e) => changeUpdateInfoItem(item.id, e.target.value, 'title')}
                         placeholder='Название свойства'
                         className='list_input'
+                        name='update_deviceCharacter'
                       />
-                      <input type='text'
+                      <Field
+                        component={'input'}
+                        type={"text"}
+                        name='update_deviceCharacter'
                         value={item.description}
                         onChange={(e) => changeUpdateInfoItem(item.id, e.target.value, 'description')}
                         placeholder='Описание свойства'
