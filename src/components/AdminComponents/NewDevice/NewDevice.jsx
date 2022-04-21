@@ -265,23 +265,19 @@ const NewDevice = (props) => {
                 {
                   info.map(item => (
                     <div className="list_property_item" key={item.id}>
-                      <Field
-                        component={'input'}
-                        type={"text"}
+                      <input
+                        type='text'
                         value={item.title}
                         onChange={(e) => changeInfoItem(item.id, e.target.value, 'title')}
                         placeholder='Название свойства'
                         className='list_input'
-                        name='add_deviceCharacter'
                       />
-                      <Field
-                        component={'input'}
-                        type={"text"}
+                      <input
+                        type='text'
                         value={item.description}
                         onChange={(e) => changeInfoItem(item.id, e.target.value, 'description')}
                         placeholder='Описание свойства'
                         className='list_input'
-                        name='add_deviceCharacter'
                       />
 
                       <button className="delete_property_item" onClick={() => deleteInfoItem(item.id)}>Удалить</button>
@@ -484,18 +480,16 @@ const NewDevice = (props) => {
                 {
                   updateInfo.map(item => (
                     <div className="list_property_item" key={item.id}>
-                      <Field
-                        component={'input'}
-                        type={"text"}
+                      <input
+                        type='text'
                         value={item.title}
                         onChange={(e) => changeUpdateInfoItem(item.id, e.target.value, 'title')}
                         placeholder='Название свойства'
                         className='list_input'
                         name='update_deviceCharacter'
                       />
-                      <Field
-                        component={'input'}
-                        type={"text"}
+                      <input
+                        type='text'
                         name='update_deviceCharacter'
                         value={item.description}
                         onChange={(e) => changeUpdateInfoItem(item.id, e.target.value, 'description')}
