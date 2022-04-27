@@ -220,15 +220,9 @@ export default function DevicePage() {
                                     link_to_vk_other={device.link_to_vk_other}
                                     link_to_vk={device.link_to_vk}
                                   />
-                                  : <a href={device.link_to_vk} target="_blank" onClick={() => changeRatingLinkCount(device.id, device.click_to_link)} className="body_btn">Написать продавцу {
-
-                                    adaptiveBtn
-                                      ? <span>{device.price} &#8381;</span>
-                                      : ''
-                                  }
-                                  </a>
+                                  : null
                               }
-                              <a onClick={() => changeRatingLinkCount(device.id, device.click_to_link)} className="body_btn">Написать продавцу {
+                              <a href={device.link_to_vk} target="_blank" onClick={() => changeRatingLinkCount(device.id, device.click_to_link)} className="body_btn">Написать продавцу {
 
                                 adaptiveBtn
                                   ? <span>{device.price} &#8381;</span>
