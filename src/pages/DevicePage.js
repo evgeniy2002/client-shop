@@ -214,7 +214,7 @@ export default function DevicePage() {
 
                             ? <div>
                               {
-                                device.link_to_vk_other.length
+                                device.link_to_vk_other
                                   ? <PopupForVk
                                     popupVkState={popupVkState}
                                     link_to_vk_other={device.link_to_vk_other}
