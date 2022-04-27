@@ -222,13 +222,24 @@ export default function DevicePage() {
                                   />
                                   : null
                               }
-                              <a href={device.link_to_vk} target="_blank" onClick={() => changeRatingLinkCount(device.id, device.click_to_link)} className="body_btn">Написать продавцу {
+                              {
+                                !device.link_to_vk_other
+                                ? <a href={device.link_to_vk} target="_blank" onClick={() => changeRatingLinkCount(device.id, device.click_to_link)} className="body_btn">Написать продавцу {
 
-                                adaptiveBtn
-                                  ? <span>{device.price} &#8381;</span>
-                                  : ''
+                                  adaptiveBtn
+                                    ? <span>{device.price} &#8381;</span>
+                                    : ''
+                                }
+                                </a>
+                                : <a target="_blank" onClick={() => changeRatingLinkCount(device.id, device.click_to_link)} className="body_btn">Написать продавцу {
+
+                                  adaptiveBtn
+                                    ? <span>{device.price} &#8381;</span>
+                                    : ''
+                                }
+                                </a>
                               }
-                              </a>
+                 
 
 
                             </div>
