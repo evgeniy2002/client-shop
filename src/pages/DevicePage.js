@@ -224,7 +224,7 @@ export default function DevicePage() {
                               }
       
                               <a target="_blank" onClick={() => changeRatingLinkCount(device.id, device.click_to_link)} className="body_btn">Написать продавцу {
-
+ 
                                 adaptiveBtn
                                   ? <span>{device.price} &#8381;</span>
                                   : ''
