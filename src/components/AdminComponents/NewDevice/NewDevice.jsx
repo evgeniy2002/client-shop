@@ -19,6 +19,7 @@ const NewDevice = (props) => {
   const [currentSubCategory, setSubCategory] = React.useState('')
   const [description, setDescription] = React.useState('')
   const [linkToVk, setLinkToVk] = React.useState('')
+  const [linkToVkOther, setLinkToVkOther] = React.useState('')
   const [info, setInfo] = React.useState([])
 
 
@@ -31,6 +32,7 @@ const NewDevice = (props) => {
   const [changeFile, setChangeFile] = React.useState(null)
   const [availabilityDeviceName, setAvailabilityDeviceName] = React.useState('')
   const [newLinkToVk, setNewLinkToVk] = React.useState('')
+  const [newLinkToVkOther, setNewLinkToVkOther] = React.useState('')
   const [updateInfo, setUpdateInfo] = React.useState([])
 
   React.useEffect(() => {
@@ -89,7 +91,8 @@ const NewDevice = (props) => {
     formData.append('newDesc', newDescription)
     formData.append('availabelProduct', availabilityDeviceName)
     formData.append('newLinkVk', newLinkToVk)
-    if(updateInfo.length){
+    formData.append('newLinkVkOther', newLinkToVkOther)
+    if (updateInfo.length) {
       formData.append('updateInfo', JSON.stringify(updateInfo))
     }
 
@@ -116,6 +119,7 @@ const NewDevice = (props) => {
     formData.append('brandId', brandId)
     formData.append('desc', description)
     formData.append('link_to_vk', linkToVk)
+    formData.append('link_to_vk_other', linkToVkOther)
     formData.append('info_device', JSON.stringify(info))
 
     createDevice(formData)
@@ -268,7 +272,7 @@ const NewDevice = (props) => {
                   info.map(item => (
                     <div className="list_property_item" key={item.id}>
                       <input
-                    
+
                         type='text'
                         value={item.title}
                         onChange={(e) => changeInfoItem(item.id, e.target.value, 'title')}
@@ -277,7 +281,7 @@ const NewDevice = (props) => {
                         name='add_deviceCharacter_title'
                       />
                       <input
-                       
+
                         type='text'
                         value={item.description}
                         onChange={(e) => changeInfoItem(item.id, e.target.value, 'description')}
@@ -312,7 +316,20 @@ const NewDevice = (props) => {
               onChange={e => setLinkToVk(e.target.value)}
             />
           </div>
-
+          <div className="form_group">
+            <label for='link_to_vk_other' className='form_label'>Ссылка на вк продавца из 3 общаги</label>
+            <Field
+              id="link_to_vk_other"
+              component={'input'}
+              type={"text"}
+              name='link_to_vk_other'
+              className='header_input'
+              autoCapitalize={'off'}
+              autoComplete={'off'}
+              value={linkToVkOther}
+              onChange={e => setLinkToVkOther(e.target.value)}
+            />
+          </div>
 
           <button className='form_btn' onClick={addDevice}>Добавить</button>
 
@@ -543,7 +560,20 @@ const NewDevice = (props) => {
               onChange={e => setNewLinkToVk(e.target.value)}
             />
           </div>
-
+          <div className="form_group">
+            <label for='change_link_to_vk_other' className='form_label'>Изменить ссылку на вк продавца из 3 общаги</label>
+            <Field
+              id="change_link_to_vk_other"
+              component={'input'}
+              type={"text"}
+              name='change_link_to_vk_other'
+              className='header_input'
+              autoCapitalize={'off'}
+              autoComplete={'off'}
+              value={newLinkToVkOther}
+              onChange={e => setNewLinkToVkOther(e.target.value)}
+            />
+          </div>
           {/* <Field
               component={'input'}
               className={checkedTwo ? 'custom_checkbox active' : 'custom_checkbox'}

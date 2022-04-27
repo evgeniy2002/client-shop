@@ -8,6 +8,7 @@ import { getAllBrand, getDevices, getOneDevice, updateRatignLink } from '../http
 import RecommendList from '../components/RecommendList/RecommendList'
 
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import PopupForVk from '../components/PopupForVK/PopupForVk'
 
 export default function DevicePage() {
 
@@ -20,7 +21,10 @@ export default function DevicePage() {
   const [modalActive, setModalActive] = React.useState(false)
   const [infoDevice, setInfoDevice] = React.useState([])
 
+  const [popupVkState, setPopupVkState] = React.useState(false)
+
   const { id } = useParams()
+
 
   const { recommended, currentDevice } = useSelector(({ devices }) => {
     return {
@@ -59,7 +63,7 @@ export default function DevicePage() {
       setModalActive(true)
     }
     dispatch(getDevicePageTC(id))
-  
+
     getOneDevice(id)
       .then(({ data }) => {
         // console.log(data[1])
@@ -71,6 +75,8 @@ export default function DevicePage() {
 
 
   const changeRatingLinkCount = (id, click_to_link) => {
+
+    setPopupVkState(!popupVkState)
 
     updateRatignLink(id, click_to_link += 1)
       .catch(err => console.error(err))
@@ -145,7 +151,7 @@ export default function DevicePage() {
                       </TransformWrapper>
                   }
                 </div>
-   
+
                 {
                   infoDevice.length > 0
                     ? <div className="devicePage_columns devicePage_columns_info">
@@ -206,12 +212,27 @@ export default function DevicePage() {
                         {
                           device.product_availability
 
-                            ? <a href={device.link_to_vk} target="_blank" onClick={() => changeRatingLinkCount(device.id, device.click_to_link)} className="body_btn">Написать продавцу {
-                              adaptiveBtn
-                                ? <span>{device.price} &#8381;</span>
-                                : ''
-                            }
-                            </a>
+                            ? <div>
+                              {
+                                device.link_to_vk_other
+                                ? <PopupForVk
+                                popupVkState={popupVkState}
+                                link_to_vk_other={device.link_to_vk_other}
+                                link_to_vk={device.link_to_vk}
+                              />
+                                : null
+                              }
+      
+                              <a target="_blank" onClick={() => changeRatingLinkCount(device.id, device.click_to_link)} className="body_btn">Написать продавцу {
+
+                                adaptiveBtn
+                                  ? <span>{device.price} &#8381;</span>
+                                  : ''
+                              }
+                              </a>
+                             
+                            </div>
+
                             : <div className='devicePage_product_is_out product_is_out'>
                               <span>Нет в наличии</span>
                             </div>
